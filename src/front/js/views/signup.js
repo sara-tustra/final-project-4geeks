@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "../../styles/signup.scss";
 
 export const Signup = () => (
@@ -100,6 +100,12 @@ export const Signup = () => (
 					<button type="submit" className="btn btn-primary btn-lg">
 						Registrar
 					</button>
+				</div>
+				<div className="text-center mt-5">
+					<p className="mb-0">¿Ya tienes cuenta?</p>
+					<Link className="text-center mt-0" to="/iniciar-sesion">
+						Inicia sesión aquí!
+					</Link>
 				</div>
 			</form>
 		</div>
