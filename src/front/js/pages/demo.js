@@ -23,9 +23,7 @@ export const Demo = () => {
 							{// Conditional render example
 							// Check to see if the background is orange, if so, display the message
 							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
+								<p style={{ color: item.initial }}>Esto aparecera cuando le den like</p>
 							) : null}
 							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
 								Change Color
