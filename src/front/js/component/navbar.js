@@ -11,14 +11,14 @@ export const Navbar = () => {
 				<span className="text-right navbar-brand mb-0 h2">Inicio</span>
 			</Link>
 			<div className="ml-auto">
-				<Link to="/demo">
+				<Link to="/registro">
 					<button className="btn btn-danger mr-2">Registrarse</button>
 				</Link>
 
 				<Link to="/">
 					<span className="navbar-brand mb-0 h2">Preguntas Frecuentes</span>
 				</Link>
-				<Link to="/">
+				<Link to="/login">
 					<span className="navbar-brand mb-0 h2">Login</span>
 				</Link>
 			</div>
