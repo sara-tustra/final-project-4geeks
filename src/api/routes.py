@@ -16,3 +16,12 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/rutadeprueba', methods=['POST', 'GET'])
+def prueba():
+
+    response_body = {
+        "message": "Wenas desde el proyecto final"
+    }
+
+    return jsonify(response_body), 200
