@@ -27,6 +27,9 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
+						{/* <Route exact path="/">
+							< />
+						</Route> */}
 						<Route exact path="/registro">
 							<Signup />
 						</Route>

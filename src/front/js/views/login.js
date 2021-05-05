@@ -1,4 +1,5 @@
 import React from "react";
+
 import "../../styles/signup.scss";
 import { Link } from "react-router-dom";
 
@@ -40,6 +41,11 @@ export const Login = () => (
 							required="required"
 						/>
 					</div>
+				</div>
+				<div className="form-group">
+					<label className="form-check-label mt-4">
+						<input type="checkbox" required="required" /> Recordar usurario
+					</label>
 				</div>
 				<div className="text-center mb-2">
 					<Link className="text-center" to="">
