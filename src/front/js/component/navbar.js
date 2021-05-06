@@ -11,17 +11,14 @@ export const Navbar = () => {
 				<Link to="/registro">
 					<button className="btn btn-danger mr-2">Registrarse</button>
 				</Link>
-				<Link to="/">
+				<Link to="/iniciar-sesion">
 					<span className="navbar-brand mb-0 h2">Login</span>
 				</Link>
-				<Link to="/">
-					<span className="navbar-brand mb-0 h2">Preguntas Frecuentes</span>
+				<Link to="/preguntas">
+					<span className="navbar-brand mb-0 h2">Preguntas frecuentes</span>
 				</Link>
 				<Link to="/">
-					<span className="text-right navbar-brand mb-0 h2">Inicio</span>
-				</Link>
-				<Link to="/login">
-					<span className="navbar-brand mb-0 h2">Login</span>
+					<span className="text-right btn-secundary navbar-brand mb-0 h2">Inicio</span>
 				</Link>
 			</div>
 		</nav>
