@@ -11,6 +11,7 @@ import { Footer } from "./component/footer";
 
 import { Signup } from "./views/signup";
 import { Login } from "./views/login";
+import { Academias } from "./views/academias";
 
 //create your first component
 const Layout = () => {
@@ -32,6 +33,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/iniciar-sesion">
 							<Login />
+						</Route>
+						<Route exact path="/academias">
+							<Academias />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
