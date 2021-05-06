@@ -3,7 +3,7 @@ import "../../styles/preguntasFrecuentes.scss";
 
 export const PreguntasFrecuentes = () => (
 	<>
-		<h1 className="mt-4 mb-3 font-weight-light titulo_pregunta">Preguntas Frecuentes</h1>
+		<h1 className="mt-4 mb-3  titulo_pregunta">Preguntas Frecuentes</h1>
 		<div className="mb-4">
 			<div className="card">
 				<div className="card-header ">
@@ -11,14 +11,14 @@ export const PreguntasFrecuentes = () => (
 				</div>
 
 				<div id="collapseSeven">
-					<div className="card-body nuestra_historia">
+					<div className="card-body">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 					</div>
 				</div>
 			</div>
 			<div className="card">
 				<div className="card-header color_pregunta" role="tab" id="headingEight">
-					<h5 className="mb-0 font-weight-light">¿la edad influye si quiero ser un programador?</h5>
+					<h5 className="mb-0 ">¿la edad influye si quiero ser un programador?</h5>
 				</div>
 				<div id="collapseEight" className="collapse show" role="tabpanel" aria-labelledby="headingEight">
 					<div className="card-body nuestra_historia">
@@ -30,7 +30,7 @@ export const PreguntasFrecuentes = () => (
 			</div>
 			<div className="card">
 				<div className="card-header color_pregunta" role="tab" id="headingNine">
-					<h5 className="mb-0 font-weight-light">¿Salario de un programador?</h5>
+					<h5 className="mb-0 ">¿Salario de un programador?</h5>
 				</div>
 
 				<div id="collapseNine" className="collapse show" role="tabpanel" aria-labelledby="headingNine">
