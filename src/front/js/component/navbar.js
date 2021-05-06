@@ -20,6 +20,9 @@ export const Navbar = () => {
 				<Link to="/">
 					<span className="text-right btn-secundary navbar-brand mb-0 h2">Inicio</span>
 				</Link>
+				<Link to="/vista-de-usuario">
+					<span className="text-right btn-secundary navbar-brand mb-0 h2">Perfil de usuario</span>
+				</Link>
 			</div>
 		</nav>
 	);
