@@ -53,10 +53,13 @@ export const Login = () => (
 					</Link>
 				</div>
 				<div className="form-group d-flex justify-content-center">
-					<button type="submit" className="btn btn-primary btn-lg">
-						Ingresar
-					</button>
+					<Link className="text-center mt-0" to="/vista-de-usuario">
+						<button type="submit" className="btn btn-primary btn-lg">
+							Ingresar
+						</button>
+					</Link>
 				</div>
+
 				<div className="text-center mt-5">
 					<p className="mb-0">¿No estas registrado?</p>
 					<Link className="text-center mt-0" to="/registro">

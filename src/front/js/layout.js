@@ -14,6 +14,8 @@ import { Login } from "./views/login";
 import { PreguntasFrecuentes } from "./views/preguntasFrecuentes";
 import { Academias } from "./views/academias";
 import { Foros } from "./views/foros";
+import { VistaUsuario } from "./views/VistaUsuario";
+import { Carusel } from "./component/Carusel";
 
 //create your first component
 const Layout = () => {
@@ -44,6 +46,11 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/foros">
 							<Foros />
+						<Route exact path="/vista-de-usuario">
+							<VistaUsuario />
+						</Route>
+						<Route exact path="/carusel">
+							<Carusel />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

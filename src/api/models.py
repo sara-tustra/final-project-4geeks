@@ -37,7 +37,6 @@ class Perfil(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     bio = db.Column(db.String(600), default="")
     linkedin = db.Column(db.String(150), default="")
-    fecha_nacimiento = db.Column(db.String(600), default="")
     genero = db.Column(db.String(600), default="")
     github = db.Column(db.String(600), default="")
     users_id = db.Column(db.Integer, db.ForeignKey(
@@ -49,7 +48,7 @@ class Perfil(db.Model):
     post_likes = db.relationship('Post_Like', cascade='all, delete', backref='perfil')
     lenguajes = db.relationship('Lenguaje', cascade='all, delete', backref='perfil')
     post_likes = db.relationship('Post_Like', cascade='all, delete', backref='perfil')
-   # contactos = db.relationship('Perfil', secondary='contactos')
+    # contactos = db.relationship('Perfil', secondary='contactos')
     
     def save(self):
         db.session.add(self)
@@ -67,7 +66,6 @@ class Perfil(db.Model):
             "id": self.id,
             "bio": self.bio,
             "linkedin": self.linkedin,
-            "fecha_nacimiento": self.fecha_nacimiento,
             "genero": self.genero,
             "github": self.github
         }
@@ -106,6 +104,25 @@ class Post_Like(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     posts_id = db.Column(db.Integer, db.ForeignKey('posts.id', ondelete='CASCADE'), nullable=False)
     perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
+
+
+    def serialize(self):
+        return {
+            "posts_id": self.posts_id,
+            "perfil_id": self.perfiles_id
+            # do not serialize the password, its a security breach
+        }
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+    
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
     
 
 class Post_Comentario(db.Model):
@@ -130,7 +147,8 @@ class Post_Comentario(db.Model):
         return{
             "id": self.id,
             "comentario_fecha": self.comentario_fecha,
-            "comentario_contenido": self.comentario_contenido
+            "comentario_contenido": self.comentario_contenido,
+            "post_id": self.posts_id
         }
 
 
@@ -186,7 +204,8 @@ class Foro_Comentario(db.Model):
         return{
             "id": self.id,
             "comentario_fecha": self.comentario_fecha,
-            "comentario_contenido": self.comentario_contenido
+            "comentario_contenido": self.comentario_contenido,
+            "foro_id": self.foros_id
         }
 
 
@@ -215,7 +234,8 @@ class Plantilla_Codigo(db.Model):
             "id": self.id,
             "plantilla_nombre": self.plantilla_nombre,
             "plantilla_contenido": self.plantilla_contenido,
-            "plantilla_fecha": self.plantilla_fecha
+            "plantilla_fecha": self.plantilla_fecha,
+            "perfil_id": self.perfiles_id
         }
 
 
@@ -244,7 +264,8 @@ class Comando_Terminal(db.Model):
             "id": self.id,
             "plantilla_nombre": self.plantilla_nombre,
             "plantilla_contenido": self.plantilla_contenido,
-            "plantilla_fecha": self.plantilla_fecha
+            "plantilla_fecha": self.plantilla_fecha,
+            "perfil_id": self.perfiles_id
         }
 
 class Lenguaje(db.Model):
@@ -253,6 +274,25 @@ class Lenguaje(db.Model):
     lenguaje_nombre = db.Column(db.String(500), nullable=False)
     lenguaje_descripcion = db.Column(db.String(900), nullable=False)
     perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "lenguaje_nombre": self.lenguaje_nombre,
+            "lenguaje_descripcion": self.lenguaje_descripcion,
+            "perfil_id": self.perfiles_id
+        }
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+    
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
 
 '''
