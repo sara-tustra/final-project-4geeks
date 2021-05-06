@@ -37,7 +37,6 @@ class Perfil(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     bio = db.Column(db.String(600), default="")
     linkedin = db.Column(db.String(150), default="")
-    fecha_nacimiento = db.Column(db.String(600), default="")
     genero = db.Column(db.String(600), default="")
     github = db.Column(db.String(600), default="")
     users_id = db.Column(db.Integer, db.ForeignKey(
@@ -67,7 +66,6 @@ class Perfil(db.Model):
             "id": self.id,
             "bio": self.bio,
             "linkedin": self.linkedin,
-            "fecha_nacimiento": self.fecha_nacimiento,
             "genero": self.genero,
             "github": self.github
         }
