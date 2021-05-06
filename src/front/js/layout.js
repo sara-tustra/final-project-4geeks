@@ -13,6 +13,7 @@ import { Signup } from "./views/signup";
 import { Login } from "./views/login";
 import { PreguntasFrecuentes } from "./views/preguntasFrecuentes";
 import { Academias } from "./views/academias";
+import { Foros } from "./views/foros";
 
 //create your first component
 const Layout = () => {
@@ -40,6 +41,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/academias">
 							<Academias />
+						</Route>
+						<Route exact path="/foros">
+							<Foros />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
