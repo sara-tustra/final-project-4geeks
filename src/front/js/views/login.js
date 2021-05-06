@@ -57,6 +57,9 @@ export const Login = () => (
 						Ingresar
 					</button>
 				</div>
+				<Link className="text-center mt-0" to="/vista-de-usuario">
+					Ingresar
+				</Link>
 				<div className="text-center mt-5">
 					<p className="mb-0">¿No estas registrado?</p>
 					<Link className="text-center mt-0" to="/registro">

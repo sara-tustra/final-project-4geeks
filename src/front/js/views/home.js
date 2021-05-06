@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
+import Carusel from "../component/Carusel";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -19,6 +20,7 @@ export const Home = () => {
 					<a href="/academias">Click aqui para mas informacion</a>
 				</button>
 			</p>
+			<Carusel />
 		</div>
 	);
 };
