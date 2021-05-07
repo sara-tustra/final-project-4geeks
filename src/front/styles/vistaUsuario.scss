@@ -1,4 +1,4 @@
-/*body {
+body {
   margin-top: 20px;
 }
 
@@ -6,11 +6,47 @@
   padding: 10px !important;
 }
 
-
 #imagen-perfil {
-  height: 120px;
-  margin-left: 50px;
+  width: 200px;
+  height: 170px;
+  margin-left: 20px;
 }
+
+#avatar1 {
+  width: 200px;
+  height: 170px;
+  margin-left: 80px;
+}
+
+#avatar2 {
+  width: 200px;
+  height: 170px;
+  margin-left: 90px;
+}
+#avatar3 {
+  width: 200px;
+  height: 170px;
+  margin-left: 20px;
+}
+#avatar4 {
+  width: 200px;
+  height: 170px;
+  margin-left: 80px;
+}
+#avatar5 {
+  width: 200px;
+  height: 170px;
+  margin-left: 20px;
+}
+
+#avatar6 {
+  width: 200px;
+  height: 170px;
+  margin-left: 20px;
+}
+
+/**    Page Profile
+*************************************************** **/
 .profile-buttons {
   background-color: rgba(0, 0, 0, 0.05);
   padding: 15px;
@@ -51,7 +87,8 @@
   background-color: #fff !important;
 }
 
-/
+/** Comments
+*************************************************** **/
 #comments {
   margin-top: 60px;
 }
@@ -84,7 +121,7 @@ li.comment p {
   padding: 0;
 }
 li.comment img.avatar {
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   top: 0;
   display: inline-block;
@@ -98,8 +135,8 @@ li.comment .comment-body {
   padding-left: 60px;
 }
 li.comment.comment-reply {
-  margin-left: 60px;
-  background-color: #fafafa;
+  margin-left: 10px;
+  background-color: #8f1414;
   padding: 6px;
   margin-bottom: 6px;
 }
@@ -128,7 +165,9 @@ time.datebox span {
   text-align: center;
 }
 
-
+/**    17. Panel
+*************************************************** **/
+/* pannel */
 .panel {
   position: relative;
 
@@ -277,7 +316,8 @@ time.datebox span {
   border-radius: 0;
 }
 
-
+/** Bullet List
+*************************************************** **/
 ul.bullet-list li {
   position: relative;
   padding: 0 0 0 20px;
@@ -317,6 +357,8 @@ ul.bullet-list li h3 {
   padding: 0;
 }
 
+/** Date Box
+*************************************************** **/
 time.datebox {
   font-size: 14px;
   display: block;
@@ -326,4 +368,4 @@ time.datebox {
   background-color: #fff;
   margin: 3px auto;
   border: 1px solid;
- } */
+}
