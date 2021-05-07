@@ -17,7 +17,10 @@ export const Home = () => {
 				/>
 				<br />
 				<button className="academia-2">
-					<a href="/academias">Click aqui para mas informacion</a>
+					<a href="/academias">Click aqui para mas informacion de academia</a>
+				</button>
+				<button className="academia-2">
+					<a href="/foros">Click aqui para mas informacion de foros</a>
 				</button>
 			</p>
 			<Carusel />
