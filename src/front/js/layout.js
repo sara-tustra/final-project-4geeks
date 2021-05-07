@@ -15,7 +15,7 @@ import { PreguntasFrecuentes } from "./views/preguntasFrecuentes";
 import { Academias } from "./views/academias";
 import { Foros } from "./views/foros";
 import { VistaUsuario } from "./views/VistaUsuario";
-import { Carusel } from "./component/Carusel";
+import Carusel from "./component/Carusel";
 
 //create your first component
 const Layout = () => {

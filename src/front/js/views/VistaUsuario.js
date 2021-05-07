@@ -15,8 +15,8 @@ export const VistaUsuario = () => {
 									<figure className="margin-bottom-10">
 										{/* image */}
 										<img
-											className="img-responsive"
 											id="imagen-perfil"
+											className="img-responsive"
 											src="https://bootdey.com/img/Content/avatar/avatar1.png"
 											alt
 										/>
@@ -110,18 +110,6 @@ export const VistaUsuario = () => {
 						{/* COL 2 */}
 						<div className="col-md-5">
 							<div className="tabs white nomargin-top">
-								<ul className="nav nav-tabs tabs-primary">
-									<li className="active">
-										<a href="#overview" data-toggle="tab">
-											Overview
-										</a>
-									</li>
-									<li>
-										<a href="#edit" data-toggle="tab">
-											Edit
-										</a>
-									</li>
-								</ul>
 								<div className="tab-content">
 									{/* Overview */}
 									<div id="overview" className="tab-pane active">
@@ -171,10 +159,11 @@ export const VistaUsuario = () => {
 											<li className="comment">
 												{/* avatar */}
 												<img
+													id="avatar1"
 													className="avatar"
-													src="https://bootdey.com/img/Content/avatar/avatar1.png"
-													width={50}
-													height={50}
+													src="https:////bootdey.com/img/Content/avatar/avatar1.png"
+													width={10}
+													height={10}
 													alt="avatar"
 												/>
 												{/* comment body */}
@@ -227,6 +216,7 @@ export const VistaUsuario = () => {
 											<li className="comment comment-reply">
 												{/* avatar */}
 												<img
+													id="avatar2"
 													className="avatar"
 													src="https://bootdey.com/img/Content/avatar/avatar2.png"
 													width={35}
@@ -268,6 +258,7 @@ export const VistaUsuario = () => {
 											<li className="comment comment-reply">
 												{/* avatar */}
 												<img
+													id="avatar3"
 													className="avatar"
 													src="https://bootdey.com/img/Content/avatar/avatar3.png"
 													width={35}
@@ -313,6 +304,7 @@ export const VistaUsuario = () => {
 											<li className="comment">
 												{/* avatar */}
 												<img
+													id="avatar4"
 													className="avatar"
 													src="https://bootdey.com/img/Content/avatar/avatar4.png"
 													width={50}
@@ -364,6 +356,7 @@ export const VistaUsuario = () => {
 											<li className="comment comment-reply">
 												{/* avatar */}
 												<img
+													id="avatar5"
 													className="avatar"
 													src="https://bootdey.com/img/Content/avatar/avatar5.png"
 													width={35}
@@ -405,6 +398,7 @@ export const VistaUsuario = () => {
 											<li className="comment comment-reply">
 												{/* avatar */}
 												<img
+													id="avatar6"
 													className="avatar"
 													src="https://bootdey.com/img/Content/avatar/avatar6.png"
 													width={35}
@@ -556,7 +550,7 @@ export const VistaUsuario = () => {
 																	<input
 																		type="file"
 																		id="file"
-																		//onchange="this.parentNode.nextSibling.value = this.value"
+																		/* onchange="this.parentNode.nextSibling.value = this.value" */
 																	/>
 																	Browse
 																</div>
@@ -711,7 +705,28 @@ export const VistaUsuario = () => {
 										</div>
 										{/* /activity separator */}
 										{/* paginatoin */}
-										<div className="text-center" />
+										<div className="text-center">
+											<ul className="pagination pagination-sm">
+												<li className="disabled">
+													<a href="#">Prev</a>
+												</li>
+												<li className="active">
+													<a href="#">1</a>
+												</li>
+												<li>
+													<a href="#">2</a>
+												</li>
+												<li>
+													<a href="#">3</a>
+												</li>
+												<li>
+													<a href="#">4</a>
+												</li>
+												<li>
+													<a href="#">Next</a>
+												</li>
+											</ul>
+										</div>
 										{/* /paginatoin */}
 									</div>
 									{/* /activity list */}
