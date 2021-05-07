@@ -13,6 +13,7 @@ import { Signup } from "./views/signup";
 import { Login } from "./views/login";
 import { PreguntasFrecuentes } from "./views/preguntasFrecuentes";
 import { Academias } from "./views/academias";
+import { Foros } from "./views/foros";
 import { VistaUsuario } from "./views/VistaUsuario";
 import { Carusel } from "./component/Carusel";
 
@@ -43,6 +44,8 @@ const Layout = () => {
 						<Route exact path="/academias">
 							<Academias />
 						</Route>
+						<Route exact path="/foros">
+							<Foros />
 						<Route exact path="/vista-de-usuario">
 							<VistaUsuario />
 						</Route>
