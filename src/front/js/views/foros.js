@@ -8,6 +8,9 @@ export const Foros = () => {
 	return (
 		<div className="text-center mt-5">
 			<h1>Foro</h1>
+			<p>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReDE-PNnYZeMMR2-a30E7a4t_p6S3tf1Yq6w&usqp=CAU" />
+			</p>
 			<div className="card2 card" style={{ width: "18rem" }}>
 				<div className="card-body">
 					<h5 className="card-title">Foros Populares</h5>

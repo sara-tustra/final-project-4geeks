@@ -46,6 +46,7 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/foros">
 							<Foros />
+						</Route>
 						<Route exact path="/vista-de-usuario">
 							<VistaUsuario />
 						</Route>
