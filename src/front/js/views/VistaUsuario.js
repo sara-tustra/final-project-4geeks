@@ -5,532 +5,721 @@ export const VistaUsuario = () => {
 	return (
 		<>
 			<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-			<div className="container bootstrap snippets bootdeys">
-				<div className="row" id="user-profile">
-					<div className="col-lg-3 col-md-4 col-sm-4">
-						<div className="main-box clearfix">
-							<h2>John Doe </h2>
-							<div className="profile-status">
-								<i className="fa fa-check-circle" /> Online
-							</div>
-							<img
-								src="https://bootdey.com/img/Content/avatar/avatar1.png"
-								alt
-								className="profile-img img-responsive center-block"
-							/>
-							<div className="profile-label">
-								<span className="label label-danger">Admin</span>
-							</div>
-							<div className="profile-stars">
-								<i className="fa fa-star" />
-								<i className="fa fa-star" />
-								<i className="fa fa-star" />
-								<i className="fa fa-star" />
-								<i className="fa fa-star-o" />
-								<span>Super User</span>
-							</div>
-							<div className="profile-since">Member since: Jan 2012</div>
-							<div className="profile-details">
-								<ul className="fa-ul">
-									<li>
-										<i className="fa-li fa fa-truck" />
-										Orders: <span>456</span>
-									</li>
-									<li>
-										<i className="fa-li fa fa-comment" />
-										Posts: <span>828</span>
-									</li>
-									<li>
-										<i className="fa-li fa fa-tasks" />
-										Tasks done: <span>1024</span>
-									</li>
-								</ul>
-							</div>
-							<div className="profile-message-btn center-block text-center">
-								<a href="#" className="btn btn-success">
-									<i className="fa fa-envelope" /> Send message
-								</a>
-							</div>
-						</div>
-					</div>
-					<div className="col-lg-9 col-md-8 col-sm-8">
-						<div className="main-box clearfix">
-							<div className="profile-header">
-								<h3>
-									<span>User info</span>
-								</h3>
-								<a href="#" className="btn btn-primary edit-profile">
-									<i className="fa fa-pencil-square fa-lg" /> Edit profile
-								</a>
-							</div>
-							<div className="row profile-user-info">
-								<div className="col-sm-8">
-									<div className="profile-user-details clearfix">
-										<div className="profile-user-details-label">First Name</div>
-										<div className="profile-user-details-value">John</div>
+			<div className="container">
+				<div className="page-profile">
+					<div className="row">
+						{/* COL 1 */}
+						<div className="col-md-3">
+							<section className="panel">
+								<div className="panel-body noradius padding-10">
+									<figure className="margin-bottom-10">
+										{/* image */}
+										<img
+											className="img-responsive"
+											id="imagen-perfil"
+											src="https://bootdey.com/img/Content/avatar/avatar1.png"
+											alt
+										/>
+									</figure>
+									{/* /image */}
+									{/* progress bar */}
+									<h6 className="progress-head">
+										Profile Completion <span className="pull-right">60%</span>
+									</h6>
+									<div className="progress progress-xs">
+										<div className="progress-bar" role="progressbar" style={{ width: "60%" }} />
 									</div>
-									<div className="profile-user-details clearfix">
-										<div className="profile-user-details-label">Last Name</div>
-										<div className="profile-user-details-value">Doe</div>
-									</div>
-									<div className="profile-user-details clearfix">
-										<div className="profile-user-details-label">Address</div>
-										<div className="profile-user-details-value">
-											10880 Malibu Point,
-											<br /> Malibu, Calif., 90265
-										</div>
-									</div>
-									<div className="profile-user-details clearfix">
-										<div className="profile-user-details-label">Email</div>
-										<div className="profile-user-details-value">johndoe@bootdey.com</div>
-									</div>
-									<div className="profile-user-details clearfix">
-										<div className="profile-user-details-label">Phone number</div>
-										<div className="profile-user-details-value">011 223 344 556 677</div>
-									</div>
-								</div>
-								<div className="col-sm-4 profile-social">
-									<ul className="fa-ul">
-										<li>
-											<i className="fa-li fa fa-twitter-square" />
-											<a href="#">@scjohansson</a>
+									{/* /progress bar */}
+									{/* updated */}
+									<ul className="list-unstyled size-13">
+										<li className="text-gray">
+											<i className="fa fa-check" /> Update Your Birthday
 										</li>
-										<li>
-											<i className="fa-li fa fa-linkedin-square" />
-											<a href="#">John Doe </a>
+										<li className="text-gray">
+											<i className="fa fa-check" /> Update Profile Picture
 										</li>
-										<li>
-											<i className="fa-li fa fa-facebook-square" />
-											<a href="#">John Doe </a>
-										</li>
-										<li>
-											<i className="fa-li fa fa-skype" />
-											<a href="#">Black_widow</a>
-										</li>
-										<li>
-											<i className="fa-li fa fa-instagram" />
-											<a href="#">Avenger_Scarlett</a>
-										</li>
+										<li>Confirm Your Account</li>
+										<li>Update Your Address</li>
 									</ul>
+									{/* /updated */}
+									<hr className="half-margins" />
+									{/* About */}
+									<h3 className="text-black">
+										Melisa Doe
+										<small className="text-gray size-14"> / CEO</small>
+									</h3>
+									<p className="size-12">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet
+										dolore magna aliquam tincidunt erat volutpat.
+									</p>
+									{/* /About */}
+									<hr className="half-margins" />
+									{/* Social */}
+									<h6>Follow Me</h6>
+									<a href="#" className="btn ico-only btn-facebook btn-xs" title="Facebook">
+										<i className="fa fa-facebook" />
+									</a>
+									<a href="#" className="btn ico-only btn-twitter btn-xs" title="Twitter">
+										<i className="fa fa-twitter" />
+									</a>
+									<a href="#" className="btn ico-only btn-google-plus btn-xs" title="Google plus">
+										<i className="fa fa-google-plus" />
+									</a>
+									<a href="#" className="btn ico-only btn-linkedin btn-xs" title="Linked In">
+										<i className="fa fa-linkedin" />
+									</a>
+									<a href="#" className="btn ico-only btn-pinterest btn-xs" title="Pinterest">
+										<i className="fa fa-pinterest" />
+									</a>
+									<a href="#" className="btn ico-only btn-flickr btn-xs" title="Flickr">
+										<i className="fa fa-flickr" />
+									</a>
+									<a href="#" className="btn ico-only btn-tumblr btn-xs" title="Tumblr">
+										<i className="fa fa-tumblr" />
+									</a>
+									<a href="#" className="btn ico-only btn-skype btn-xs" title="Skype">
+										<i className="fa fa-skype" />
+									</a>
+									<a
+										href="#"
+										className="btn ico-only btn-stackoverflow btn-xs"
+										title="Stack Overflow">
+										<i className="fa fa-stack-overflow" />
+									</a>
+									<a href="#" className="btn ico-only btn-instagram btn-xs" title="Instagram">
+										<i className="fa fa-instagram" />
+									</a>
+									<a href="#" className="btn ico-only btn-dribbble btn-xs" title="Dribble">
+										<i className="fa fa-dribbble" />
+									</a>
+									<a href="#" className="btn ico-only btn-youtube btn-xs" title="Youtube">
+										<i className="fa fa-youtube" />
+									</a>
+									<a href="#" className="btn ico-only btn-vimeo btn-xs" title="Vimeo">
+										<i className="fa fa-vimeo-square" />
+									</a>
+									<a href="#" className="btn ico-only btn-rss btn-xs" title="Rss">
+										<i className="fa fa-rss" />
+									</a>
+									{/* /Social */}
 								</div>
-							</div>
-							<div className="tabs-wrapper profile-tabs">
-								<ul className="nav nav-tabs">
+							</section>
+						</div>
+						{/* /COL 1 */}
+						{/* COL 2 */}
+						<div className="col-md-5">
+							<div className="tabs white nomargin-top">
+								<ul className="nav nav-tabs tabs-primary">
 									<li className="active">
-										<a href="#tab-activity" data-toggle="tab">
-											Activity
+										<a href="#overview" data-toggle="tab">
+											Overview
 										</a>
 									</li>
 									<li>
-										<a href="#tab-friends" data-toggle="tab">
-											Friends
-										</a>
-									</li>
-									<li>
-										<a href="#tab-chat" data-toggle="tab">
-											Chat
+										<a href="#edit" data-toggle="tab">
+											Edit
 										</a>
 									</li>
 								</ul>
 								<div className="tab-content">
-									<div className="tab-pane fade in active" id="tab-activity">
-										<div className="table-responsive">
-											<table className="table">
-												<tbody>
-													<tr>
-														<td className="text-center">
-															<i className="fa fa-comment" />
-														</td>
-														<td>
-															John Doe posted a comment in{" "}
-															<a href="#">Avengers Initiative</a> project.
-														</td>
-														<td>2014/08/08 12:08</td>
-													</tr>
-													<tr>
-														<td className="text-center">
-															<i className="fa fa-truck" />
-														</td>
-														<td>
-															John Doe changed order status from{" "}
-															<span className="label label-primary">Pending</span> to{" "}
-															<span className="label label-success">Completed</span>
-														</td>
-														<td>2014/08/08 12:08</td>
-													</tr>
-													<tr>
-														<td className="text-center">
-															<i className="fa fa-check" />
-														</td>
-														<td>
-															John Doe posted a comment in{" "}
-															<a href="#">Lost in Translation opening scene</a>{" "}
-															discussion.
-														</td>
-														<td>2014/08/08 12:08</td>
-													</tr>
-													<tr>
-														<td className="text-center">
-															<i className="fa fa-users" />
-														</td>
-														<td>
-															John Doe posted a comment in{" "}
-															<a href="#">Avengers Initiative</a> project.
-														</td>
-														<td>2014/08/08 12:08</td>
-													</tr>
-													<tr>
-														<td className="text-center">
-															<i className="fa fa-heart" />
-														</td>
-														<td>
-															John Doe changed order status from{" "}
-															<span className="label label-warning">On Hold</span> to{" "}
-															<span className="label label-danger">Disabled</span>
-														</td>
-														<td>2014/08/08 12:08</td>
-													</tr>
-													<tr>
-														<td className="text-center">
-															<i className="fa fa-check" />
-														</td>
-														<td>
-															John Doe posted a comment in{" "}
-															<a href="#">Lost in Translation opening scene</a>{" "}
-															discussion.
-														</td>
-														<td>2014/08/08 12:08</td>
-													</tr>
-													<tr>
-														<td className="text-center">
-															<i className="fa fa-truck" />
-														</td>
-														<td>
-															John Doe changed order status from{" "}
-															<span className="label label-primary">Pending</span> to{" "}
-															<span className="label label-success">Completed</span>
-														</td>
-														<td>2014/08/08 12:08</td>
-													</tr>
-													<tr>
-														<td className="text-center">
-															<i className="fa fa-users" />
-														</td>
-														<td>
-															John Doe posted a comment in{" "}
-															<a href="#">Avengers Initiative</a> project.
-														</td>
-														<td>2014/08/08 12:08</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div className="tab-pane fade" id="tab-friends">
-										<ul className="widget-users row">
-											<li className="col-md-6">
-												<div className="img">
-													<img
-														src="https://bootdey.com/img/Content/avatar/avatar1.png"
-														className="img-responsive"
-														alt
-													/>
+									{/* Overview */}
+									<div id="overview" className="tab-pane active">
+										<form className="well">
+											<textarea
+												rows={2}
+												className="form-control"
+												placeholder="What's on your mind?"
+												defaultValue={""}
+											/>
+											<div className="margin-top-10">
+												<button type="submit" className="btn btn-sm btn-primary pull-right">
+													Post
+												</button>
+												<a
+													href="#"
+													className="btn btn-link profile-btn-link"
+													data-toggle="tooltip"
+													data-placement="bottom"
+													title
+													data-original-title="Add a Location">
+													<i className="fa fa-map-marker" />
+												</a>
+												<a
+													href="#"
+													className="btn btn-link profile-btn-link"
+													data-toggle="tooltip"
+													data-placement="bottom"
+													title
+													data-original-title="Add Photo">
+													<i className="fa fa-camera" />
+												</a>
+												<a
+													href="#"
+													className="btn btn-link profile-btn-link"
+													data-toggle="tooltip"
+													data-placement="bottom"
+													title
+													data-original-title="Add File">
+													<i className="fa fa-file" />
+												</a>
+											</div>
+										</form>
+										<hr className="invisible half-margins" />
+										{/* COMMENT */}
+										<ul className="comment list-unstyled padding-10">
+											<li className="comment">
+												{/* avatar */}
+												<img
+													className="avatar"
+													src="https://bootdey.com/img/Content/avatar/avatar1.png"
+													width={50}
+													height={50}
+													alt="avatar"
+												/>
+												{/* comment body */}
+												<div className="comment-body">
+													<a href="#" className="comment-author">
+														<small className="text-muted pull-right">
+															{" "}
+															12 Minutes ago{" "}
+														</small>
+														<span>Melisa Doe</span>
+													</a>
+													<p>
+														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+														diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam
+														tincidunt erat volutpat laoreet dolore magna aliquam tincidunt
+														erat volutpat.
+													</p>
 												</div>
-												<div className="details">
-													<div className="name">
-														<a href="#">John Doe </a>
-													</div>
-													<div className="time">
-														<i className="fa fa-clock-o" /> Last online: 5 minutes ago
-													</div>
-													<div className="type">
-														<span className="label label-danger">Admin</span>
-													</div>
-												</div>
+												{/* /comment body */}
+												{/* options */}
+												<ul className="list-inline size-11 margin-top-10">
+													<li>
+														<a href="#" className="text-info">
+															<i className="fa fa-reply" /> Reply
+														</a>
+													</li>
+													<li>
+														<a href="#" className="text-success">
+															<i className="fa fa-thumbs-up" /> Like
+														</a>
+													</li>
+													<li>
+														<a href="#" className="text-muted">
+															Show All Comments (36)
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-danger">
+															Delete
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-primary">
+															Edit
+														</a>
+													</li>
+												</ul>
 											</li>
-											<li className="col-md-6">
-												<div className="img">
-													<img
-														src="https://bootdey.com/img/Content/avatar/avatar1.png"
-														className="img-responsive"
-														alt
-													/>
+											{/* /options */}
+											<li className="comment comment-reply">
+												{/* avatar */}
+												<img
+													className="avatar"
+													src="https://bootdey.com/img/Content/avatar/avatar2.png"
+													width={35}
+													height={35}
+													alt="avatar"
+												/>
+												{/* comment body */}
+												<div className="comment-body">
+													<a href="#" className="comment-author">
+														<small className="text-muted pull-right"> 4 Minutes ago </small>
+														<span>Ioana Doe</span>
+													</a>
+													<p>
+														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+														diam nonummy! <i className="fa fa-smile-o green" />
+													</p>
 												</div>
-												<div className="details">
-													<div className="name">
-														<a href="#">Mila Kunis</a>
-													</div>
-													<div className="time online">
-														<i className="fa fa-check-circle" /> Online
-													</div>
-													<div className="type">
-														<span className="label label-warning">Pending</span>
-													</div>
-												</div>
+												{/* /comment body */}
+												{/* options */}
+												<ul className="list-inline size-11">
+													<li>
+														<a href="#" className="text-success">
+															<i className="fa fa-thumbs-up" /> Like
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-danger">
+															Delete
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-primary">
+															Edit
+														</a>
+													</li>
+												</ul>
+												{/* /options */}
 											</li>
-											<li className="col-md-6">
-												<div className="img">
-													<img
-														src="https://bootdey.com/img/Content/avatar/avatar1.png"
-														className="img-responsive"
-														alt
-													/>
+											<li className="comment comment-reply">
+												{/* avatar */}
+												<img
+													className="avatar"
+													src="https://bootdey.com/img/Content/avatar/avatar3.png"
+													width={35}
+													height={35}
+													alt="avatar"
+												/>
+												{/* comment body */}
+												<div className="comment-body">
+													<a href="#" className="comment-author">
+														<small className="text-muted pull-right"> a moment ago </small>
+														<span>Simona Doe</span>
+													</a>
+													<p>
+														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+														diam nonummy! <i className="fa fa-smile-o green" />
+													</p>
 												</div>
-												<div className="details">
-													<div className="name">
-														<a href="#">Ryan Gossling</a>
-													</div>
-													<div className="time online">
-														<i className="fa fa-check-circle" /> Online
-													</div>
-												</div>
+												{/* /comment body */}
+												{/* options */}
+												<ul className="list-inline size-11">
+													<li>
+														<a href="#" className="text-success">
+															<i className="fa fa-thumbs-up" /> Like
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-danger">
+															Delete
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-primary">
+															Edit
+														</a>
+													</li>
+												</ul>
+												{/* /options */}
 											</li>
-											<li className="col-md-6">
-												<div className="img">
-													<img
-														src="https://bootdey.com/img/Content/avatar/avatar1.png"
-														className="img-responsive"
-														alt
-													/>
+										</ul>
+										{/* /COMMENT */}
+										{/* COMMENT */}
+										<ul className="comment list-unstyled padding-10">
+											<li className="comment">
+												{/* avatar */}
+												<img
+													className="avatar"
+													src="https://bootdey.com/img/Content/avatar/avatar4.png"
+													width={50}
+													height={50}
+													alt="avatar"
+												/>
+												{/* comment body */}
+												<div className="comment-body">
+													<a href="#" className="comment-author">
+														<small className="text-muted pull-right">
+															{" "}
+															12 Minutes ago{" "}
+														</small>
+														<span>Melisa Doe</span>
+													</a>
+													<p>
+														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+														diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam
+														tincidunt erat volutpat laoreet dolore magna aliquam tincidunt
+														erat volutpat.
+													</p>
 												</div>
-												<div className="details">
-													<div className="name">
-														<a href="#">Robert Downey Jr.</a>
-													</div>
-													<div className="time">
-														<i className="fa fa-clock-o" /> Last online: Thursday
-													</div>
-												</div>
+												{/* /comment body */}
+												{/* options */}
+												<ul className="list-inline size-11 margin-top-10">
+													<li>
+														<a href="#" className="text-info">
+															<i className="fa fa-reply" /> Reply
+														</a>
+													</li>
+													<li>
+														<a href="#" className="text-success">
+															<i className="fa fa-thumbs-up" /> Like
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-danger">
+															Delete
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-primary">
+															Edit
+														</a>
+													</li>
+												</ul>
 											</li>
-											<li className="col-md-6">
-												<div className="img">
-													<img
-														src="https://bootdey.com/img/Content/avatar/avatar1.png"
-														className="img-responsive"
-														alt
-													/>
+											{/* /options */}
+											<li className="comment comment-reply">
+												{/* avatar */}
+												<img
+													className="avatar"
+													src="https://bootdey.com/img/Content/avatar/avatar5.png"
+													width={35}
+													height={35}
+													alt="avatar"
+												/>
+												{/* comment body */}
+												<div className="comment-body">
+													<a href="#" className="comment-author">
+														<small className="text-muted pull-right"> 4 Minutes ago </small>
+														<span>Ioana Doe</span>
+													</a>
+													<p>
+														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+														diam nonummy! <i className="fa fa-smile-o green" />
+													</p>
 												</div>
-												<div className="details">
-													<div className="name">
-														<a href="#">Emma Watson</a>
-													</div>
-													<div className="time">
-														<i className="fa fa-clock-o" /> Last online: 1 week ago
-													</div>
-												</div>
+												{/* /comment body */}
+												{/* options */}
+												<ul className="list-inline size-11">
+													<li>
+														<a href="#" className="text-success">
+															<i className="fa fa-thumbs-up" /> Like
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-danger">
+															Delete
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-primary">
+															Edit
+														</a>
+													</li>
+												</ul>
+												{/* /options */}
 											</li>
-											<li className="col-md-6">
-												<div className="img">
-													<img
-														src="https://bootdey.com/img/Content/avatar/avatar1.png"
-														className="img-responsive"
-														alt
-													/>
+											<li className="comment comment-reply">
+												{/* avatar */}
+												<img
+													className="avatar"
+													src="https://bootdey.com/img/Content/avatar/avatar6.png"
+													width={35}
+													height={35}
+													alt="avatar"
+												/>
+												{/* comment body */}
+												<div className="comment-body">
+													<a href="#" className="comment-author">
+														<small className="text-muted pull-right"> a moment ago </small>
+														<span>Simona Doe</span>
+													</a>
+													<p>
+														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+														diam nonummy! <i className="fa fa-smile-o green" />
+													</p>
 												</div>
-												<div className="details">
-													<div className="name">
-														<a href="#">George Clooney</a>
-													</div>
-													<div className="time">
-														<i className="fa fa-clock-o" /> Last online: 1 month ago
-													</div>
-												</div>
+												{/* /comment body */}
+												{/* options */}
+												<ul className="list-inline size-11">
+													<li>
+														<a href="#" className="text-success">
+															<i className="fa fa-thumbs-up" /> Like
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-danger">
+															Delete
+														</a>
+													</li>
+													<li className="pull-right">
+														<a href="#" className="text-primary">
+															Edit
+														</a>
+													</li>
+												</ul>
+												{/* /options */}
 											</li>
-											<li className="col-md-6">
-												<div className="img">
-													<img
-														src="https://bootdey.com/img/Content/avatar/avatar1.png"
-														className="img-responsive"
-														alt
+											<li>
+												<div className="input-group">
+													<input
+														id="btn-input"
+														type="text"
+														className="form-control"
+														placeholder="Type your message..."
 													/>
-												</div>
-												<div className="details">
-													<div className="name">
-														<a href="#">Mila Kunis</a>
-													</div>
-													<div className="time online">
-														<i className="fa fa-check-circle" /> Online
-													</div>
-													<div className="type">
-														<span className="label label-warning">Pending</span>
-													</div>
-												</div>
-											</li>
-											<li className="col-md-6">
-												<div className="img">
-													<img
-														src="https://bootdey.com/img/Content/avatar/avatar1.png"
-														className="img-responsive"
-														alt
-													/>
-												</div>
-												<div className="details">
-													<div className="name">
-														<a href="#">Ryan Gossling</a>
-													</div>
-													<div className="time online">
-														<i className="fa fa-check-circle" /> Online
-													</div>
+													<span className="input-group-btn">
+														<button className="btn btn-primary" id="btn-chat">
+															<i className="fa fa-reply" /> Reply
+														</button>
+													</span>
 												</div>
 											</li>
 										</ul>
-										<br />
-										<a href="#" className="btn btn-success pull-right">
-											View all users
-										</a>
+										{/* /COMMENT */}
 									</div>
-									<div className="tab-pane fade" id="tab-chat">
-										<div className="conversation-wrapper">
-											<div className="conversation-content">
-												<div
-													className="slimScrollDiv"
-													style={{
-														position: "relative",
-														overflow: "hidden",
-														width: "auto",
-														height: 340
-													}}>
-													<div
-														className="conversation-inner"
-														style={{
-															overflow: "hidden",
-															width: "auto",
-															height: 340
-														}}>
-														<div className="conversation-item item-left clearfix">
-															<div className="conversation-user">
-																<img
-																	src="https://bootdey.com/img/Content/avatar/avatar1.png"
-																	className="img-responsive"
-																	alt
-																/>
-															</div>
-															<div className="conversation-body">
-																<div className="name">Ryan Gossling</div>
-																<div className="time hidden-xs">
-																	September 21, 2013 18:28
-																</div>
-																<div className="text" />
-															</div>
-														</div>
-														<div className="conversation-item item-right clearfix">
-															<div className="conversation-user">
-																<img
-																	src="https://bootdey.com/img/Content/avatar/avatar1.png"
-																	className="img-responsive"
-																	alt
-																/>
-															</div>
-															<div className="conversation-body">
-																<div className="name">Mila Kunis</div>
-																<div className="time hidden-xs">
-																	September 21, 2013 12:45
-																</div>
-																<div className="text" />
-															</div>
-														</div>
-														<div className="conversation-item item-right clearfix">
-															<div className="conversation-user">
-																<img
-																	src="https://bootdey.com/img/Content/avatar/avatar1.png"
-																	className="img-responsive"
-																	alt
-																/>
-															</div>
-															<div className="conversation-body">
-																<div className="name">Mila Kunis</div>
-																<div className="time hidden-xs">
-																	September 21, 2013 12:45
-																</div>
-																<div className="text" />
-															</div>
-														</div>
-														<div className="conversation-item item-left clearfix">
-															<div className="conversation-user">
-																<img
-																	src="https://bootdey.com/img/Content/avatar/avatar1.png"
-																	className="img-responsive"
-																	alt
-																/>
-															</div>
-															<div className="conversation-body">
-																<div className="name">Ryan Gossling</div>
-																<div className="time hidden-xs">
-																	September 21, 2013 18:28
-																</div>
-																<div className="text" />
-															</div>
-														</div>
-														<div className="conversation-item item-right clearfix">
-															<div className="conversation-user">
-																<img
-																	src="https://bootdey.com/img/Content/avatar/avatar1.png"
-																	className="img-responsive"
-																	alt
-																/>
-															</div>
-															<div className="conversation-body">
-																<div className="name">Mila Kunis</div>
-																<div className="time hidden-xs">
-																	September 21, 2013 12:45
-																</div>
-																<div className="text" />
-															</div>
-														</div>
+									{/* Edit */}
+									<div id="edit" className="tab-pane">
+										<form className="form-horizontal padding-10" method="get">
+											<h4>Personal Information</h4>
+											<fieldset>
+												<div className="form-group">
+													<label
+														className="col-md-3 control-label"
+														htmlFor="profileFirstName">
+														First Name
+													</label>
+													<div className="col-md-8">
+														<input
+															type="text"
+															className="form-control"
+															id="profileFirstName"
+														/>
 													</div>
-													<div
-														className="slimScrollBar"
-														style={{
-															width: 7,
-															position: "absolute",
-															top: 0,
-															opacity: "0.4",
-															display: "block",
-															borderRadius: 7,
-															zIndex: 99,
-															right: 1,
-															background: "rgb(0, 0, 0)"
-														}}
-													/>
-													<div
-														className="slimScrollRail"
-														style={{
-															width: 7,
-															height: "100%",
-															position: "absolute",
-															top: 0,
-															display: "none",
-															borderRadius: 7,
-															opacity: "0.2",
-															zIndex: 90,
-															right: 1,
-															background: "rgb(51, 51, 51)"
-														}}
-													/>
 												</div>
-											</div>
-											<div className="conversation-new-message">
-												<form>
-													<div className="form-group">
+												<div className="form-group">
+													<label className="col-md-3 control-label" htmlFor="profileLastName">
+														Last Name
+													</label>
+													<div className="col-md-8">
+														<input
+															type="text"
+															className="form-control"
+															id="profileLastName"
+														/>
+													</div>
+												</div>
+												<div className="form-group">
+													<label className="col-md-3 control-label" htmlFor="profileAddress">
+														Address
+													</label>
+													<div className="col-md-8">
+														<input
+															type="text"
+															className="form-control"
+															id="profileAddress"
+														/>
+													</div>
+												</div>
+												<div className="form-group">
+													<label className="col-md-3 control-label" htmlFor="profileCompany">
+														Company
+													</label>
+													<div className="col-md-8">
+														<input
+															type="text"
+															className="form-control"
+															id="profileCompany"
+														/>
+													</div>
+												</div>
+											</fieldset>
+											<hr />
+											<h4>About</h4>
+											<fieldset>
+												<div className="form-group">
+													<label className="col-xs-3 control-label">Public Profile</label>
+													<div className="col-md-8">
+														<label className="checkbox">
+															<input
+																type="checkbox"
+																defaultValue={1}
+																defaultChecked="checked"
+																id="profilePublic"
+															/>
+															<i /> Checkbox 1
+														</label>
+													</div>
+												</div>
+												<div className="form-group">
+													<label className="col-md-3 control-label" htmlFor="profileBio">
+														Biographical Info
+													</label>
+													<div className="col-md-8">
 														<textarea
 															className="form-control"
-															rows={2}
-															placeholder="Enter your message..."
+															rows={3}
+															id="profileBio"
 															defaultValue={""}
 														/>
 													</div>
-													<div className="clearfix">
-														<button type="submit" className="btn btn-success pull-right">
-															Send message
-														</button>
+												</div>
+												<div className="form-group">
+													<div className="sky-form">
+														<label className="col-xs-3 control-label">Profile Image</label>
+														<div className="col-md-8">
+															<label htmlFor="file" className="input input-file">
+																<div className="button">
+																	<input
+																		type="file"
+																		id="file"
+																		//onchange="this.parentNode.nextSibling.value = this.value"
+																	/>
+																	Browse
+																</div>
+																<input type="text" readOnly />
+															</label>
+															<a href="#" className="btn btn-danger btn-xs nomargin">
+																<i className="fa fa-times" /> Remove Current Image
+															</a>
+														</div>
 													</div>
-												</form>
+												</div>
+											</fieldset>
+											<hr />
+											<h4>Change Password</h4>
+											<fieldset className="mb-xl">
+												<div className="form-group">
+													<label
+														className="col-md-3 control-label"
+														htmlFor="profileNewPassword">
+														New Password
+													</label>
+													<div className="col-md-8">
+														<input
+															type="text"
+															className="form-control"
+															id="profileNewPassword"
+														/>
+													</div>
+												</div>
+												<div className="form-group">
+													<label
+														className="col-md-3 control-label"
+														htmlFor="profileNewPasswordRepeat">
+														Repeat New Password
+													</label>
+													<div className="col-md-8">
+														<input
+															type="text"
+															className="form-control"
+															id="profileNewPasswordRepeat"
+														/>
+													</div>
+												</div>
+											</fieldset>
+											<div className="row">
+												<div className="col-md-9 col-md-offset-3">
+													<button type="submit" className="btn btn-primary">
+														Submit
+													</button>
+													<button type="reset" className="btn btn-default">
+														Reset
+													</button>
+												</div>
 											</div>
-										</div>
+										</form>
 									</div>
 								</div>
 							</div>
 						</div>
+						{/* /COL 2 */}
+						{/* COL 3 */}
+						<div className="col-md-4">
+							{/* projects */}
+							<section className="panel panel-default">
+								<header className="panel-heading">
+									<h2 className="panel-title elipsis">
+										<i className="fa fa-rss" /> Projects
+									</h2>
+								</header>
+								<div className="panel-body noradius padding-10">
+									<ul className="bullet-list list-unstyled">
+										<li className="red">
+											<h3>Epona HTML5 Template</h3>
+											<span className="text-gray size-12">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing{" "}
+											</span>
+										</li>
+										<li className="green">
+											<h3>Atropos Template</h3>
+											<span className="text-gray size-12">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing{" "}
+											</span>
+										</li>
+										<li className="blue">
+											<h3>isisone Template</h3>
+											<span className="text-gray size-12">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing{" "}
+											</span>
+										</li>
+										<li className="orange">
+											<h3>Deusone Template</h3>
+											<span className="text-gray size-12">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing{" "}
+											</span>
+										</li>
+									</ul>
+								</div>
+							</section>
+							{/* /projects */}
+							{/* activity */}
+							<section className="panel panel-default">
+								<header className="panel-heading">
+									<h2 className="panel-title elipsis">
+										<i className="fa fa-rss" /> Activity
+									</h2>
+								</header>
+								<div className="panel-body noradius padding-10">
+									{/* activity list */}
+									<div className="row profile-activity">
+										{/* activity item */}
+										<div className="col-xs-2 col-sm-1">
+											<time dateTime="2014-06-29" className="datebox">
+												<strong>Jun</strong>
+												<span>29</span>
+											</time>
+										</div>
+										<div className="col-xs-10 col-sm-11">
+											<h6>
+												<a href="page-sidebar.html">Lorem ipsum dolor sit amet</a>
+											</h6>
+											<p>
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+												nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt
+												erat volutpat laoreet dolore magna aliquam tincidunt erat volutpat.
+											</p>
+										</div>
+										{/* /activity item */}
+										<div className="col-sm-12">
+											<hr className="half-margins" />
+										</div>
+										{/* /activity separator */}
+										{/* activity item */}
+										<div className="col-xs-2 col-sm-1">
+											<time dateTime="2014-06-29" className="datebox">
+												<strong>Jun</strong>
+												<span>29</span>
+											</time>
+										</div>
+										<div className="col-xs-10 col-sm-11">
+											<h6>
+												<a href="page-sidebar.html">Sed diam nonummy nibh euismod</a>
+											</h6>
+											<p>
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+												nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt
+												erat volutpat laoreet dolore magna aliquam tincidunt erat volutpat.
+											</p>
+										</div>
+										{/* /activity item */}
+										<div className="col-sm-12">
+											<hr className="half-margins" />
+										</div>
+										{/* /activity separator */}
+										{/* paginatoin */}
+										<div className="text-center" />
+										{/* /paginatoin */}
+									</div>
+									{/* /activity list */}
+								</div>
+							</section>
+							{/* /activity */}
+						</div>
+						{/* /COL 3 */}
 					</div>
 				</div>
 			</div>
