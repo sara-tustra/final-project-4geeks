@@ -156,48 +156,33 @@ export const VistaUsuario = () => {
 										<hr className="invisible half-margins" />
 										{/* COMMENT */}
 										<ul className="comment list-unstyled padding-10">
-											<li className="comment">
+											<li className="comment comment-reply">
 												{/* avatar */}
 												<img
 													id="avatar1"
 													className="avatar"
-													src="https:////bootdey.com/img/Content/avatar/avatar1.png"
-													width={10}
-													height={10}
+													src="https://bootdey.com/img/Content/avatar/avatar6.png"
+													width={35}
+													height={35}
 													alt="avatar"
 												/>
 												{/* comment body */}
 												<div className="comment-body">
 													<a href="#" className="comment-author">
-														<small className="text-muted pull-right">
-															{" "}
-															12 Minutes ago{" "}
-														</small>
-														<span>Melisa Doe</span>
+														<small className="text-muted pull-right"> a moment ago </small>
+														<span>Simona Doe</span>
 													</a>
 													<p>
 														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-														diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam
-														tincidunt erat volutpat laoreet dolore magna aliquam tincidunt
-														erat volutpat.
+														diam nonummy! <i className="fa fa-smile-o green" />
 													</p>
 												</div>
 												{/* /comment body */}
 												{/* options */}
-												<ul className="list-inline size-11 margin-top-10">
-													<li>
-														<a href="#" className="text-info">
-															<i className="fa fa-reply" /> Reply
-														</a>
-													</li>
+												<ul className="list-inline size-11">
 													<li>
 														<a href="#" className="text-success">
 															<i className="fa fa-thumbs-up" /> Like
-														</a>
-													</li>
-													<li>
-														<a href="#" className="text-muted">
-															Show All Comments (36)
 														</a>
 													</li>
 													<li className="pull-right">
@@ -211,6 +196,7 @@ export const VistaUsuario = () => {
 														</a>
 													</li>
 												</ul>
+												{/* /options */}
 											</li>
 											{/* /options */}
 											<li className="comment comment-reply">
@@ -301,40 +287,30 @@ export const VistaUsuario = () => {
 										{/* /COMMENT */}
 										{/* COMMENT */}
 										<ul className="comment list-unstyled padding-10">
-											<li className="comment">
+											<li className="comment comment-reply">
 												{/* avatar */}
 												<img
 													id="avatar4"
 													className="avatar"
-													src="https://bootdey.com/img/Content/avatar/avatar4.png"
-													width={50}
-													height={50}
+													src="https://bootdey.com/img/Content/avatar/avatar6.png"
+													width={35}
+													height={35}
 													alt="avatar"
 												/>
 												{/* comment body */}
 												<div className="comment-body">
 													<a href="#" className="comment-author">
-														<small className="text-muted pull-right">
-															{" "}
-															12 Minutes ago{" "}
-														</small>
-														<span>Melisa Doe</span>
+														<small className="text-muted pull-right"> a moment ago </small>
+														<span>Simona Doe</span>
 													</a>
 													<p>
 														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-														diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam
-														tincidunt erat volutpat laoreet dolore magna aliquam tincidunt
-														erat volutpat.
+														diam nonummy! <i className="fa fa-smile-o green" />
 													</p>
 												</div>
 												{/* /comment body */}
 												{/* options */}
-												<ul className="list-inline size-11 margin-top-10">
-													<li>
-														<a href="#" className="text-info">
-															<i className="fa fa-reply" /> Reply
-														</a>
-													</li>
+												<ul className="list-inline size-11">
 													<li>
 														<a href="#" className="text-success">
 															<i className="fa fa-thumbs-up" /> Like
@@ -351,6 +327,7 @@ export const VistaUsuario = () => {
 														</a>
 													</li>
 												</ul>
+												{/* /options */}
 											</li>
 											{/* /options */}
 											<li className="comment comment-reply">
