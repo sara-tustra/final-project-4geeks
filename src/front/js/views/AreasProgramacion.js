@@ -82,7 +82,7 @@ export const AreasProgramacion = () => {
 				</div>
 				<div className="col-md-6 how-img">
 					<img
-						src="http://techambits.com/wp-content/uploads/2018/06/consultoria-seguridad-informatica.png"
+						src="https://emitelinformatica.es/wp-content/uploads/2018/05/featured-image.png"
 						className="img-fluid"
 						alt
 					/>
