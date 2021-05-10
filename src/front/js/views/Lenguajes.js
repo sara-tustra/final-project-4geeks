@@ -6,11 +6,7 @@ export const Lenguajes = () => {
 		<div className="how-section1">
 			<div className="row align-items-center">
 				<div className="col-md-6 how-img">
-					<img
-						src="http://1000marcas.net/wp-content/uploads/2020/11/JavaScript-logo-600x375.png"
-						className="img-fluid"
-						alt
-					/>
+					<img src="https://oddbytes.net/wp-content/uploads/2018/01/Js-logo.png" className="img-fluid" alt />
 				</div>
 				<div className="col-md-6">
 					<h4>Javascript</h4>
