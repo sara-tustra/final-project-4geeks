@@ -132,9 +132,9 @@ export const Home = () => {
 								</p>
 							</div>
 							<div className="card-footer">
-								<a className="btn btn-primary" href="#!">
+								<Link className="btn btn-primary" to="/AreasProgramacion">
 									Find Out More!
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>

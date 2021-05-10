@@ -17,6 +17,7 @@ import { Foros } from "./views/foros";
 import { VistaUsuario } from "./views/VistaUsuario";
 import { Lenguajes } from "./views/Lenguajes";
 import Carusel from "./component/Carusel";
+import { AreasProgramacion } from "./views/AreasProgramacion";
 
 //create your first component
 const Layout = () => {
@@ -61,6 +62,10 @@ const Layout = () => {
 
 						<Route exact path="/Lenguajes">
 							<Lenguajes />
+						</Route>
+
+						<Route exact path="/AreasProgramacion">
+							<AreasProgramacion />
 						</Route>
 
 						<Route>
