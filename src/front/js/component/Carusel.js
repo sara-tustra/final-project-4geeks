@@ -13,8 +13,8 @@ const Carusel = () => {
 								<div className="row align-items-center">
 									<div className="col-md-7 col-12 order-md-1 order-2">
 										<h4>
-											Present your <br />
-											awesome product
+											Vivir en un <br />
+											mundo de codigos
 										</h4>
 										<p>
 											Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum{" "}
