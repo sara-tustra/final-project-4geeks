@@ -11,7 +11,7 @@ export const Academias = () => {
 				<div className="col-md-6 how-img">
 					<img
 						src="https://logodownload.org/wp-content/uploads/2019/07/udemy-logo.png"
-						className="img-fluid"
+						className="img-fluid-1"
 						alt
 					/>
 				</div>
@@ -43,7 +43,7 @@ export const Academias = () => {
 				<div className="col-md-6 how-img">
 					<img
 						src="https://uploads.convertflow.co/production/websites/9849/BKYwTKvR4OZ2SVrCVFDQ_DuFZYY1R46iYynKboQAw_4G_LOGO_WHITE.png"
-						className="img-fluid"
+						className="img-fluid-1"
 						alt
 					/>
 				</div>
@@ -52,7 +52,7 @@ export const Academias = () => {
 				<div className="col-md-6 how-img">
 					<img
 						src="http://blog.desafiolatam.com/wp-content/uploads/2015/03/desafio-latam-logonegro.png"
-						className="img-fluid"
+						className="img-fluid-1"
 						alt
 					/>
 				</div>
@@ -84,7 +84,7 @@ export const Academias = () => {
 				<div className="col-md-6 how-img">
 					<img
 						src="https://codigofacilito.com/assets/logo-cbf2a784ebee5d642aa7b8182df3e388d4feba0a23577eed1d2747fa05861f73.png"
-						className="img-fluid"
+						className="img-fluid-1"
 						alt
 					/>
 				</div>
