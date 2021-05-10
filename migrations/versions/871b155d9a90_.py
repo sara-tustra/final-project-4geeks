@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 5d01a957b0f1
+Revision ID: 871b155d9a90
 Revises: 
-Create Date: 2021-05-06 12:37:50.638197
+Create Date: 2021-05-07 16:19:41.271315
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '5d01a957b0f1'
+revision = '871b155d9a90'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,6 +28,8 @@ def upgrade():
     )
     op.create_table('perfiles',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('nombre', sa.String(length=200), nullable=False),
+    sa.Column('apellido', sa.String(length=200), nullable=True),
     sa.Column('bio', sa.String(length=600), nullable=True),
     sa.Column('linkedin', sa.String(length=150), nullable=True),
     sa.Column('genero', sa.String(length=600), nullable=True),
@@ -84,14 +86,18 @@ def upgrade():
     sa.Column('comentario_fecha', sa.String(length=20), nullable=False),
     sa.Column('comentario_contenido', sa.String(length=900), nullable=False),
     sa.Column('foros_id', sa.Integer(), nullable=False),
+    sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['foros_id'], ['foros.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('post_comentarios',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('comentario_fecha', sa.String(length=20), nullable=False),
     sa.Column('comentario_contenido', sa.String(length=900), nullable=False),
+    sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.Column('posts_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['posts_id'], ['posts.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
