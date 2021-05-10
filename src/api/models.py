@@ -17,7 +17,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
-            # do not serialize the password, its a security breach
+            "perfil": self.perfil.serialize()
         }
 
     def save(self):
@@ -32,23 +32,27 @@ class User(db.Model):
         db.session.commit()
 
     
+
 class Perfil(db.Model):
     __tablename__ = 'perfiles'
     id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(200), nullable=False)
+    apellido = db.Column(db.String(200))
     bio = db.Column(db.String(600), default="")
     linkedin = db.Column(db.String(150), default="")
     genero = db.Column(db.String(600), default="")
     github = db.Column(db.String(600), default="")
     users_id = db.Column(db.Integer, db.ForeignKey(
         'users.id', ondelete='CASCADE'), nullable=False)
-    posts = db.relationship('Post', cascade='all, delete', backref='perfil')
-    foros = db.relationship('Foro', cascade='all, delete', backref='perfil')
     plantillas_codigo = db.relationship('Plantilla_Codigo', cascade='all, delete', backref='perfil')
     comandos_terminal = db.relationship('Comando_Terminal', cascade='all, delete', backref='perfil')
+    foros = db.relationship('Foro', cascade='all, delete', backref='perfil')
+    posts = db.relationship('Post', cascade='all, delete', backref='perfil')
     post_likes = db.relationship('Post_Like', cascade='all, delete', backref='perfil')
+    post_comentarios = db.relationship('Post_Comentario', cascade='all, delete', backref='perfil')
+    foro_comentarios = db.relationship('Foro_Comentario', cascade='all, delete', backref='perfil')
     lenguajes = db.relationship('Lenguaje', cascade='all, delete', backref='perfil')
-    post_likes = db.relationship('Post_Like', cascade='all, delete', backref='perfil')
-    # contactos = db.relationship('Perfil', secondary='contactos')
+    # contactos = db.relationship('Contacto', secondary='contactos')
     
     def save(self):
         db.session.add(self)
@@ -63,13 +67,24 @@ class Perfil(db.Model):
 
     def serialize(self):
         return {
-            "id": self.id,
+            "nombre": self.nombre,
+            "apellido": self.apellido,
             "bio": self.bio,
             "linkedin": self.linkedin,
             "genero": self.genero,
             "github": self.github
         }
+    
+    def serialize_profile_with_posts(self):
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "apellido": self.apellido,
+            "posts": self.get_posts()
+        }
 
+    def get_posts(self):
+        return list(map(lambda post: post.serialize(), self.posts))
 
 class Post(db.Model):
     __tablename__ ='posts'
@@ -110,7 +125,6 @@ class Post_Like(db.Model):
         return {
             "posts_id": self.posts_id,
             "perfil_id": self.perfiles_id
-            # do not serialize the password, its a security breach
         }
 
     def save(self):
@@ -130,6 +144,7 @@ class Post_Comentario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     comentario_fecha = db.Column(db.String(20), nullable=False)
     comentario_contenido = db.Column(db.String(900), nullable=False)
+    perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
     posts_id = db.Column(db.Integer, db.ForeignKey('posts.id', ondelete='CASCADE'), nullable=False)
 
     def save(self):
@@ -182,12 +197,14 @@ class Foro(db.Model):
             "foro_fecha": self.foro_fecha
         }
 
+
 class Foro_Comentario(db.Model):
     __tablename__= 'foro_comentarios'
     id = db.Column(db.Integer, primary_key=True)
     comentario_fecha = db.Column(db.String(20), nullable=False)
     comentario_contenido = db.Column(db.String(900), nullable=False)
     foros_id = db.Column(db.Integer, db.ForeignKey('foros.id', ondelete='CASCADE'), nullable=False)
+    perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
 
     def save(self):
         db.session.add(self)
