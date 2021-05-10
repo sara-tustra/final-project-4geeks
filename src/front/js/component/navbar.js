@@ -42,41 +42,40 @@ export const Navbar = () => {
 								<Link to="/iniciar-sesion">Login</Link>
 							</a>
 						</li>
-					</ul>
-					<div className="dropdown">
-						<a
-							className="btn btn-secondary dropdown-toggle"
-							href="#"
-							role="button"
-							id="dropdownMenuLink"
-							data-bs-toggle="dropdown"
-							aria-expanded="false">
-							Dropdown link
-						</a>
-						<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<li>
-								<a className="dropdown-item " href="#!">
-									<Link to="/home">Home</Link>
-								</a>
-							</li>
-							<li>
-								<a className="dropdown-item" href="#">
-									Another action
-								</a>
-							</li>
-							<li>
+
+						<li className="nav-item dropdown">
+							<a
+								className="nav-link dropdown-toggle"
+								href="#"
+								id="navbarDropdown"
+								role="button"
+								data-toggle="dropdown"
+								aria-haspopup="true"
+								aria-expanded="false">
+								More
+							</a>
+							<div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<Link className="dropdown-item" to="/foros">
+									Foro
+								</Link>
+
+								<Link className="dropdown-item" to="/preguntas">
+									Preguntas frecuentes
+								</Link>
+
+								<div className="dropdown-divider" />
 								<a className="dropdown-item" href="#">
 									Something else here
 								</a>
-							</li>
-						</ul>
-					</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</nav>
-		/*  <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		/*  <form className="form-inline my-2 my-lg-0">
+          <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form> */
 
 		/* <nav className="navbar navbar-expand-lg navbar-light bg-light mb-3">

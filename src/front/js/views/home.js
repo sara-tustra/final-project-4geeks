@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
-import Carusel from "../component/Carusel";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -83,16 +83,16 @@ export const Home = () => {
 								alt="..."
 							/>
 							<div className="card-body">
-								<h4 className="card-title">Academias</h4>
+								<h4 className="card-title ">Academias</h4>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
 									necessitatibus neque sequi doloribus.
 								</p>
 							</div>
 							<div className="card-footer">
-								<a className="btn btn-primary" href="#!">
+								<Link className="btn btn-primary" to="/academias">
 									Find Out More!
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>
