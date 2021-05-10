@@ -179,23 +179,7 @@ export const VistaUsuario = () => {
 												</div>
 												{/* /comment body */}
 												{/* options */}
-												<ul className="list-inline size-11">
-													<li>
-														<a href="#" className="text-success">
-															<i className="fa fa-thumbs-up" /> Like
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-danger">
-															Delete
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-primary">
-															Edit
-														</a>
-													</li>
-												</ul>
+												<ul className="list-inline size-11" />
 												{/* /options */}
 											</li>
 											{/* /options */}
@@ -228,16 +212,6 @@ export const VistaUsuario = () => {
 															<i className="fa fa-thumbs-up" /> Like
 														</a>
 													</li>
-													<li className="pull-right">
-														<a href="#" className="text-danger">
-															Delete
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-primary">
-															Edit
-														</a>
-													</li>
 												</ul>
 												{/* /options */}
 											</li>
@@ -268,16 +242,6 @@ export const VistaUsuario = () => {
 													<li>
 														<a href="#" className="text-success">
 															<i className="fa fa-thumbs-up" /> Like
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-danger">
-															Delete
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-primary">
-															Edit
 														</a>
 													</li>
 												</ul>
@@ -316,104 +280,10 @@ export const VistaUsuario = () => {
 															<i className="fa fa-thumbs-up" /> Like
 														</a>
 													</li>
-													<li className="pull-right">
-														<a href="#" className="text-danger">
-															Delete
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-primary">
-															Edit
-														</a>
-													</li>
 												</ul>
 												{/* /options */}
 											</li>
 											{/* /options */}
-											<li className="comment comment-reply">
-												{/* avatar */}
-												<img
-													id="avatar5"
-													className="avatar"
-													src="https://bootdey.com/img/Content/avatar/avatar5.png"
-													width={35}
-													height={35}
-													alt="avatar"
-												/>
-												{/* comment body */}
-												<div className="comment-body">
-													<a href="#" className="comment-author">
-														<small className="text-muted pull-right"> 4 Minutes ago </small>
-														<span>Ioana Doe</span>
-													</a>
-													<p>
-														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-														diam nonummy! <i className="fa fa-smile-o green" />
-													</p>
-												</div>
-												{/* /comment body */}
-												{/* options */}
-												<ul className="list-inline size-11">
-													<li>
-														<a href="#" className="text-success">
-															<i className="fa fa-thumbs-up" /> Like
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-danger">
-															Delete
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-primary">
-															Edit
-														</a>
-													</li>
-												</ul>
-												{/* /options */}
-											</li>
-											<li className="comment comment-reply">
-												{/* avatar */}
-												<img
-													id="avatar6"
-													className="avatar"
-													src="https://bootdey.com/img/Content/avatar/avatar6.png"
-													width={35}
-													height={35}
-													alt="avatar"
-												/>
-												{/* comment body */}
-												<div className="comment-body">
-													<a href="#" className="comment-author">
-														<small className="text-muted pull-right"> a moment ago </small>
-														<span>Simona Doe</span>
-													</a>
-													<p>
-														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-														diam nonummy! <i className="fa fa-smile-o green" />
-													</p>
-												</div>
-												{/* /comment body */}
-												{/* options */}
-												<ul className="list-inline size-11">
-													<li>
-														<a href="#" className="text-success">
-															<i className="fa fa-thumbs-up" /> Like
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-danger">
-															Delete
-														</a>
-													</li>
-													<li className="pull-right">
-														<a href="#" className="text-primary">
-															Edit
-														</a>
-													</li>
-												</ul>
-												{/* /options */}
-											</li>
 											<li>
 												<div className="input-group">
 													<input

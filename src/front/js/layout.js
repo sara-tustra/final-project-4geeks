@@ -53,6 +53,10 @@ const Layout = () => {
 						<Route exact path="/carusel">
 							<Carusel />
 						</Route>
+
+						<Route exact path="/home">
+							<Home />
+						</Route>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
