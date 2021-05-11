@@ -1,523 +1,397 @@
 import React from "react";
 import "../../styles/lenguajes.scss";
 
-export const PerfilUsiario = () => {
+/* import React, { useState } from "react";
+import { useLocalStorage } from '../components/useLocalStorage'
+
+import "../css/PerfilUser.css";
+import { Link } from "react-router-dom";
+import IMG_1020 from "../assets/IMG_1020.JPG";
+Expandir
+message.txt
+17 KB
+﻿
+import React, { useState } from "react";
+import { useLocalStorage } from '../components/useLocalStorage'
+
+import "../css/PerfilUser.css";
+import { Link } from "react-router-dom";
+import IMG_1020 from "../assets/IMG_1020.JPG";
+import Sidebar from "../components/Sidebar"; */
+
+function PerfilUsuario(props) {
+	/* HOOK PERSONALIZADO guarda texto en Local STORAGE se usa aplicandoselo a un value */
+	/* const [text, setText] = useLocalStorage("text", ""); */
+
+	/* const [name, setName] = useState(""); */
+
 	return (
 		<>
-			<title>Bootstrap Example</title>
-			<meta charSet="utf-8" />
-			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-			<hr />
-			<div className="container bootstrap snippet">
+			<div className="container-fluid">
 				<div className="row">
-					<div className="col-sm-10">
-						<h1>User name</h1>
-					</div>
-					<div className="col-sm-2">
-						<a href="/users" className="pull-right">
-							<img
-								title="profile image"
-								className="img-circle img-responsive"
-								src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"
-							/>
-						</a>
+					<div className="col-md-3 col-xl-2 px-0" />
+
+					{/*  FOTO Y DATOS DE PERFIL */}
+					<div className="col-12 col-md-9 mt-5 px-5">
+						<div className="row gutters-sm">
+							<div className="col-12 my-2 col-lg-5 col-xl-4">
+								<div className="card bg-transparent card-perfil">
+									<div className="card-body perfil">
+										<div className="d-flex flex-column align-items-center text-center">
+											<img src="/" alt="Admin" className="rounded-circle" width={150} />
+											<div className="mt-3 text-white">
+												<h4>Pedro Perez</h4>
+												{/* <hr /> */}
+												<p className="text-white mb-1">Nacionalidad: Chileno</p>
+												<hr />
+												<p className="text-white mb-1">Teléfono Móvil: +569 xxxx xxxx</p>
+												<hr />
+												<p className="text-white mb-1">Direccion: Silvina Hurtado 1516</p>
+												<hr />
+												<p className="text-white mb-1">País de Residencia: Chile</p>
+												{/*  <br></br> */}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							{/* INPUTS DE ACTUALIZACION */}
+							<div className="col-12 my-2 col-lg-7 col-xl-8">
+								<div className="card bg-transparent">
+									<div className="card-body">
+										<div className="row">
+											<div className="inputbox col-12 mt-2">
+												{/* <label className="text-dark">Nombre y Apellido:</label> */}
+												{/* valores deben guardarse en un state */}
+												<input
+													/* onChange={e => setText(e.target.value)} */
+													/* value={text} */
+													placeholder="Nombre y Apellido"
+													type="text"
+													/* ATRIBUTOS TIENEN QUE IR CONECTADOS CON BACKEND  */
+													name=""
+													className="form-control"
+													required="required"
+												/>
+												{/* modificar input disabled con use state */}
+											</div>
+										</div>
+										<div className="row">
+											<div className="inputbox col-12 mt-2">
+												{/* <label className="text-dark">Email:</label> */}
+												<input
+													placeholder="Email"
+													type="text"
+													/* en name request.json.get // en backend */
+													name="email"
+													className="form-control"
+													required="required"
+												/>
+											</div>
+										</div>
+										<div className="row">
+											<div className="inputbox col-12 mt-2">
+												{/* <label className="text-dark">Teléfono Móvil:</label> */}
+												<input
+													placeholder="Teléfono Móvil"
+													type="text"
+													name=""
+													className="form-control"
+													required="required"
+												/>
+											</div>
+										</div>
+										<div className="row">
+											<div className="inputbox col-12 mt-2">
+												{/* <label className="text-dark">Dirección:</label> */}
+												<input
+													placeholder="Dirección"
+													type="text"
+													name="direccion"
+													className="form-control"
+													required="required"
+												/>
+											</div>
+										</div>
+
+										{/* CONTRASEÑA se modifica con el BACKEND */}
+										<div className="row">
+											<div className="inputbox col-12 mt-2">
+												{/* <label className="text-dark">Contraseña:</label> */}
+												<input
+													placeholder="Nueva Contraseña"
+													type="password"
+													name=""
+													className="form-control"
+													required="required"
+												/>
+											</div>
+										</div>
+										<div className="row">
+											<div className="inputbox col-12 mt-2">
+												{/* <label className="text-dark">Repetir Contraseña:</label> */}
+												<input
+													placeholder="Confirma Contraseña"
+													type="password"
+													name=""
+													className="form-control"
+													required="required"
+												/>
+											</div>
+										</div>
+										<div className="row">
+											<button className="btn btn-primary mt-2">Actualizar</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							{/* CARDS CON BARRAS */}
+							<div className="col-12 my-2 col-md-6 col-lg-4">
+								<div className="card h-100 bg-transparent">
+									<ul className="list-group list-group-flush">
+										<li className="list-group-item d-flex justify-content-between align-items-center flex-wrap" />
+										<li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+											<h6 className="mb-0 ">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													width={24}
+													height={24}
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													strokeWidth={2}
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													className="feather feather-github mr-2 icon-inline">
+													<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+												</svg>
+												Github
+											</h6>
+											<span className="text-secondary">bootdey</span>
+										</li>
+										<li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+											<h6 className="mb-0">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													width={24}
+													height={24}
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													strokeWidth={2}
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													className="feather feather-twitter mr-2 icon-inline text-info">
+													<path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+												</svg>
+												Twitter
+											</h6>
+											<span className="text-secondary">@bootdey</span>
+										</li>
+										<li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+											<h6 className="mb-0">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													width={24}
+													height={24}
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													strokeWidth={2}
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													className="feather feather-instagram mr-2 icon-inline text-danger">
+													<rect x={2} y={2} width={20} height={20} rx={5} ry={5} />
+													<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+													<line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+												</svg>
+												Instagram
+											</h6>
+											<span className="text-secondary">bootdey</span>
+										</li>
+										<li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+											<h6 className="mb-0">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													width={24}
+													height={24}
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													strokeWidth={2}
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													className="feather feather-facebook mr-2 icon-inline text-primary">
+													<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+												</svg>
+												Facebook
+											</h6>
+											<span className="text-secondary">bootdey</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div className="col-12 my-2 col-md-6 col-lg-4">
+								<div className="card h-100 bg-transparent">
+									<div className="card-body">
+										<h6 className="d-flex align-items-center mb-3">
+											<i className="material-icons text-info mr-2">Actividades</i>
+										</h6>
+										<small className="text-white">Diarias</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "80%" }}
+												aria-valuenow={80}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+										<small className="text-white">Mensual</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "72%" }}
+												aria-valuenow={72}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+										<small className="text-white">Anual</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "89%" }}
+												aria-valuenow={89}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+										<small className="text-white">Dispositivo Movil</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "55%" }}
+												aria-valuenow={55}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+										<small className="text-white">Página web</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "66%" }}
+												aria-valuenow={66}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div className="col-12 my-2 col-md-6 col-lg-4">
+								<div className="card h-100 bg-transparent">
+									<div className="card-body">
+										<h6 className="d-flex align-items-center mb-3">
+											<i className="material-icons text-info mr-2">Países de Destino</i>
+										</h6>
+										<small className="text-white">Chile</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "80%" }}
+												aria-valuenow={80}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+										<small className="text-white">Colombia</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "72%" }}
+												aria-valuenow={72}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+										<small className="text-white">Estados Unidos</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "89%" }}
+												aria-valuenow={89}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+										<small className="text-white">Perú</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "55%" }}
+												aria-valuenow={55}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+										<small className="text-white">Venezuela</small>
+										<div className="progress mb-3" style={{ height: 5 }}>
+											<div
+												className="progress-bar bg-primary"
+												role="progressbar"
+												style={{ width: "66%" }}
+												aria-valuenow={66}
+												aria-valuemin={0}
+												aria-valuemax={100}
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							{/* CARDS DE ABAJO */}
+							<div className="col-12 my-2 col-md-6">
+								<div className="card bg-transparent">
+									<div className="card-body">
+										<h5 className="card-title text-white">Revisa</h5>
+										<p className="card-text text-white">
+											Accede a tu historial de transacciones aquí
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div className="col-12 my-2 col-md-6">
+								<div className="card bg-transparent">
+									<div className="card-body">
+										<h5 className="card-title text-white">Realiza tu transacción</h5>
+										<p className="card-text text-white">
+											Dirígite a realizar tu operación, haciendo
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div className="row">
-					<div className="col-sm-3">
-						{/*left col*/}
-						<div className="text-center">
-							<img
-								src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
-								className="avatar img-circle img-thumbnail"
-								alt="avatar"
-							/>
-							<h6>Upload a different photo...</h6>
-							<input type="file" className="text-center center-block file-upload" />
-						</div>
-						<br />
-						<div className="panel panel-default">
-							<div className="panel-heading">
-								Website <i className="fa fa-link fa-1x" />
-							</div>
-							<div className="panel-body">
-								<a href="http://bootnipets.com">bootnipets.com</a>
-							</div>
-						</div>
-						<ul className="list-group">
-							<li className="list-group-item text-muted">
-								Activity <i className="fa fa-dashboard fa-1x" />
-							</li>
-							<li className="list-group-item text-right">
-								<span className="pull-left">
-									<strong>Shares</strong>
-								</span>{" "}
-								125
-							</li>
-							<li className="list-group-item text-right">
-								<span className="pull-left">
-									<strong>Likes</strong>
-								</span>{" "}
-								13
-							</li>
-							<li className="list-group-item text-right">
-								<span className="pull-left">
-									<strong>Posts</strong>
-								</span>{" "}
-								37
-							</li>
-							<li className="list-group-item text-right">
-								<span className="pull-left">
-									<strong>Followers</strong>
-								</span>{" "}
-								78
-							</li>
-						</ul>
-						<div className="panel panel-default">
-							<div className="panel-heading">Social Media</div>
-							<div className="panel-body">
-								<i className="fa fa-facebook fa-2x" /> <i className="fa fa-github fa-2x" />{" "}
-								<i className="fa fa-twitter fa-2x" /> <i className="fa fa-pinterest fa-2x" />{" "}
-								<i className="fa fa-google-plus fa-2x" />
-							</div>
-						</div>
-					</div>
-					{/*/col-3*/}
-					<div className="col-sm-9">
-						<ul className="nav nav-tabs">
-							<li className="active">
-								<a data-toggle="tab" href="#home">
-									Home
-								</a>
-							</li>
-							<li>
-								<a data-toggle="tab" href="#messages">
-									Menu 1
-								</a>
-							</li>
-							<li>
-								<a data-toggle="tab" href="#settings">
-									Menu 2
-								</a>
-							</li>
-						</ul>
-						<div className="tab-content">
-							<div className="tab-pane active" id="home">
-								<hr />
-								<form className="form" action="##" method="post" id="registrationForm">
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="first_name">
-												<h4>First name</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="first_name"
-												id="first_name"
-												placeholder="first name"
-												title="enter your first name if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="last_name">
-												<h4>Last name</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="last_name"
-												id="last_name"
-												placeholder="last name"
-												title="enter your last name if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="phone">
-												<h4>Phone</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="phone"
-												id="phone"
-												placeholder="enter phone"
-												title="enter your phone number if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="mobile">
-												<h4>Mobile</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="mobile"
-												id="mobile"
-												placeholder="enter mobile number"
-												title="enter your mobile number if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="email">
-												<h4>Email</h4>
-											</label>
-											<input
-												type="email"
-												className="form-control"
-												name="email"
-												id="email"
-												placeholder="you@email.com"
-												title="enter your email."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="email">
-												<h4>Location</h4>
-											</label>
-											<input
-												type="email"
-												className="form-control"
-												id="location"
-												placeholder="somewhere"
-												title="enter a location"
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="password">
-												<h4>Password</h4>
-											</label>
-											<input
-												type="password"
-												className="form-control"
-												name="password"
-												id="password"
-												placeholder="password"
-												title="enter your password."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="password2">
-												<h4>Verify</h4>
-											</label>
-											<input
-												type="password"
-												className="form-control"
-												name="password2"
-												id="password2"
-												placeholder="password2"
-												title="enter your password2."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-12">
-											<br />
-											<button className="btn btn-lg btn-success" type="submit">
-												<i className="glyphicon glyphicon-ok-sign" /> Save
-											</button>
-											<button className="btn btn-lg" type="reset">
-												<i className="glyphicon glyphicon-repeat" /> Reset
-											</button>
-										</div>
-									</div>
-								</form>
-								<hr />
-							</div>
-							{/*/tab-pane*/}
-							<div className="tab-pane" id="messages">
-								<h2 />
-								<hr />
-								<form className="form" action="##" method="post" id="registrationForm">
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="first_name">
-												<h4>First name</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="first_name"
-												id="first_name"
-												placeholder="first name"
-												title="enter your first name if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="last_name">
-												<h4>Last name</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="last_name"
-												id="last_name"
-												placeholder="last name"
-												title="enter your last name if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="phone">
-												<h4>Phone</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="phone"
-												id="phone"
-												placeholder="enter phone"
-												title="enter your phone number if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="mobile">
-												<h4>Mobile</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="mobile"
-												id="mobile"
-												placeholder="enter mobile number"
-												title="enter your mobile number if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="email">
-												<h4>Email</h4>
-											</label>
-											<input
-												type="email"
-												className="form-control"
-												name="email"
-												id="email"
-												placeholder="you@email.com"
-												title="enter your email."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="email">
-												<h4>Location</h4>
-											</label>
-											<input
-												type="email"
-												className="form-control"
-												id="location"
-												placeholder="somewhere"
-												title="enter a location"
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="password">
-												<h4>Password</h4>
-											</label>
-											<input
-												type="password"
-												className="form-control"
-												name="password"
-												id="password"
-												placeholder="password"
-												title="enter your password."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="password2">
-												<h4>Verify</h4>
-											</label>
-											<input
-												type="password"
-												className="form-control"
-												name="password2"
-												id="password2"
-												placeholder="password2"
-												title="enter your password2."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-12">
-											<br />
-											<button className="btn btn-lg btn-success" type="submit">
-												<i className="glyphicon glyphicon-ok-sign" /> Save
-											</button>
-											<button className="btn btn-lg" type="reset">
-												<i className="glyphicon glyphicon-repeat" /> Reset
-											</button>
-										</div>
-									</div>
-								</form>
-							</div>
-							{/*/tab-pane*/}
-							<div className="tab-pane" id="settings">
-								<hr />
-								<form className="form" action="##" method="post" id="registrationForm">
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="first_name">
-												<h4>First name</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="first_name"
-												id="first_name"
-												placeholder="first name"
-												title="enter your first name if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="last_name">
-												<h4>Last name</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="last_name"
-												id="last_name"
-												placeholder="last name"
-												title="enter your last name if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="phone">
-												<h4>Phone</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="phone"
-												id="phone"
-												placeholder="enter phone"
-												title="enter your phone number if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="mobile">
-												<h4>Mobile</h4>
-											</label>
-											<input
-												type="text"
-												className="form-control"
-												name="mobile"
-												id="mobile"
-												placeholder="enter mobile number"
-												title="enter your mobile number if any."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="email">
-												<h4>Email</h4>
-											</label>
-											<input
-												type="email"
-												className="form-control"
-												name="email"
-												id="email"
-												placeholder="you@email.com"
-												title="enter your email."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="email">
-												<h4>Location</h4>
-											</label>
-											<input
-												type="email"
-												className="form-control"
-												id="location"
-												placeholder="somewhere"
-												title="enter a location"
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="password">
-												<h4>Password</h4>
-											</label>
-											<input
-												type="password"
-												className="form-control"
-												name="password"
-												id="password"
-												placeholder="password"
-												title="enter your password."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-6">
-											<label htmlFor="password2">
-												<h4>Verify</h4>
-											</label>
-											<input
-												type="password"
-												className="form-control"
-												name="password2"
-												id="password2"
-												placeholder="password2"
-												title="enter your password2."
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-xs-12">
-											<br />
-											<button className="btn btn-lg btn-success pull-right" type="submit">
-												<i className="glyphicon glyphicon-ok-sign" /> Save
-											</button>
-											{/*<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>*/}
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						{/*/tab-pane*/}
-					</div>
-					{/*/tab-content*/}
-				</div>
-				{/*/col-9*/}
 			</div>
-			{/*/row*/}
 		</>
 	);
-};
+}
+
+export default PerfilUsuario;

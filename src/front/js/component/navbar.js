@@ -4,8 +4,8 @@ import "../../styles/navbar.scss";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div className="container-fluid">
+		<nav className="navbar navbar-expand-lg ">
+			<div className="container-fluid navbar-dark bg-dark fixed-top mt-0">
 				<p className="nav-link" id="a-1" href="#!">
 					<Link to="/home">CodeGram</Link>
 				</p>
