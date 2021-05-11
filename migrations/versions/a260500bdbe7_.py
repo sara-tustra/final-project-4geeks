@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 871b155d9a90
+Revision ID: a260500bdbe7
 Revises: 
-Create Date: 2021-05-07 16:19:41.271315
+Create Date: 2021-05-10 16:20:51.019015
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '871b155d9a90'
+revision = 'a260500bdbe7'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -42,16 +42,23 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('comando_nombre', sa.String(length=500), nullable=False),
     sa.Column('comando_contenido', sa.String(length=900), nullable=False),
-    sa.Column('comando_fecha', sa.String(length=20), nullable=False),
+    sa.Column('comando_fecha', sa.String(length=100), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('contactos',
+    sa.Column('user_origen_id', sa.Integer(), nullable=False),
+    sa.Column('user_destino_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['user_destino_id'], ['perfiles.id'], ),
+    sa.ForeignKeyConstraint(['user_origen_id'], ['perfiles.id'], ),
+    sa.PrimaryKeyConstraint('user_origen_id', 'user_destino_id')
     )
     op.create_table('foros',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('foro_nombre', sa.String(length=500), nullable=False),
     sa.Column('foro_contenido', sa.String(length=900), nullable=False),
-    sa.Column('foro_fecha', sa.String(length=20), nullable=False),
+    sa.Column('foro_fecha', sa.String(length=100), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
@@ -68,7 +75,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('plantilla_nombre', sa.String(length=500), nullable=False),
     sa.Column('plantilla_contenido', sa.String(length=900), nullable=False),
-    sa.Column('plantilla_fecha', sa.String(length=20), nullable=False),
+    sa.Column('plantilla_fecha', sa.String(length=100), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
@@ -76,14 +83,14 @@ def upgrade():
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('post_contenido', sa.String(length=900), nullable=False),
-    sa.Column('post_fecha', sa.String(length=20), nullable=False),
+    sa.Column('post_fecha', sa.String(length=100), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('foro_comentarios',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('comentario_fecha', sa.String(length=20), nullable=False),
+    sa.Column('comentario_fecha', sa.String(length=100), nullable=False),
     sa.Column('comentario_contenido', sa.String(length=900), nullable=False),
     sa.Column('foros_id', sa.Integer(), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
@@ -93,7 +100,7 @@ def upgrade():
     )
     op.create_table('post_comentarios',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('comentario_fecha', sa.String(length=20), nullable=False),
+    sa.Column('comentario_fecha', sa.String(length=100), nullable=False),
     sa.Column('comentario_contenido', sa.String(length=900), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.Column('posts_id', sa.Integer(), nullable=False),
@@ -121,6 +128,7 @@ def downgrade():
     op.drop_table('plantillas_codigo')
     op.drop_table('lenguajes')
     op.drop_table('foros')
+    op.drop_table('contactos')
     op.drop_table('comandos_terminal')
     op.drop_table('perfiles')
     op.drop_table('users')

@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 
+
 db = SQLAlchemy()
 
 class User(db.Model):
@@ -16,8 +17,14 @@ class User(db.Model):
     def serialize(self):
         return {
             "id": self.id,
+            "email": self.email
+        }
+
+    def serialize_with_profile(self):
+        return {
+            "id": self.id,
             "email": self.email,
-            "perfil": self.perfil.serialize()
+            "perfil": self.perfil.serialize_profile_with_posts()
         }
 
     def save(self):
@@ -52,7 +59,8 @@ class Perfil(db.Model):
     post_comentarios = db.relationship('Post_Comentario', cascade='all, delete', backref='perfil')
     foro_comentarios = db.relationship('Foro_Comentario', cascade='all, delete', backref='perfil')
     lenguajes = db.relationship('Lenguaje', cascade='all, delete', backref='perfil')
-    # contactos = db.relationship('Contacto', secondary='contactos')
+    #contactos = db.relationship('Contacto', secondary='contactos', foreign_keys='[Contacto.user_a_id]')
+
     
     def save(self):
         db.session.add(self)
@@ -80,11 +88,26 @@ class Perfil(db.Model):
             "id": self.id,
             "nombre": self.nombre,
             "apellido": self.apellido,
+            "bio": self.bio,
+            "linkedin": self.linkedin,
+            "genero": self.genero,
+            "github": self.github,
             "posts": self.get_posts()
         }
 
     def get_posts(self):
         return list(map(lambda post: post.serialize(), self.posts))
+
+
+
+class Contacto(db.Model):
+    __tablename__ ='contactos'
+    user_origen_id = db.Column(db.Integer, db.ForeignKey('perfiles.id'), primary_key=True)
+    user_destino_id = db.Column(db.Integer, db.ForeignKey('perfiles.id'), primary_key=True)
+
+    user_origen = db.relationship("Perfil", foreign_keys=[user_origen_id])
+    user_destino = db.relationship("Perfil", foreign_keys=[user_destino_id])
+    
 
 class Post(db.Model):
     __tablename__ ='posts'
@@ -111,8 +134,18 @@ class Post(db.Model):
         return{
             "id": self.id,
             "post_contenido": self.post_contenido,
-            "post_fecha": self.post_fecha
+            "post_fecha": self.post_fecha,
+            "post_likes": self.get_post_likes(),
+            "post_comentarios": self.get_post_comentarios(),
+            "perfiles_id": self.perfiles_id
         }
+
+    def get_post_likes(self):
+        return len(self.post_likes)
+
+    def get_post_comentarios(self):
+        return list(map(lambda post_comentario: post_comentario.serialize(), self.post_comentarios))
+
 
 class Post_Like(db.Model):
     __tablename__ ='post_likes'
@@ -160,10 +193,11 @@ class Post_Comentario(db.Model):
     
     def serialize(self):
         return{
-            "id": self.id,
+            "comentario_id": self.id,
             "comentario_fecha": self.comentario_fecha,
             "comentario_contenido": self.comentario_contenido,
-            "post_id": self.posts_id
+            "post_id": self.posts_id,
+            "perfiles_id": self.perfiles_id
         }
 
 
@@ -194,8 +228,14 @@ class Foro(db.Model):
             "id": self.id,
             "foro_nombre": self.foro_nombre,
             "foro_contenido": self.foro_contenido,
-            "foro_fecha": self.foro_fecha
+            "foro_fecha": self.foro_fecha,
+            "perfiles_id": self.perfiles_id,
+            "foro_comentarios": self.get_foro_comentarios()
         }
+        
+    def get_foro_comentarios(self):
+        return list(map(lambda foro_comentario: foro_comentario.serialize(), self.foro_comentarios))
+
 
 
 class Foro_Comentario(db.Model):
@@ -219,11 +259,14 @@ class Foro_Comentario(db.Model):
     
     def serialize(self):
         return{
-            "id": self.id,
-            "comentario_fecha": self.comentario_fecha,
-            "comentario_contenido": self.comentario_contenido,
-            "foro_id": self.foros_id
+            "foro_comentario_id": self.id,
+            "foro_comentario_fecha": self.comentario_fecha,
+            "foro_comentario_contenido": self.comentario_contenido,
+            "foro_id": self.foros_id,
+            "perfiles_id": self.perfiles_id
         }
+    
+
 
 
 class Plantilla_Codigo(db.Model):
@@ -312,10 +355,3 @@ class Lenguaje(db.Model):
         db.session.commit()
 
 
-'''
-class Contacto(db.Model):
-    __tablename__ ='contactos'
-    user_a_id = db.Column(db.Integer, db.ForeignKey('perfiles.id'), primary_key=True)
-    user_b_id = db.Column(db.Integer, db.ForeignKey('perfiles.id'), primary_key=True)
-
-'''
