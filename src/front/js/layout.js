@@ -18,7 +18,7 @@ import { VistaUsuario } from "./views/VistaUsuario";
 import { Lenguajes } from "./views/Lenguajes";
 import Carusel from "./component/Carusel";
 import { AreasProgramacion } from "./views/AreasProgramacion";
-import { PerfilUsuario } from "./views/PerfilUsuario";
+import PerfilUsuario from "./views/PerfilUsuario";
 
 //create your first component
 const Layout = () => {
