@@ -1,6 +1,6 @@
 import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/home.scss";
+import "../../styles/foros.scss";
 
 export const Foros = () => {
 	const { store, actions } = useContext(Context);
@@ -13,7 +13,7 @@ export const Foros = () => {
 			</p>
 			<div className="card2 card" style={{ width: "18rem" }}>
 				<div className="card-body">
-					<h5 className="card-title">Foros Populares</h5>
+					<h5 className="card-title btn-dark">Foros Populares</h5>
 					<p className="card-text">1 Bootcamps de programación</p>
 					<p className="card-text">2 Framewoks más buscados por empresas</p>
 					<p className="card-text">3 Terminé mi bootcamp: ahora qué?</p>
@@ -42,11 +42,13 @@ export const Foros = () => {
 			<div className="container-fluid text-center">
 				<div className="card w-75 m-auto">
 					<div className="card-body">
-						<p>
-							Posted by <strong>Jon Snow</strong> 8hrs ago
-						</p>
-						<h5 className="card-title fab fa-python">Las mejores librerias de Python</h5>
-						<br />
+						<div className="xtz">
+							<p>
+								Posted by <strong>Jon Snow</strong> 8hrs ago
+							</p>
+							<h5 className="card-title fab fa-python">Las mejores librerias de Python</h5>
+							<br />
+						</div>
 						<a href="#" className="btn btn-secundary">
 							Python
 						</a>
@@ -62,21 +64,23 @@ export const Foros = () => {
 							imperdiet, posuere et leo. Donec euismod felis laoreet.
 						</p>
 						<div className="container-fluid">
-							<div className="primera mx-5 d-inline-block">
-								<span className="fas fa-comment-alt" />
-								<span>Comentario </span>
-							</div>
-							<div className="segunda mx-5 d-inline-block">
-								<span className="fas fa-share" />
-								<span>Compartir </span>
-							</div>
-							<div className="tercera mx-5 d-inline-block">
-								<span className="fas fa-download" />
-								<span>Descargar </span>
-							</div>
-							<div className="cuarta mx-5 d-inline-block">
-								<span className="fas fa-flag" />
-								<span>Reportar </span>
+							<div className="xtz">
+								<div className="primera mx-5 d-inline-block">
+									<span className="fas fa-comment-alt" />
+									<span>Comentario </span>
+								</div>
+								<div className="segunda mx-5 d-inline-block">
+									<span className="fas fa-share" />
+									<span>Compartir </span>
+								</div>
+								<div className="tercera mx-5 d-inline-block">
+									<span className="fas fa-download" />
+									<span>Descargar </span>
+								</div>
+								<div className="cuarta mx-5 d-inline-block">
+									<span className="fas fa-flag" />
+									<span>Reportar </span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -84,10 +88,12 @@ export const Foros = () => {
 				<br />
 				<div className="card w-75 m-auto">
 					<div className="card-body">
-						<p>
-							Posted by <strong>Jon Snow</strong> 8hrs ago
-						</p>
-						<h5 className="card-title fab fa-python">Las mejores librerias de Python</h5>
+						<div className="xtz">
+							<p>
+								Posted by <strong>Jon Snow</strong> 8hrs ago
+							</p>
+							<h5 className="card-title fab fa-python">Las mejores librerias de Python</h5>
+						</div>
 						<br />
 						<a href="#" className="btn btn-secundary">
 							Python
@@ -104,21 +110,23 @@ export const Foros = () => {
 							imperdiet, posuere et leo. Donec euismod felis laoreet.
 						</p>
 						<div className="container-fluid">
-							<div className="primera mx-5 d-inline-block">
-								<span className="fas fa-comment-alt" />
-								<span>Comentario </span>
-							</div>
-							<div className="segunda mx-5 d-inline-block">
-								<span className="fas fa-share" />
-								<span>Compartir </span>
-							</div>
-							<div className="tercera mx-5 d-inline-block">
-								<span className="fas fa-download" />
-								<span>Descargar </span>
-							</div>
-							<div className="cuarta mx-5 d-inline-block">
-								<span className="fas fa-flag" />
-								<span>Reportar </span>
+							<div className="xtz">
+								<div className="primera mx-5 d-inline-block">
+									<span className="fas fa-comment-alt" />
+									<span>Comentario </span>
+								</div>
+								<div className="segunda mx-5 d-inline-block">
+									<span className="fas fa-share" />
+									<span>Compartir </span>
+								</div>
+								<div className="tercera mx-5 d-inline-block">
+									<span className="fas fa-download" />
+									<span>Descargar </span>
+								</div>
+								<div className="cuarta mx-5 d-inline-block">
+									<span className="fas fa-flag" />
+									<span>Reportar </span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -126,10 +134,12 @@ export const Foros = () => {
 				<br />
 				<div className="card w-75 m-auto">
 					<div className="card-body">
-						<p>
-							Posted by <strong>Jon Snow</strong> 8hrs ago
-						</p>
-						<h5 className="card-title fab fa-python">Las mejores librerias de Python</h5>
+						<div className="xtz">
+							<p>
+								Posted by <strong>Jon Snow</strong> 8hrs ago
+							</p>
+							<h5 className="card-title fab fa-python">Las mejores librerias de Python</h5>
+						</div>
 						<br />
 						<a href="#" className="btn btn-secundary">
 							Python
@@ -146,21 +156,23 @@ export const Foros = () => {
 							imperdiet, posuere et leo. Donec euismod felis laoreet.
 						</p>
 						<div className="container-fluid">
-							<div className="primera mx-5 d-inline-block">
-								<span className="fas fa-comment-alt" />
-								<span>Comentario </span>
-							</div>
-							<div className="segunda mx-5 d-inline-block">
-								<span className="fas fa-share" />
-								<span>Compartir </span>
-							</div>
-							<div className="tercera mx-5 d-inline-block">
-								<span className="fas fa-download" />
-								<span>Descargar </span>
-							</div>
-							<div className="cuarta mx-5 d-inline-block">
-								<span className="fas fa-flag" />
-								<span>Reportar </span>
+							<div className="xtz">
+								<div className="primera mx-5 d-inline-block">
+									<span className="fas fa-comment-alt" />
+									<span>Comentario </span>
+								</div>
+								<div className="segunda mx-5 d-inline-block">
+									<span className="fas fa-share" />
+									<span>Compartir </span>
+								</div>
+								<div className="tercera mx-5 d-inline-block">
+									<span className="fas fa-download" />
+									<span>Descargar </span>
+								</div>
+								<div className="cuarta mx-5 d-inline-block">
+									<span className="fas fa-flag" />
+									<span>Reportar </span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -168,10 +180,12 @@ export const Foros = () => {
 				<br />
 				<div className="card w-75 m-auto">
 					<div className="card-body">
-						<p>
-							Posted by <strong>Jon Snow</strong> 8hrs ago
-						</p>
-						<h5 className="card-title fab fa-python">Las mejores librerias de Python</h5>
+						<div className="xtz">
+							<p>
+								Posted by <strong>Jon Snow</strong> 8hrs ago
+							</p>
+							<h5 className="card-title fab fa-python">Las mejores librerias de Python</h5>
+						</div>
 						<br />
 						<a href="#" className="btn btn-secundary">
 							Python
@@ -188,21 +202,23 @@ export const Foros = () => {
 							imperdiet, posuere et leo. Donec euismod felis laoreet.
 						</p>
 						<div className="container-fluid">
-							<div className="primera mx-5 d-inline-block">
-								<span className="fas fa-comment-alt" />
-								<span>Comentario </span>
-							</div>
-							<div className="segunda mx-5 d-inline-block">
-								<span className="fas fa-share" />
-								<span>Compartir </span>
-							</div>
-							<div className="tercera mx-5 d-inline-block">
-								<span className="fas fa-download" />
-								<span>Descargar </span>
-							</div>
-							<div className="cuarta mx-5 d-inline-block">
-								<span className="fas fa-flag" />
-								<span>Reportar </span>
+							<div className="xtz">
+								<div className="primera mx-5 d-inline-block">
+									<span className="fas fa-comment-alt" />
+									<span>Comentario </span>
+								</div>
+								<div className="segunda mx-5 d-inline-block">
+									<span className="fas fa-share" />
+									<span>Compartir </span>
+								</div>
+								<div className="tercera mx-5 d-inline-block">
+									<span className="fas fa-download" />
+									<span>Descargar </span>
+								</div>
+								<div className="cuarta mx-5 d-inline-block">
+									<span className="fas fa-flag" />
+									<span>Reportar </span>
+								</div>
 							</div>
 						</div>
 					</div>
