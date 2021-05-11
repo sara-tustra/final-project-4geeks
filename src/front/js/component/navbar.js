@@ -62,11 +62,6 @@ export const Navbar = () => {
 								<Link className="dropdown-item" to="/preguntas">
 									Preguntas frecuentes
 								</Link>
-
-								<div className="dropdown-divider" />
-								<a className="dropdown-item" href="#">
-									Something else here
-								</a>
 							</div>
 						</li>
 					</ul>
