@@ -9,7 +9,7 @@ export const Foros = () => {
 		<div className="text-center mt-5">
 			<h1>Foro</h1>
 			<p>
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReDE-PNnYZeMMR2-a30E7a4t_p6S3tf1Yq6w&usqp=CAU" />
+				<img src="https://www.tecnologicahn.com/img/Desarrollodesoftware2.png" />
 			</p>
 			<div className="card2 card" style={{ width: "18rem" }}>
 				<div className="card-body">
