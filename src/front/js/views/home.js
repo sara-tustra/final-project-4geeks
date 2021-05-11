@@ -79,7 +79,7 @@ export const Home = () => {
 						<div className="card h-100">
 							<img
 								className="card-img-top"
-								src="https://lh3.googleusercontent.com/proxy/udHPgAqNfI6d9-RFU9fKCS3PspfeGqBjTQAaWQI2xLXqT_Wr-zwWR_JMOr1MgkINEVLhHRQmlhPuLFEATjeM0ikujGxDRWK38tnklXgqwO0c75RyKlQWXRled0rV"
+								src="https://i1.wp.com/www.itwarelatam.com/wp-content/uploads/2014/03/ESET_Elearning2.jpg?fit=300%2C200&ssl=1"
 								alt="..."
 							/>
 							<div className="card-body">
@@ -100,7 +100,7 @@ export const Home = () => {
 						<div className="card h-100">
 							<img
 								className="card-img-top"
-								src="https://fiverr-res.cloudinary.com/t_mobile_web_2,q_auto,f_auto/gigs/199819090/original/32ffe6bb427a31f83bcd94f944acdf91d0a20f1b.jpg"
+								src="https://www.visionnaire.com.br/es/dbimages/visionnaire-7-linguagens-de-programacao_14054_mini.jpg"
 								alt="..."
 							/>
 							<div className="card-body">
@@ -111,9 +111,9 @@ export const Home = () => {
 								</p>
 							</div>
 							<div className="card-footer">
-								<a className="btn btn-primary" href="#!">
+								<Link className="btn btn-primary" to="/lenguajes">
 									Find Out More!
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -132,9 +132,9 @@ export const Home = () => {
 								</p>
 							</div>
 							<div className="card-footer">
-								<a className="btn btn-primary" href="#!">
+								<Link className="btn btn-primary" to="/AreasProgramacion">
 									Find Out More!
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>
