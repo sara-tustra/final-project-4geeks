@@ -3,7 +3,7 @@
 }
 .fa-user:before {
   content: "\f007";
-  font-size: 35px;
+  font-size: 23px;
 }
 
 body {
@@ -41,7 +41,7 @@ body {
   background-color: #f5f5f5;
 }
 .panel-title {
-  font-weight: 400;
+  font-weight: 200;
   color: black;
 }
 
@@ -178,4 +178,7 @@ body {
     rgba(247, 248, 240, 0.025) 50%,
     rgba(250, 245, 252, 0.08)
   );
+}
+.figuras {
+  font-size: 30px;
 }

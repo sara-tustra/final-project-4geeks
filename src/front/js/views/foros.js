@@ -177,15 +177,16 @@ export const Foros = () => {
 					</div>
 				</form>
 			</div>
-
-			<span>Filtra por lenguaje </span>
-			<span className="far fa-gem" />
-			<span className="fab fa-js" />
-			<span className="fab fa-python" />
-			<span className="fab fa-java" />
-			<span className="fab fa-php" />
-			<span className="fab fa-html5" />
-			<span className="fab fa-css3-alt" />
+			<div className="figuras">
+				<span>Filtra por lenguaje </span>
+				<span className="far fa-gem" />
+				<span className="fab fa-js" />
+				<span className="fab fa-python" />
+				<span className="fab fa-java" />
+				<span className="fab fa-php" />
+				<span className="fab fa-html5" />
+				<span className="fab fa-css3-alt" />
+			</div>
 			<br />
 			<div className="container-fluid text-center">
 				<div className="card w-75 m-auto">
