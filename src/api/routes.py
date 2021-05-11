@@ -1,9 +1,11 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+from datetime import datetime
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Perfil, Post, Post_Like, Post_Comentario, Foro, Foro_Comentario, Plantilla_Codigo,Comando_Terminal, Lenguaje
 from api.utils import generate_sitemap, APIException
+
 
 api = Blueprint('api', __name__)
 
@@ -30,51 +32,29 @@ def prueba():
 
 
 @api.route('/users', methods=['GET'])
-@api.route('/users/<int:id>', methods=['GET', 'DELETE']) # OK
+@api.route('/users/<int:id>', methods=['GET', 'DELETE', 'PUT']) # OK
 def users(id=None):
     if request.method == 'GET':
         if id is not None:
             user = User.query.get(id)    
             if not user:
-                return jsonify({"fail": "User not found"}), 404
+                return jsonify({"fail": "Usuario no encontrado"}), 404
             return jsonify({
-                "success": "User found",
-                "user": user.serialize()
+                "success": "Usuario encontrado",
+                "user": user.serialize_with_profile()
             }), 200
         else:
             users = User.query.all()
-            users = list(map(lambda user: user.serialize(), users))
+            users = list(map(lambda user: user.serialize_with_profile(), users))
             return jsonify({
                 "total": len(users),
                 "results": users
             }), 200
-    if request.method == 'DELETE':
-        user = User.query.get(id)
-        if not user: 
-            return jsonify({"fail": "user not found"}), 404
-        user.delete()
-        return jsonify({"success": "user deleted"}), 200
-
-
-@api.route('/users/<int:id>/profile', methods=['GET', 'PUT', 'DELETE']) # OK menos PUT
-def perfil(id=None):
-    if request.method == 'GET':
-        if id is not None:
-            user = User.query.get(id)    
-            if not user:
-                return jsonify({"fail": "User not found"}), 404
-            return jsonify({
-                "success": "User found",
-                "user": user.serialize(),
-                "perfil": user.perfil.serialize()
-            }), 200
-        else:
-            return jsonify({"fail": "please indicate user"}), 404
-
+    
     if request.method == 'PUT':
         perfil = Perfil.query.get(id)
         if not perfil:
-            return jsonify({"fail": "User not found"}), 404
+            return jsonify({"fail": "Usuario no encontrado"}), 404
         else:
             nombre = request.json.get('nombre')
             apellido = request.json.get('apellido', '')
@@ -84,26 +64,27 @@ def perfil(id=None):
             github = request.json.get('github', '')
 
 
-            perfil.nombre = nombre
-            perfil.apellido = apellido
-            perfil.bio = bio
-            perfil.linkedin = linkedin
-            perfil.genero = genero
-            perfil.github = github
+            perfil.nombre = nombre if nombre else perfil.nombre
+            perfil.apellido = apellido if apellido else perfil.apellido
+            perfil.bio = bio if bio else perfil.apellido
+            perfil.linkedin = linkedin if linkedin else perfil.linkedin
+            perfil.genero = genero if genero else perfil.genero
+            perfil.github = github if github else perfil.github
 
             perfil.update()
         
         return jsonify({
-            'success': 'perfil actualizado',
+            'success': 'Perfil actualizado',
             'perfil': perfil.serialize()
             }), 200
-        
+
     if request.method == 'DELETE':
         user = User.query.get(id)
         if not user: 
-            return jsonify({"fail": "user not found"}), 404
+            return jsonify({"fail": "Usuario no encontrado"}), 404
         user.delete()
-        return jsonify({"success": "user deleted"}), 200
+        return jsonify({"success": "Usuario borrado"}), 200
+
 
 
 @api.route('/register', methods=['POST']) #OK
@@ -164,8 +145,9 @@ def posts(id=None):
             }), 200
 
     if request.method =='POST':
+        date = datetime.now()
         post_contenido = request.json.get('post_contenido')
-        post_fecha = request.json.get('post_fecha')
+        post_fecha = str(date)
         perfiles_id = request.json.get('perfiles_id')
 
         post = Post()
@@ -175,9 +157,7 @@ def posts(id=None):
         post.save()
 
         return jsonify(post.serialize()), 201
-
-    if request.method == 'PUT':
-        pass
+        
     if request.method == 'DELETE':
         post = Post.query.get(id)
         if not post: 
@@ -185,19 +165,163 @@ def posts(id=None):
         post.delete()
         return jsonify({"success": "post deleted"}), 200
 
-
-
-@api.route('/users/<int:id>/posts', methods=['GET']) #OK
-def posts_usuario(id=None):
-    if request.method == 'GET':
-        perfil = Perfil.query.get(id)
-        if id is not None:
-            if not perfil:
-               return jsonify({"fail": "Usuario no encontrado"}), 404
-            
+## OJO, SEPARAR RUTAS PARA QUE USUARIO QUE CREÓ EL COMENTARIO PUEDA HACER MODIFICACIONES O BORRAR
+@api.route('/post_comments', methods=['GET', 'POST', 'DELETE'])
+@api.route('/post_comments/<int:comment_id>', methods=['GET', 'PUT', 'DELETE'])
+def post_comentario(comment_id=None):
+    if request.method =='GET':
+        comentario = Post_Comentario.query.get(comment_id)
+        if comment_id is not None:
+            if not comentario:
+                return jsonify({"fail": "Comentario no encontrado"}), 404
             return jsonify({
-               "success": "user found",
-               "perfil": perfil.serialize_profile_with_posts()
+                "success": "Comentario encontrado",
+                "comentario": comentario.serialize()
+            })
+        else:
+            comentarios = Post_Comentario.query.all()
+            comentarios = list(map(lambda comentario: comentario.serialize(), comentarios))
+            return jsonify({
+                "total": len(comentarios),
+                "results": comentarios
+            }), 200
+         
+
+    if request.method =='POST':
+        date = datetime.now()
+        comentario_fecha = str(date)
+        comentario_contenido=request.json.get('comentario_contenido')
+        perfiles_id = request.json.get('perfiles_id')
+        posts_id = request.json.get('posts_id')
+
+        post_comentario = Post_Comentario()
+        post_comentario.comentario_fecha = comentario_fecha
+        post_comentario.comentario_contenido = comentario_contenido
+        post_comentario.perfiles_id = perfiles_id
+        post_comentario.posts_id = posts_id
+        post_comentario.save()
+        return jsonify({
+            "success": "Comentario enviado",
+            "post_comentarios": post_comentario.serialize()
+        }), 201
+
+    if request.method == 'DELETE':
+        post_comentario = Post_Comentario.query.get(id)
+        if not post_comentario: 
+            return jsonify({"fail": "Comentario no encontrado"}), 404
+        post_comentario.delete()
+        return jsonify({"success": "Comentario eliminado"}), 200
+
+
+@api.route('/post_likes', methods=['POST', 'DELETE'])
+@api.route('/post_likes/<int:post_likes_id>', methods=['DELETE'])
+def post_like(post_likes_id=None):
+    if request.method =='POST':
+        posts_id = request.json.get('posts_id')
+        perfiles_id = request.json.get('perfiles_id')
+
+        post_like = Post_Like()
+        post_like.perfiles_id = perfiles_id
+        post_like.posts_id = posts_id
+        post_like.save()
+        return jsonify({
+            "success": "Diste like!",
+            "post_like": post_like.serialize()
+        }), 201
+
+    if request.method == 'DELETE':
+        post_like = Post_Like.query.get(id)
+        if not post_like: 
+            return jsonify({"fail": "Like no encontrado"}), 404
+        post_like.delete()
+        return jsonify({"success": "Like eliminado"}), 200
+
+
+@api.route('/foros', methods=['GET', 'POST']) #OK
+@api.route('/foros/<int:id>', methods=['GET', 'DELETE']) #OK
+def foros(id=None):
+    if request.method == 'GET':
+        if id is not None:
+            foro = Foro.query.get(id)    
+            if not foro:
+                return jsonify({"fail": "Foro no encontrado"}), 404
+            return jsonify({
+                "success": "Foro encontrado",
+                "foro": foro.serialize()
+            }), 200
+        else:
+            foros = Foro.query.all()
+            foros = list(map(lambda foro: foro.serialize(), foros))
+            return jsonify({
+                "total": len(foros),
+                "results": foros
             }), 200
 
+    if request.method =='POST':
+        date = datetime.now()
+        foro_nombre = request.json.get('foro_nombre')
+        foro_contenido = request.json.get('foro_contenido')
+        foro_fecha = str(date)
+        perfiles_id = request.json.get('perfiles_id')
 
+        foro = Foro()
+        foro.foro_nombre = foro_nombre
+        foro.foro_contenido = foro_contenido
+        foro.foro_fecha = foro_fecha
+        foro.perfiles_id = perfiles_id
+        foro.save()
+
+        return jsonify(foro.serialize()), 201
+        
+    if request.method == 'DELETE':
+        foro = Foro.query.get(id)
+        if not foro: 
+            return jsonify({"fail": "foro no encontrado"}), 404
+        post.delete()
+        return jsonify({"success": "foro eliminado"}), 200
+
+
+@api.route('/foro_comments', methods=['GET', 'POST', 'DELETE'])
+@api.route('/foro_comments/<int:comment_id>', methods=['GET', 'PUT', 'DELETE'])
+def foro_comentario(comment_id=None):
+    if request.method =='GET':
+        foro_comentario = Foro_Comentario.query.get(comment_id)
+        if comment_id is not None:
+            if not foro_comentario:
+                return jsonify({"fail": "Comentario no encontrado"}), 404
+            return jsonify({
+                "success": "Comentario encontrado",
+                "comentario": foro_comentario.serialize()
+            })
+        else:
+            foro_comentarios = Foro_Comentario.query.all()
+            foro_comentarios = list(map(lambda foro_comentario: foro_comentario.serialize(), foro_comentarios))
+            return jsonify({
+                "total": len(foro_comentarios),
+                "results": foro_comentarios
+            }), 200
+    
+    if request.method =='POST':
+        date = datetime.now()
+        foro_comentario_fecha = str(date)
+        foro_comentario_contenido=request.json.get('foro_comentario_contenido')
+        perfiles_id = request.json.get('perfiles_id')
+        foros_id = request.json.get('foros_id')
+
+        foro_comentario = Foro_Comentario()
+        foro_comentario.comentario_fecha = foro_comentario_fecha
+        foro_comentario.comentario_contenido = foro_comentario_contenido
+        foro_comentario.perfiles_id = perfiles_id
+        foro_comentario.foros_id = foros_id
+        foro_comentario.save()
+        return jsonify({
+            "success": "Comentario de foro enviado",
+            "foro_comentario": foro_comentario.serialize()
+        }), 201
+
+    if request.method == 'DELETE':
+        foro_comentario = Foro_Comentario.query.get(id)
+        if not foro_comentario: 
+            return jsonify({"fail": "Comentario de foro no encontrado"}), 404
+        foro_comentario.delete()
+        return jsonify({"success": "Comentario de foro eliminado"}), 200
