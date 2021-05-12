@@ -38,7 +38,7 @@ function PerfilUsuario(props) {
 								<div className="card bg-transparent card-perfil">
 									<div className="card-body perfil">
 										<div className="d-flex flex-column align-items-center text-center">
-											<img src="/" alt="Admin" className="rounded-circle" width={150} />
+											<img src="/" alt="" className="rounded-circle" width={150} />
 											<div className="mt-3 text-white">
 												<h4>Pedro Perez</h4>
 												{/* <hr /> */}
