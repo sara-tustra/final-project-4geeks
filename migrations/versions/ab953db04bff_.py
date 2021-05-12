@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: a260500bdbe7
+Revision ID: ab953db04bff
 Revises: 
-Create Date: 2021-05-10 16:20:51.019015
+Create Date: 2021-05-11 15:29:41.435324
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'a260500bdbe7'
+revision = 'ab953db04bff'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -42,7 +42,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('comando_nombre', sa.String(length=500), nullable=False),
     sa.Column('comando_contenido', sa.String(length=900), nullable=False),
-    sa.Column('comando_fecha', sa.String(length=100), nullable=False),
+    sa.Column('comando_fecha', sa.String(length=20), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
@@ -58,10 +58,12 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('foro_nombre', sa.String(length=500), nullable=False),
     sa.Column('foro_contenido', sa.String(length=900), nullable=False),
-    sa.Column('foro_fecha', sa.String(length=100), nullable=False),
+    sa.Column('foro_fecha', sa.String(length=20), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('foro_contenido'),
+    sa.UniqueConstraint('foro_nombre')
     )
     op.create_table('lenguajes',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -69,13 +71,14 @@ def upgrade():
     sa.Column('lenguaje_descripcion', sa.String(length=900), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('lenguaje_nombre')
     )
     op.create_table('plantillas_codigo',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('plantilla_nombre', sa.String(length=500), nullable=False),
     sa.Column('plantilla_contenido', sa.String(length=900), nullable=False),
-    sa.Column('plantilla_fecha', sa.String(length=100), nullable=False),
+    sa.Column('plantilla_fecha', sa.String(length=20), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
@@ -83,30 +86,33 @@ def upgrade():
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('post_contenido', sa.String(length=900), nullable=False),
-    sa.Column('post_fecha', sa.String(length=100), nullable=False),
+    sa.Column('post_fecha', sa.String(length=20), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('post_contenido')
     )
     op.create_table('foro_comentarios',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('comentario_fecha', sa.String(length=100), nullable=False),
+    sa.Column('comentario_fecha', sa.String(length=20), nullable=False),
     sa.Column('comentario_contenido', sa.String(length=900), nullable=False),
     sa.Column('foros_id', sa.Integer(), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['foros_id'], ['foros.id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('comentario_contenido')
     )
     op.create_table('post_comentarios',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('comentario_fecha', sa.String(length=100), nullable=False),
+    sa.Column('comentario_fecha', sa.String(length=20), nullable=False),
     sa.Column('comentario_contenido', sa.String(length=900), nullable=False),
     sa.Column('perfiles_id', sa.Integer(), nullable=False),
     sa.Column('posts_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['posts_id'], ['posts.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('comentario_contenido')
     )
     op.create_table('post_likes',
     sa.Column('id', sa.Integer(), nullable=False),

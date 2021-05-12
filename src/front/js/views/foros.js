@@ -16,6 +16,7 @@ export const Foros = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-md-4">
+							<h5 className="card-title btn-dark">Foros Populares</h5>
 							{/* begin panel group */}
 							<div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 								{/* panel 1 */}
@@ -36,7 +37,7 @@ export const Foros = () => {
 											href="#collapseOne"
 											aria-expanded="true"
 											aria-controls="collapseOne">
-											<h4 className="panel-title">She Sells Seashells</h4>
+											<h4 className="panel-title">1 Bootcamps de programacións</h4>
 										</div>
 									</span>
 									<div
@@ -73,7 +74,9 @@ export const Foros = () => {
 											href="#collapseTwo"
 											aria-expanded="false"
 											aria-controls="collapseTwo">
-											<h4 className="panel-title collapsed">TAB 2</h4>
+											<h4 className="panel-title collapsed">
+												2 Framewoks más buscados por empresas
+											</h4>
 										</div>
 									</span>
 									<div
@@ -106,7 +109,7 @@ export const Foros = () => {
 											href="#collapseThree"
 											aria-expanded="false"
 											aria-controls="collapseThree">
-											<h4 className="panel-title">TAB 3 </h4>
+											<h4 className="panel-title">3 Terminé mi bootcamp: ahora qué?</h4>
 										</div>
 									</span>
 									<div
@@ -164,19 +167,6 @@ export const Foros = () => {
 				</div>{" "}
 				{/* end sidetab container */}
 			</>
-
-			<h1>Foro</h1>
-			<p>
-				<img className="zty" src="https://www.tecnologicahn.com/img/Desarrollodesoftware2.png" />
-			</p>
-			<div className="card2 card" style={{ width: "18rem" }}>
-				<div className="card-body">
-					<h5 className="card-title btn-dark">Foros Populares</h5>
-					<p className="card-text">1 Bootcamps de programación</p>
-					<p className="card-text">2 Framewoks más buscados por empresas</p>
-					<p className="card-text">3 Terminé mi bootcamp: ahora qué?</p>
-				</div>
-			</div>
 			<div className="container-fluid text-center">
 				<form>
 					<div className="row">
@@ -187,15 +177,16 @@ export const Foros = () => {
 					</div>
 				</form>
 			</div>
-
-			<span>Filtra por lenguaje </span>
-			<span className="far fa-gem" />
-			<span className="fab fa-js" />
-			<span className="fab fa-python" />
-			<span className="fab fa-java" />
-			<span className="fab fa-php" />
-			<span className="fab fa-html5" />
-			<span className="fab fa-css3-alt" />
+			<div className="figuras">
+				<span>Filtra por lenguaje </span>
+				<span className="far fa-gem" />
+				<span className="fab fa-js" />
+				<span className="fab fa-python" />
+				<span className="fab fa-java" />
+				<span className="fab fa-php" />
+				<span className="fab fa-html5" />
+				<span className="fab fa-css3-alt" />
+			</div>
 			<br />
 			<div className="container-fluid text-center">
 				<div className="card w-75 m-auto">

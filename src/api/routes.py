@@ -30,7 +30,7 @@ def prueba():
 
 
 
-
+# AGREGAR FOROS AL SERIALIZE DE USUARIO
 @api.route('/users', methods=['GET'])
 @api.route('/users/<int:id>', methods=['GET', 'DELETE', 'PUT']) # OK
 def users(id=None):
@@ -325,3 +325,161 @@ def foro_comentario(comment_id=None):
             return jsonify({"fail": "Comentario de foro no encontrado"}), 404
         foro_comentario.delete()
         return jsonify({"success": "Comentario de foro eliminado"}), 200
+
+
+
+
+
+@api.route('/plantilla_codigo', methods=['GET', 'POST', 'DELETE'])
+@api.route('/plantilla_codigo/<int:plantilla_id>', methods=['GET', 'PUT', 'DELETE'])
+def plantilla_de_codigo(plantilla_id=None):
+    if request.method =='GET':
+        plantilla_codigo = Plantilla_Codigo.query.get(plantilla_id)
+        if plantilla_id is not None:
+            if not plantilla_codigo:
+                return jsonify({"fail": "Plantilla no encontrada"}), 404
+            return jsonify({
+                "success": "Plantilla encontrada",
+                "plantilla_codigo": plantilla_codigo.serialize()
+            })
+        else:
+            plantillas_codigo = Plantilla_Codigo.query.all()
+            plantillas_codigo = list(map(lambda plantilla_codigo: plantilla_codigo.serialize(), plantillas_codigo))
+            return jsonify({
+                "total": len(plantillas_codigo),
+                "results": plantillas_codigo
+            }), 200
+    
+    if request.method =='POST':
+        date = datetime.now()
+        plantilla_fecha = str(date)
+        plantilla_nombre=request.json.get('plantilla_nombre')
+        plantilla_contenido = request.json.get('plantilla_contenido')
+        perfiles_id = request.json.get('perfiles_id')
+
+        plantilla_codigo = Plantilla_Codigo()
+        plantilla_codigo.plantilla_fecha = plantilla_fecha
+        plantilla_codigo.plantilla_contenido = plantilla_contenido
+        plantilla_codigo.plantilla_nombre = plantilla_nombre
+        plantilla_codigo.perfiles_id = perfiles_id
+        plantilla_codigo.save()
+        return jsonify({
+            "success": "Plantilla guardada",
+            "plantilla_codigo": plantilla_codigo.serialize()
+        }), 201
+
+    if request.method == 'DELETE':
+        plantilla_codigo = Plantilla_Codigo.query.get(id)
+        if not plantilla_codigo: 
+            return jsonify({"fail": "Plantilla no encontrada"}), 404
+        plantilla_codigo.delete()
+        return jsonify({"success": "Plantilla eliminada"}), 200
+
+
+@api.route('/comandos_terminal', methods=['GET', 'POST', 'DELETE'])
+@api.route('/comandos_terminal/<int:comando_id>', methods=['GET', 'PUT', 'DELETE'])
+def comandos_de_terminal(comando_id=None):
+    if request.method =='GET':
+        comando_terminal = Comando_Terminal.query.get(comando_id)
+        if comando_id is not None:
+            if not comando_terminal:
+                return jsonify({"fail": "Comando no encontrado"}), 404
+            return jsonify({
+                "success": "Comando encontrado",
+                "comando_terminal": comando_terminal.serialize()
+            })
+        else:
+            comandos_terminal = Comando_Terminal.query.all()
+            comandos_terminal = list(map(lambda comando_terminal: comando_terminal.serialize(), comandos_terminal))
+            return jsonify({
+                "total": len(comandos_terminal),
+                "results": comandos_terminal
+            }), 200
+    
+    if request.method =='POST':
+        date = datetime.now()
+        comando_fecha = str(date)
+        comando_nombre=request.json.get('comando_nombre')
+        comando_contenido = request.json.get('comando_contenido')
+        perfiles_id = request.json.get('perfiles_id')
+
+        comando_terminal = Comando_Terminal()
+        comando_terminal.comando_fecha = comando_fecha
+        comando_terminal.comando_contenido = comando_contenido
+        comando_terminal.comando_nombre = comando_nombre
+        comando_terminal.perfiles_id = perfiles_id
+        comando_terminal.save()
+        return jsonify({
+            "success": "Comando guardado",
+            "comando_terminal": comando_terminal.serialize()
+        }), 201
+
+    if request.method == 'DELETE':
+        comando_terminal = Comando_Terminal.query.get(id)
+        if not comando_terminal: 
+            return jsonify({"fail": "Comando no encontrado"}), 404
+        comando_terminal.delete()
+        return jsonify({"success": "Comando eliminado"}), 200          
+
+
+
+
+@api.route('/lenguajes', methods=['GET', 'POST', 'DELETE'])
+@api.route('/lenguajes/<int:lenguaje_id>', methods=['GET', 'PUT', 'DELETE'])
+def lenguajes(lenguaje_id=None):
+    if request.method =='GET':
+        lenguaje = Lenguaje.query.get(lenguaje_id)
+        if lenguaje_id is not None:
+            if not lenguaje:
+                return jsonify({"fail": "Lenguaje no encontrado"}), 404
+            return jsonify({
+                "success": "Lenguaje encontrado",
+                "lenguaje": lenguaje.serialize()
+            })
+        else:
+            lenguajes = Lenguaje.query.all()
+            lenguajes = list(map(lambda lenguaje: lenguaje.serialize(), lenguajes))
+            return jsonify({
+                "total": len(lenguajes),
+                "results": lenguajes
+            }), 200
+    
+    if request.method =='POST':
+      
+        lenguaje_nombre=request.json.get('lenguaje_nombre')
+        lenguaje_descripcion = request.json.get('lenguaje_descripcion')
+        perfiles_id = request.json.get('perfiles_id')
+
+        lenguaje = Lenguaje()
+        lenguaje.lenguaje_descripcion = lenguaje_descripcion
+        lenguaje.lenguaje_nombre = lenguaje_nombre
+        lenguaje.perfiles_id = perfiles_id
+        lenguaje.save()
+        return jsonify({
+            "success": "Lenguaje guardado",
+            "lenguaje": lenguaje.serialize()
+        }), 201
+
+    if request.method == 'DELETE':
+        lenguaje = Lenguaje.query.get(id)
+        if not lenguaje: 
+            return jsonify({"fail": "Lenguaje no encontrado"}), 404
+        lenguaje.delete()
+        return jsonify({"success": "Lenguaje eliminado"}), 200
+
+
+
+@api.route('/contactos', methods=['POST'])
+def contactos(user_id=None):
+   user_origen_id = request.json.get('user_origin_id')
+   user_destino_id = request.json.get('user_destino_id')
+
+   contacto = Contacto()
+   contacto.user_origen_id = user_origen_id
+   contacto.user_destino_id = user_destino_id
+
+   contacto.save()
+   return jsonify({
+       "success": "contacto guardado",
+       "contacto": contacto.serialize()
+   }), 201
