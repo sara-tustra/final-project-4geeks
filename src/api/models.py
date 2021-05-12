@@ -59,7 +59,12 @@ class Perfil(db.Model):
     post_comentarios = db.relationship('Post_Comentario', cascade='all, delete', backref='perfil')
     foro_comentarios = db.relationship('Foro_Comentario', cascade='all, delete', backref='perfil')
     lenguajes = db.relationship('Lenguaje', cascade='all, delete', backref='perfil')
-    #contactos = db.relationship('Contacto', secondary='contactos', foreign_keys='[Contacto.user_a_id]')
+    contactos = db.relationship('Perfil', 
+    secondary= 'contactos', 
+    primaryjoin =('contactos.c.user_id' == id),
+    secondaryjoin = ('contactos.c.contacto_id' == id),
+    backref= db.backref('contactos', lazy = 'dynamic'),
+    lazy='dynamic')
 
     
     def save(self):
@@ -116,20 +121,12 @@ class Perfil(db.Model):
 
 
 
-class Contacto(db.Model):
-    __tablename__ ='contactos'
-    user_origen_id = db.Column(db.Integer, db.ForeignKey('perfiles.id'), primary_key=True)
-    user_destino_id = db.Column(db.Integer, db.ForeignKey('perfiles.id'), primary_key=True)
+contactos = db.Table('contactos',
+db.Column('perfil_id', db.Integer, db.ForeignKey('perfiles.id')),
+db.Column('contacto_id', db.Integer, db.ForeignKey('perfiles.id'))
+)
 
-    user_origen = db.relationship("Perfil", foreign_keys=[user_origen_id])
-    user_destino = db.relationship("Perfil", foreign_keys=[user_destino_id])
-
-    def serialize(self):
-        return {
-            "user_origen_id": self.user_origen_id,
-            "user_destino_id": self.user_destino_id
-        }
-    
+   
 
 class Post(db.Model):
     __tablename__ ='posts'

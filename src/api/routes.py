@@ -30,7 +30,7 @@ def prueba():
 
 
 
-# AGREGAR FOROS AL SERIALIZE DE USUARIO
+
 @api.route('/users', methods=['GET'])
 @api.route('/users/<int:id>', methods=['GET', 'DELETE', 'PUT']) # OK
 def users(id=None):
@@ -277,7 +277,7 @@ def foros(id=None):
         foro = Foro.query.get(id)
         if not foro: 
             return jsonify({"fail": "foro no encontrado"}), 404
-        post.delete()
+        foro.delete()
         return jsonify({"success": "foro eliminado"}), 200
 
 
