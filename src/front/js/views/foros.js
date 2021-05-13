@@ -39,7 +39,7 @@ export const Foros = () => {
 										<i className="fa fa-heart" />
 										<div className="d-flex flex-row align-items-center status">
 											{" "}
-											<small>Like</small> <small>Comentar</small> <small>18 mins</small>{" "}
+											<small>Like</small> <small>Comentar</small>{" "}
 										</div>{" "}
 									</div>
 									<div className="d-flex flex-row muted-color">
