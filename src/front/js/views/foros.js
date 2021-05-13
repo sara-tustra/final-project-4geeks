@@ -54,7 +54,7 @@ export const Foros = () => {
 										/>
 										<div className="d-flex flex-column ml-2">
 											{" "}
-											<span className="name">Daniel Frozer</span>{" "}
+											<span className="name">Daniel Perez</span>{" "}
 											<small className="comment-text">I like this alot! thanks alot</small>
 											<div className="d-flex flex-row align-items-center status">
 												{" "}
