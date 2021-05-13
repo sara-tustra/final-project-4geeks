@@ -25,14 +25,50 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-@api.route('/rutadeprueba', methods=['POST', 'GET'])
-def prueba():
 
-    response_body = {
-        "message": "Wenas desde el proyecto final"
-    }
+# RUTA PUBLICA
+@api.route('/register', methods=['POST']) #OK
+def register():
+    email = request.json.get('email')
+    password = request.json.get('password')
+    is_active = request.json.get('is_active', True)
+    roles_id = request.json.get('roles_id', 1)
 
-    return jsonify(response_body), 200
+    nombre = request.json.get('nombre', '')
+    apellido = request.json.get('apellido', '')
+    bio = request.json.get('bio', '')
+    linkedin = request.json.get('linkedin', '')
+    genero = request.json.get('genero', '')
+    github = request.json.get('github', '')
+
+    if not email:
+        return jsonify({"fail": "email requerido"}), 400
+    if not password:
+        return jsonify({"fail": "password es requerida"}), 400
+
+    user = User.query.filter_by(email=email).first()
+    if user: return jsonify({"fail": "usuario ya existe"})
+
+    user = User()
+    user.email = email
+    user.password = generate_password_hash(password)
+    user.is_active = is_active
+    user.roles_id = roles_id
+
+    perfil = Perfil()
+    perfil.nombre = nombre
+    perfil.apellido = apellido
+    perfil.bio = bio
+    perfil.linkedin = linkedin
+    perfil.genero = genero
+    perfil.github = github
+
+    user.perfil = perfil
+    user.save()
+    return jsonify({
+        "success": "user created",
+        "user": user.serialize()
+    }), 201
 
 # RUTA PUBLICA
 @api.route('/login', methods=['POST'])
@@ -42,28 +78,33 @@ def login():
 
     if not email:
         return jsonify({"fail": "email requerido"}), 400
-
     if not password:
         return jsonify({"fail": "password required"}), 400
-
     user = User.query.filter_by(email=email).first()
     if not user:
         return jsonify({"fail": "email o password incorrectos"}), 401
-
     if not check_password_hash(user.password, password):
         return jsonify({"fail": "email o password incorrectos"}), 401
 
     access_token = create_access_token(identity=email)
-
     return jsonify({"token": access_token}), 200
 
 
 
+# RUTA PRIVADA DE PRUEBA
+@api.route('/profile')
+@jwt_required()
+def profile():
+    current_user = get_jwt_identity()
+    return jsonify({
+        "success": "private route",
+        "user": current_user
+    }), 200
 
-# RUTA DE ADMINISTRADOR, PRIVADA
+# RUTA DE ADMINISTRADOR, PRIVADA le falta verificar rol de usuario
 @api.route('/users', methods=['GET'])
 @api.route('/users/<int:id>', methods=['GET', 'DELETE', 'PUT']) # OK
-@jwt_required()
+# @jwt_required()
 def users(id=None):
     if request.method == 'GET':
         if id is not None:
@@ -94,14 +135,12 @@ def users(id=None):
             genero = request.json.get('genero', '')
             github = request.json.get('github', '')
 
-
             perfil.nombre = nombre if nombre else perfil.nombre
             perfil.apellido = apellido if apellido else perfil.apellido
             perfil.bio = bio if bio else perfil.apellido
             perfil.linkedin = linkedin if linkedin else perfil.linkedin
             perfil.genero = genero if genero else perfil.genero
             perfil.github = github if github else perfil.github
-
             perfil.update()
         
         return jsonify({
@@ -115,62 +154,6 @@ def users(id=None):
             return jsonify({"fail": "Usuario no encontrado"}), 404
         user.delete()
         return jsonify({"success": "Usuario borrado"}), 200
-
-
-# RUTA PUBLICA
-@api.route('/register', methods=['POST']) #OK
-def register():
-    email = request.json.get('email')
-    password = request.json.get('password')
-    is_active = request.json.get('is_active', True)
-    roles_id = request.json.get('roles_id', 1)
-
-    nombre = request.json.get('nombre', '')
-    apellido = request.json.get('apellido', '')
-    bio = request.json.get('bio', '')
-    linkedin = request.json.get('linkedin', '')
-    genero = request.json.get('genero', '')
-    github = request.json.get('github', '')
-
-    if not email:
-        return jsonify({"fail": "email requerido"}), 400
-    if not password:
-        return jsonify({"fail": "password es requerida"}), 400
-
-    user = User.query.filter_by(email=email).first()
-    if user: return jsonify({"fail": "usuario ya existe"})
-    user = User()
-    user.email = email
-    user.password = generate_password_hash(password)
-    user.is_active = is_active
-    user.roles_id = roles_id
-
-    perfil = Perfil()
-    perfil.nombre = nombre
-    perfil.apellido = apellido
-    perfil.bio = bio
-    perfil.linkedin = linkedin
-    perfil.genero = genero
-    perfil.github = github
-
-
-    user.perfil = perfil
-    user.save()
-
-    return jsonify({
-        "success": "user created",
-        "user": user.serialize()
-    }), 201
-
-# RUTA PRIVADA DE PRUEBA
-@api.route('/profile')
-@jwt_required()
-def profile():
-    current_user = get_jwt_identity()
-    return jsonify({
-        "success": "private route",
-        "user": current_user
-    }), 200
 
 
 # GET ES PUBLICA PERO POST Y DELETE ES PRIVADA
@@ -406,13 +389,12 @@ def foro_comentario(comment_id=None):
         return jsonify({"success": "Comentario de foro eliminado"}), 200
 
 
-
-
 # RUTA PRIVADA
 @api.route('/plantilla_codigo', methods=['GET', 'POST', 'DELETE'])
 @api.route('/plantilla_codigo/<int:plantilla_id>', methods=['GET', 'PUT', 'DELETE'])
 @jwt_required()
 def plantilla_de_codigo(plantilla_id=None):
+    current_user = get_jwt_identity()
     if request.method =='GET':
         plantilla_codigo = Plantilla_Codigo.query.get(plantilla_id)
         if plantilla_id is not None:
@@ -436,6 +418,8 @@ def plantilla_de_codigo(plantilla_id=None):
         plantilla_nombre=request.json.get('plantilla_nombre')
         plantilla_contenido = request.json.get('plantilla_contenido')
         perfiles_id = request.json.get('perfiles_id')
+
+        
 
         plantilla_codigo = Plantilla_Codigo()
         plantilla_codigo.plantilla_fecha = plantilla_fecha
@@ -503,7 +487,6 @@ def comandos_de_terminal(comando_id=None):
         return jsonify({"success": "Comando eliminado"}), 200          
 
 
-
 # GET ES PUBLICA PERO POST Y DELETE ES PRIVADA
 @api.route('/lenguajes', methods=['GET', 'POST', 'DELETE'])
 @api.route('/lenguajes/<int:lenguaje_id>', methods=['GET', 'PUT', 'DELETE'])
@@ -530,7 +513,7 @@ def lenguajes(lenguaje_id=None):
         current_user = get_jwt_identity()      
         lenguaje_nombre=request.json.get('lenguaje_nombre')
         lenguaje_descripcion = request.json.get('lenguaje_descripcion')
-        perfiles_id = request.json.get('perfiles_id')
+        perfiles_id = request.json.get('perfiles_id', '')
 
         user = User.query.filter_by(email=current_user).first()
         if user.id != perfiles_id:
@@ -576,8 +559,7 @@ def preguntas_frecuentes(pregunta_id=None):
                 "results": preguntas
             }), 200
     
-    if request.method =='POST':
-      
+    if request.method =='POST':    
         pregunta=request.json.get('pregunta')
         respuesta = request.json.get('respuesta')
       
@@ -620,9 +602,7 @@ def roles(id=None):
             }), 200
     
     if request.method =='POST':
-        nombre=request.json.get('nombre')
-        
-      
+        nombre=request.json.get('nombre')     
         rol = Role()
         rol.nombre = nombre
         rol.save()
@@ -661,7 +641,6 @@ def academias(id=None):
             }), 200
     
     if request.method =='POST':
-      
         nombre=request.json.get('nombre')
         descripcion = request.json.get('descripcion')
       
@@ -703,8 +682,7 @@ def areas_de_programacion(id=None):
                 "results": areas_de_programacion
             }), 200
     
-    if request.method =='POST':
-      
+    if request.method =='POST':    
         nombre=request.json.get('nombre')
         descripcion = request.json.get('descripcion')
       
