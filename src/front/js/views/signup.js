@@ -12,7 +12,7 @@ export const Signup = () => (
 					<div className="input-group">
 						<div className="input-group-prepend">
 							<span className="input-group-text">
-								<span className="fa fa-user" />
+								<span className="menor fa fa-user" />
 							</span>
 						</div>
 						<input
@@ -28,7 +28,7 @@ export const Signup = () => (
 					<div className="input-group">
 						<div className="input-group-prepend">
 							<span className="input-group-text">
-								<span className="fa fa-user" />
+								<span className="menor fa fa-user" />
 							</span>
 						</div>
 						<input
