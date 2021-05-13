@@ -36,7 +36,11 @@ export const Foros = () => {
 								<div className="d-flex justify-content-between align-items-center">
 									<div className="d-flex flex-row icons d-flex align-items-center">
 										{" "}
-										<i className="fa fa-heart" /> <i className="fa fa-smile-o ml-2" />{" "}
+										<i className="fa fa-heart" />
+										<div className="d-flex flex-row align-items-center status">
+											{" "}
+											<small>Like</small> <small>Comentar</small> <small>18 mins</small>{" "}
+										</div>{" "}
 									</div>
 									<div className="d-flex flex-row muted-color">
 										{" "}
@@ -56,11 +60,6 @@ export const Foros = () => {
 											{" "}
 											<span className="name">Daniel Perez</span>{" "}
 											<small className="comment-text">I like this alot! thanks alot</small>
-											<div className="d-flex flex-row align-items-center status">
-												{" "}
-												<small>Like</small> <small>Reply</small> <small>Translate</small>{" "}
-												<small>18 mins</small>{" "}
-											</div>
 										</div>
 									</div>
 									<div className="comment-input">
