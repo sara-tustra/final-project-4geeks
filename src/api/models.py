@@ -10,6 +10,8 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     perfil = db.relationship('Perfil', cascade='all, delete', backref='user', uselist=False)
+    roles_id = db.Column(db.Integer, db.ForeignKey(
+        'roles.id', ondelete='CASCADE'), nullable=False)
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -59,7 +61,12 @@ class Perfil(db.Model):
     post_comentarios = db.relationship('Post_Comentario', cascade='all, delete', backref='perfil')
     foro_comentarios = db.relationship('Foro_Comentario', cascade='all, delete', backref='perfil')
     lenguajes = db.relationship('Lenguaje', cascade='all, delete', backref='perfil')
-    #contactos = db.relationship('Contacto', secondary='contactos', foreign_keys='[Contacto.user_a_id]')
+    # contactos = db.relationship('Perfil', 
+    # secondary= 'contactos', 
+    # primaryjoin =('contactos.c.user_id' == id),
+    # secondaryjoin = ('contactos.c.contacto_id' == id),
+    # backref= db.backref('contactos', lazy = 'dynamic'),
+    # lazy='dynamic')
 
     
     def save(self):
@@ -92,27 +99,42 @@ class Perfil(db.Model):
             "linkedin": self.linkedin,
             "genero": self.genero,
             "github": self.github,
-            "posts": self.get_posts()
+            "posts": self.get_posts(),
+            "foros": self.get_foros(),
+            "plantillas_codigo": self.get_plantillas_codigo(),
+            "comandos_terminal": self.get_comandos_terminal(),
+            "lenguajes": self.get_lenguajes()
         }
 
     def get_posts(self):
         return list(map(lambda post: post.serialize(), self.posts))
 
+    def get_foros(self):
+        return list(map(lambda foro: foro.serialize(), self.foros))
 
-
-class Contacto(db.Model):
-    __tablename__ ='contactos'
-    user_origen_id = db.Column(db.Integer, db.ForeignKey('perfiles.id'), primary_key=True)
-    user_destino_id = db.Column(db.Integer, db.ForeignKey('perfiles.id'), primary_key=True)
-
-    user_origen = db.relationship("Perfil", foreign_keys=[user_origen_id])
-    user_destino = db.relationship("Perfil", foreign_keys=[user_destino_id])
+    def get_plantillas_codigo(self):
+        return list(map(lambda plantilla_codigo: plantilla_codigo.serialize(), self.plantillas_codigo))
     
+    def get_comandos_terminal(self):
+        return list(map(lambda comando_terminal: comando_terminal.serialize(), self.comandos_terminal))
+
+    def get_lenguajes(self):
+        return list(map(lambda lenguaje: lenguaje.serialize(), self.lenguajes))
+
+
+'''
+contactos = db.Table('contactos',
+db.Column('perfil_id', db.Integer, db.ForeignKey('perfiles.id')),
+db.Column('contacto_id', db.Integer, db.ForeignKey('perfiles.id'))
+)
+'''
+
+   
 
 class Post(db.Model):
     __tablename__ ='posts'
     id = db.Column(db.Integer, primary_key=True)
-    post_contenido = db.Column(db.String(900), nullable=False)
+    post_contenido = db.Column(db.String(900), nullable=False, unique=True)
     post_fecha = db.Column(db.String(20), nullable=False)
     perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
     post_likes = db.relationship('Post_Like', cascade="all, delete", backref='post')
@@ -176,7 +198,7 @@ class Post_Comentario(db.Model):
     __tablename__ = 'post_comentarios'
     id = db.Column(db.Integer, primary_key=True)
     comentario_fecha = db.Column(db.String(20), nullable=False)
-    comentario_contenido = db.Column(db.String(900), nullable=False)
+    comentario_contenido = db.Column(db.String(900), nullable=False, unique=True)
     perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
     posts_id = db.Column(db.Integer, db.ForeignKey('posts.id', ondelete='CASCADE'), nullable=False)
 
@@ -205,8 +227,8 @@ class Post_Comentario(db.Model):
 class Foro(db.Model):
     __tablename__ ='foros'
     id = db.Column(db.Integer, primary_key=True)
-    foro_nombre = db.Column(db.String(500), nullable=False)
-    foro_contenido = db.Column(db.String(900), nullable=False)
+    foro_nombre = db.Column(db.String(500), nullable=False, unique=True)
+    foro_contenido = db.Column(db.String(900), nullable=False, unique=True)
     foro_fecha = db.Column(db.String(20), nullable=False)
     perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
     foro_comentarios = db.relationship('Foro_Comentario', cascade='all, delete', backref='foro')
@@ -242,7 +264,7 @@ class Foro_Comentario(db.Model):
     __tablename__= 'foro_comentarios'
     id = db.Column(db.Integer, primary_key=True)
     comentario_fecha = db.Column(db.String(20), nullable=False)
-    comentario_contenido = db.Column(db.String(900), nullable=False)
+    comentario_contenido = db.Column(db.String(900), nullable=False, unique=True)
     foros_id = db.Column(db.Integer, db.ForeignKey('foros.id', ondelete='CASCADE'), nullable=False)
     perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
 
@@ -322,16 +344,16 @@ class Comando_Terminal(db.Model):
     def serialize(self):
         return{
             "id": self.id,
-            "plantilla_nombre": self.plantilla_nombre,
-            "plantilla_contenido": self.plantilla_contenido,
-            "plantilla_fecha": self.plantilla_fecha,
+            "comando_nombre": self.comando_nombre,
+            "comando_contenido": self.comando_contenido,
+            "comando_fecha": self.comando_fecha,
             "perfil_id": self.perfiles_id
         }
 
 class Lenguaje(db.Model):
     __tablename__ ='lenguajes'
     id = db.Column(db.Integer, primary_key=True)
-    lenguaje_nombre = db.Column(db.String(500), nullable=False)
+    lenguaje_nombre = db.Column(db.String(500), nullable=False, unique=True)
     lenguaje_descripcion = db.Column(db.String(900), nullable=False)
     perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
 
@@ -355,3 +377,105 @@ class Lenguaje(db.Model):
         db.session.commit()
 
 
+class Pregunta_Frecuente(db.Model):
+    __tablename__ ='preguntas_frecuentes'
+    id = db.Column(db.Integer, primary_key=True)
+    pregunta = db.Column(db.String(500), nullable=False, unique=True)
+    respuesta = db.Column(db.String(900), nullable=False)
+    
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "pregunta": self.pregunta,
+            "respuesta": self.respuesta
+            
+        }
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+    
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+
+class Role(db.Model):
+    __tablename__= 'roles'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(100), nullable=False, unique=True)
+    users = db.relationship('User', cascade='all, delete', backref='role')
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+    
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "users": self.get_users()
+        }
+    
+    def get_users(self):
+        return list(map(lambda user: user.serialize(), self.users))
+
+
+class Academia(db.Model):
+    __tablename__= 'academias'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(100), nullable=False, unique=True)
+    descripcion = db.Column(db.String(500), nullable=False)
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+    
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "descripcion": self.descripcion
+        }
+    
+class Area_de_Programacion(db.Model):
+    __tablename__= 'areas_de_programacion'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(100), nullable=False, unique=True)
+    descripcion = db.Column(db.String(500), nullable=False)
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+    
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "descripcion": self.descripcion
+        }
