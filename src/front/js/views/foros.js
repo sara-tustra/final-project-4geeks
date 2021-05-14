@@ -21,7 +21,6 @@ export const Foros = () => {
 									{" "}
 									<img src="https://i.imgur.com/UXdKE3o.jpg" width={50} className="rounded-circle" />
 									<div className="d-flex flex-column ml-2">
-										{" "}
 										<span className="font-weight-bold">Carla Rodriguez</span>{" "}
 										<div className="comment-input">
 											{" "}
@@ -45,12 +44,6 @@ export const Foros = () => {
 							<div className="p-2">
 								<div className="share border bg-white">
 									<div className="d-flex flex-row inputs p-2 py-4">
-										<img
-											className="rounded-circle"
-											src="https://i.imgur.com/UXdKE3o.jpg"
-											width={50}
-										/>
-										<span className="font-weight-bold">Carla Rodriguez</span>{" "}
 										<input
 											type="text"
 											className="border-0 form-control share-input"
@@ -100,7 +93,7 @@ export const Foros = () => {
 										{" "}
 										<input
 											type="text"
-											className="form-control"
+											className="form-control foro6 "
 											placeholder="Agrega un comentario"
 										/>
 										<div className="fonts">

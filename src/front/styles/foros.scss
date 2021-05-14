@@ -34,8 +34,8 @@ hr {
 
 .icons .fa-heart {
   color: red;
+  margin-right: 10px;
 }
-
 .icons .fa-smile-o {
   color: yellow;
   font-size: 29px;
@@ -87,4 +87,7 @@ hr {
 }
 .text-justify {
   color: black;
+}
+.foro6 > placeholder {
+  text-align: center !important;
 }
