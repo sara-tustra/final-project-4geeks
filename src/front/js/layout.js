@@ -19,6 +19,7 @@ import { Lenguajes } from "./views/Lenguajes";
 import Carusel from "./component/Carusel";
 import { AreasProgramacion } from "./views/AreasProgramacion";
 import PerfilUsuario from "./views/PerfilUsuario";
+import Perfil2 from "./views/Perfil2";
 import UseForm from "./component/useForm";
 
 //create your first component
@@ -72,6 +73,10 @@ const Layout = () => {
 
 						<Route exact path="/PerfilUsuario">
 							<PerfilUsuario />
+						</Route>
+
+						<Route exact path="/Perfil2">
+							<Perfil2 />
 						</Route>
 
 						<Route>

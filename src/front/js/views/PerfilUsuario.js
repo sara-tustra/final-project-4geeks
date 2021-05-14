@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/perfilUsuario.scss";
+import { Link } from "react-router-dom";
 
 /* import React, { useState } from "react";
 import { useLocalStorage } from '../components/useLocalStorage'
@@ -126,9 +127,12 @@ function PerfilUsuario(props) {
 										<button className="btn btn-primary mt-2">Actualizar</button>
 									</div>
 								</div>
+
 								<div className="col-xs-12 col-sm-4 ">
 									<div className="row " id="boton-home">
-										<button className="btn btn-primary mt-2">Home </button>
+										<button className="btn btn-primary mt-2">
+											<Link to="/home">Home </Link>
+										</button>
 									</div>
 								</div>
 							</div>
