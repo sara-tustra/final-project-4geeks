@@ -9,8 +9,8 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
-import { Signup } from "./views/signup";
-import { Login } from "./views/login";
+import Signup from "./views/signup";
+import Login from "./views/login";
 import { PreguntasFrecuentes } from "./views/preguntasFrecuentes";
 import { Academias } from "./views/academias";
 import { Foros } from "./views/foros";
@@ -19,6 +19,7 @@ import { Lenguajes } from "./views/Lenguajes";
 import Carusel from "./component/Carusel";
 import { AreasProgramacion } from "./views/AreasProgramacion";
 import PerfilUsuario from "./views/PerfilUsuario";
+import UseForm from "./component/useForm";
 
 //create your first component
 const Layout = () => {
