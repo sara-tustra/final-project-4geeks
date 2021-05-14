@@ -355,7 +355,7 @@ class Lenguaje(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     lenguaje_nombre = db.Column(db.String(500), nullable=False, unique=True)
     lenguaje_descripcion = db.Column(db.String(900), nullable=False)
-    perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=False)
+    perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=True)
 
     def serialize(self):
         return {

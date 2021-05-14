@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/lenguajes.scss";
+import "../../styles/perfilUsuario.scss";
 
 /* import React, { useState } from "react";
 import { useLocalStorage } from '../components/useLocalStorage'
@@ -35,20 +35,22 @@ function PerfilUsuario(props) {
 					<div className="col-12 col-md-9 mt-5 px-5">
 						<div className="row gutters-sm">
 							<div className="col-12 my-2 col-lg-5 col-xl-4">
-								<div className="card bg-transparent card-perfil">
+								<div className="card  card-perfil">
 									<div className="card-body perfil">
 										<div className="d-flex flex-column align-items-center text-center">
-											<img src="/" alt="" className="rounded-circle" width={150} />
-											<div className="mt-3 text-white">
-												<h4>Pedro Perez</h4>
+											<img
+												src="https://svgsilh.com/svg/2098873.svg"
+												alt=""
+												className="rounded-circle"
+												width={150}
+											/>
+											<div className="mt-3 text-dark">
+												<p className="text-dark mb-1">Nombre:</p>
+												<p className="text-dark mb-1">Apellido:</p>
 												{/* <hr /> */}
-												<p className="text-white mb-1">Nacionalidad: Chileno</p>
+												<p className="text-dark mb-1">Email:</p>
 												<hr />
-												<p className="text-white mb-1">Teléfono Móvil: +569 xxxx xxxx</p>
-												<hr />
-												<p className="text-white mb-1">Direccion: Silvina Hurtado 1516</p>
-												<hr />
-												<p className="text-white mb-1">País de Residencia: Chile</p>
+												<p className="text-dark mb-1">País de Residencia: </p>
 												{/*  <br></br> */}
 											</div>
 										</div>
@@ -58,7 +60,7 @@ function PerfilUsuario(props) {
 
 							{/* INPUTS DE ACTUALIZACION */}
 							<div className="col-12 my-2 col-lg-7 col-xl-8">
-								<div className="card bg-transparent">
+								<div className="card">
 									<div className="card-body">
 										<div className="row">
 											<div className="inputbox col-12 mt-2">
@@ -67,10 +69,10 @@ function PerfilUsuario(props) {
 												<input
 													/* onChange={e => setText(e.target.value)} */
 													/* value={text} */
-													placeholder="Nombre y Apellido"
+													placeholder="Nombre"
 													type="text"
 													/* ATRIBUTOS TIENEN QUE IR CONECTADOS CON BACKEND  */
-													name=""
+													name="name"
 													className="form-control"
 													required="required"
 												/>
@@ -81,34 +83,23 @@ function PerfilUsuario(props) {
 											<div className="inputbox col-12 mt-2">
 												{/* <label className="text-dark">Email:</label> */}
 												<input
-													placeholder="Email"
+													placeholder="Apellido"
 													type="text"
 													/* en name request.json.get // en backend */
-													name="email"
+													name="last_name"
 													className="form-control"
 													required="required"
 												/>
 											</div>
 										</div>
-										<div className="row">
-											<div className="inputbox col-12 mt-2">
-												{/* <label className="text-dark">Teléfono Móvil:</label> */}
-												<input
-													placeholder="Teléfono Móvil"
-													type="text"
-													name=""
-													className="form-control"
-													required="required"
-												/>
-											</div>
-										</div>
+										<div className="row" />
 										<div className="row">
 											<div className="inputbox col-12 mt-2">
 												{/* <label className="text-dark">Dirección:</label> */}
 												<input
-													placeholder="Dirección"
+													placeholder="Email"
 													type="text"
-													name="direccion"
+													name="email"
 													className="form-control"
 													required="required"
 												/>
@@ -120,29 +111,24 @@ function PerfilUsuario(props) {
 											<div className="inputbox col-12 mt-2">
 												{/* <label className="text-dark">Contraseña:</label> */}
 												<input
-													placeholder="Nueva Contraseña"
-													type="password"
-													name=""
+													placeholder="Pais de residencia"
+													type=""
+													name="Pais_de_residencia"
 													className="form-control"
 													required="required"
 												/>
 											</div>
 										</div>
-										<div className="row">
-											<div className="inputbox col-12 mt-2">
-												{/* <label className="text-dark">Repetir Contraseña:</label> */}
-												<input
-													placeholder="Confirma Contraseña"
-													type="password"
-													name=""
-													className="form-control"
-													required="required"
-												/>
-											</div>
-										</div>
-										<div className="row">
-											<button className="btn btn-primary mt-2">Actualizar</button>
-										</div>
+									</div>
+								</div>
+								<div className="col-xs-12 col-sm-4 ">
+									<div className="row" id="boton-act">
+										<button className="btn btn-primary mt-2">Actualizar</button>
+									</div>
+								</div>
+								<div className="col-xs-12 col-sm-4 ">
+									<div className="row " id="boton-home">
+										<button className="btn btn-primary mt-2">Home </button>
 									</div>
 								</div>
 							</div>
@@ -231,159 +217,6 @@ function PerfilUsuario(props) {
 											<span className="text-secondary">bootdey</span>
 										</li>
 									</ul>
-								</div>
-							</div>
-
-							<div className="col-12 my-2 col-md-6 col-lg-4">
-								<div className="card h-100 bg-transparent">
-									<div className="card-body">
-										<h6 className="d-flex align-items-center mb-3">
-											<i className="material-icons text-info mr-2">Actividades</i>
-										</h6>
-										<small className="text-white">Diarias</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "80%" }}
-												aria-valuenow={80}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-										<small className="text-white">Mensual</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "72%" }}
-												aria-valuenow={72}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-										<small className="text-white">Anual</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "89%" }}
-												aria-valuenow={89}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-										<small className="text-white">Dispositivo Movil</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "55%" }}
-												aria-valuenow={55}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-										<small className="text-white">Página web</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "66%" }}
-												aria-valuenow={66}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-12 my-2 col-md-6 col-lg-4">
-								<div className="card h-100 bg-transparent">
-									<div className="card-body">
-										<h6 className="d-flex align-items-center mb-3">
-											<i className="material-icons text-info mr-2">Países de Destino</i>
-										</h6>
-										<small className="text-white">Chile</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "80%" }}
-												aria-valuenow={80}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-										<small className="text-white">Colombia</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "72%" }}
-												aria-valuenow={72}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-										<small className="text-white">Estados Unidos</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "89%" }}
-												aria-valuenow={89}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-										<small className="text-white">Perú</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "55%" }}
-												aria-valuenow={55}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-										<small className="text-white">Venezuela</small>
-										<div className="progress mb-3" style={{ height: 5 }}>
-											<div
-												className="progress-bar bg-primary"
-												role="progressbar"
-												style={{ width: "66%" }}
-												aria-valuenow={66}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							{/* CARDS DE ABAJO */}
-							<div className="col-12 my-2 col-md-6">
-								<div className="card bg-transparent">
-									<div className="card-body">
-										<h5 className="card-title text-white">Revisa</h5>
-										<p className="card-text text-white">
-											Accede a tu historial de transacciones aquí
-										</p>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-12 my-2 col-md-6">
-								<div className="card bg-transparent">
-									<div className="card-body">
-										<h5 className="card-title text-white">Realiza tu transacción</h5>
-										<p className="card-text text-white">
-											Dirígite a realizar tu operación, haciendo
-										</p>
-									</div>
 								</div>
 							</div>
 						</div>
