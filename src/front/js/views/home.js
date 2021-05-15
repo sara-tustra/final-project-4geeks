@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 
+import { Navbar } from "../component/navbar";
+
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
@@ -38,14 +40,14 @@ export const Home = () => {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-8 mb-5">
-						<h2>Programar?</h2>
+						<h2>Programación</h2>
 						<hr />
-						<p>
+						<p className="text-white">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore
 							recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis
 							aliquam laboriosam. Repellat explicabo, maiores!
 						</p>
-						<p>
+						<p className="text-white">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur
 							consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias,
 							adipisci nesciunt voluptate. Voluptatum.
@@ -110,8 +112,8 @@ export const Home = () => {
 							</div>
 						</div>
 					</div>
-					<div className="col-md-4 mb-5">
-						<div className="card h-100">
+					<div className=" col-md-4 mb-5 ">
+						<div className="card h-100 ">
 							<img
 								className="card-img-top"
 								src="https://comohacerpara.com/imgn/10165-sitios-aprender-programacion-gratis-online.jpg"

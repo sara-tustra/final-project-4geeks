@@ -3,6 +3,7 @@ import { validateInfo } from "../component/validateInfo";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/signup.scss";
+import { Navbar } from "../component/navbar";
 
 export const Signup = props => {
 	const { actions } = useContext(Context);

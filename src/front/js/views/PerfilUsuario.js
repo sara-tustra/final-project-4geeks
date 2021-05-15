@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/perfilUsuario.scss";
 import { Link } from "react-router-dom";
+import { Navbar } from "../component/navbar";
 
 /* import React, { useState } from "react";
 import { useLocalStorage } from '../components/useLocalStorage'
