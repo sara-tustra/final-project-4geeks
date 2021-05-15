@@ -18,7 +18,6 @@ import { Lenguajes } from "./views/Lenguajes";
 import Carusel from "./component/Carusel";
 import { AreasProgramacion } from "./views/AreasProgramacion";
 import PerfilUsuario from "./views/PerfilUsuario";
-import { Botones } from "./views/botones";
 import Perfil2 from "./views/Perfil2";
 import UseForm from "./component/useForm";
 import { Preguntas2 } from "./views/preguntas2";
