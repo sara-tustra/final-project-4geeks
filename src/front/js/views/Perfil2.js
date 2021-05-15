@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/Perfil2.scss";
+import { Navbar } from "../component/navbar";
 
 function Perfil2() {
 	return (

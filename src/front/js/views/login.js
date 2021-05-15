@@ -4,6 +4,7 @@ import { validateLogin } from "../component/validateInfo";
 import "../../styles/signup.scss";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Navbar } from "../component/navbar";
 
 export const Login = props => {
 	const { actions } = useContext(Context);
