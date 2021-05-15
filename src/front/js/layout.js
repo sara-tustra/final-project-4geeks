@@ -21,6 +21,7 @@ import { AreasProgramacion } from "./views/AreasProgramacion";
 import PerfilUsuario from "./views/PerfilUsuario";
 import Perfil2 from "./views/Perfil2";
 import UseForm from "./component/useForm";
+import { Preguntas2 } from "./views/preguntas2";
 
 //create your first component
 const Layout = () => {
@@ -77,6 +78,10 @@ const Layout = () => {
 
 						<Route exact path="/Perfil2">
 							<Perfil2 />
+						</Route>
+
+						<Route exact path="/Preguntas2">
+							<Preguntas2 />
 						</Route>
 
 						<Route>

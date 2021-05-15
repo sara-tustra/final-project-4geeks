@@ -211,7 +211,6 @@ function Perfil2() {
 																			</option>
 
 																			<option value="AL">Español</option>
-																			<option value="AS">Chileno jaja</option>
 																		</select>
 																	</td>
 																</tr>

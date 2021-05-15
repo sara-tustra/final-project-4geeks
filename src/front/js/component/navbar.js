@@ -74,6 +74,10 @@ export const Navbar = () => {
 								<Link className="dropdown-item" to="/preguntas">
 									Preguntas frecuentes
 								</Link>
+
+								<Link className="dropdown-item" to="/Preguntas2">
+									Preguntas2
+								</Link>
 							</div>
 						</li>
 					</ul>
