@@ -71,12 +71,8 @@ export const Navbar = () => {
 									Foro
 								</Link>
 
-								<Link className="dropdown-item" to="/preguntas">
-									Preguntas frecuentes
-								</Link>
-
 								<Link className="dropdown-item" to="/Preguntas2">
-									Preguntas2
+									Preguntas Frecuentes
 								</Link>
 							</div>
 						</li>

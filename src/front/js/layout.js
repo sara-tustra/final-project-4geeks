@@ -11,7 +11,6 @@ import { Footer } from "./component/footer";
 
 import Signup from "./views/signup";
 import Login from "./views/login";
-import { PreguntasFrecuentes } from "./views/preguntasFrecuentes";
 import { Academias } from "./views/academias";
 import { Foros } from "./views/foros";
 import { VistaUsuario } from "./views/VistaUsuario";
@@ -38,9 +37,7 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/preguntas">
-							<PreguntasFrecuentes />
-						</Route>
+
 						<Route exact path="/registro">
 							<Signup />
 						</Route>
