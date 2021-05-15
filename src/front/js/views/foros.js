@@ -1,6 +1,7 @@
 import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/foros.scss";
+import Botonlike from "../component/botonlike";
 
 export const Foros = () => {
 	const { store, actions } = useContext(Context);
@@ -54,11 +55,9 @@ export const Foros = () => {
 										<div className="d-flex flex-row publish-options" />
 										<div className="d-flex flex-row icons d-flex align-items-center">
 											{" "}
-											<i className="material-icons">thumb_up</i>
-											<i className="material-icons">thumb_down</i>
 											<div className="d-flex flex-row align-items-center status">
 												{" "}
-												<small>Like</small> <small>Comentar</small>{" "}
+												<Botonlike />
 											</div>{" "}
 										</div>
 										<div className="publish-button">
