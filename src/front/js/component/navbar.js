@@ -29,6 +29,12 @@ export const Navbar = () => {
 
 						<li className="nav-item">
 							<a className="nav-link " href="#!">
+								<Link to="/Perfil2">Perfil 2</Link>
+							</a>
+						</li>
+
+						<li className="nav-item">
+							<a className="nav-link " href="#!">
 								<Link to="/PerfilUsuario">Perfil de usuario</Link>
 							</a>
 						</li>
@@ -65,8 +71,8 @@ export const Navbar = () => {
 									Foro
 								</Link>
 
-								<Link className="dropdown-item" to="/preguntas">
-									Preguntas frecuentes
+								<Link className="dropdown-item" to="/Preguntas2">
+									Preguntas Frecuentes
 								</Link>
 							</div>
 						</li>
