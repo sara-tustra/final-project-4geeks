@@ -54,7 +54,8 @@ export const Foros = () => {
 										<div className="d-flex flex-row publish-options" />
 										<div className="d-flex flex-row icons d-flex align-items-center">
 											{" "}
-											<i className="fa fa-heart" />
+											<i className="material-icons">thumb_up</i>
+											<i className="material-icons">thumb_down</i>
 											<div className="d-flex flex-row align-items-center status">
 												{" "}
 												<small>Like</small> <small>Comentar</small>{" "}
