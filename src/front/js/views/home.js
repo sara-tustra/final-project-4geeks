@@ -52,9 +52,9 @@ export const Home = () => {
 							consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias,
 							adipisci nesciunt voluptate. Voluptatum.
 						</p>
-						<a className="btn btn-primary btn-lg" href="#!">
+						{/* <a className="btn btn-primary btn-lg" href="#!">
 							Call to Action »
-						</a>
+						</a> */}
 					</div>
 					<div className="col-md-4 mb-5">
 						<h2>api clima</h2>
@@ -77,7 +77,7 @@ export const Home = () => {
 								src="https://i1.wp.com/www.itwarelatam.com/wp-content/uploads/2014/03/ESET_Elearning2.jpg?fit=300%2C200&ssl=1"
 								alt="..."
 							/>
-							<div className="card-body">
+							<div className="card-home">
 								<h4 className="card-title ">Academias</h4>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
@@ -85,7 +85,7 @@ export const Home = () => {
 								</p>
 							</div>
 							<div className="card-footer">
-								<Link className="btn btn-primary" to="/academias">
+								<Link className="btn btn-outline-primary" to="/academias">
 									Find Out More!
 								</Link>
 							</div>
@@ -98,7 +98,7 @@ export const Home = () => {
 								src="https://www.visionnaire.com.br/es/dbimages/visionnaire-7-linguagens-de-programacao_14054_mini.jpg"
 								alt="..."
 							/>
-							<div className="card-body">
+							<div className="card-home">
 								<h4 className="card-title">Lenguajes de programacion</h4>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
@@ -106,7 +106,7 @@ export const Home = () => {
 								</p>
 							</div>
 							<div className="card-footer">
-								<Link className="btn btn-primary" to="/lenguajes">
+								<Link className="btn btn-outline-primary" to="/lenguajes">
 									Find Out More!
 								</Link>
 							</div>
@@ -119,7 +119,7 @@ export const Home = () => {
 								src="https://comohacerpara.com/imgn/10165-sitios-aprender-programacion-gratis-online.jpg"
 								alt="..."
 							/>
-							<div className="card-body">
+							<div className="card-home">
 								<h4 className="card-title">Areas de la programacion</h4>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
@@ -127,7 +127,7 @@ export const Home = () => {
 								</p>
 							</div>
 							<div className="card-footer">
-								<Link className="btn btn-primary" to="/AreasProgramacion">
+								<Link className="btn btn-outline-primary" to="/AreasProgramacion">
 									Find Out More!
 								</Link>
 							</div>
