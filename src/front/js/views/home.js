@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
-
+import { BotonFlotante } from "../component/BotonFlotante";
 import { Navbar } from "../component/navbar";
 
 export const Home = () => {
@@ -131,6 +131,7 @@ export const Home = () => {
 									Find Out More!
 								</Link>
 							</div>
+							<BotonFlotante />
 						</div>
 					</div>
 				</div>

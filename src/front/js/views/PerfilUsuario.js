@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/perfilUsuario.scss";
 import { Link } from "react-router-dom";
 import { Navbar } from "../component/navbar";
+import { BotonFlotante } from "../component/BotonFlotante";
 
 function PerfilUsuario(props) {
 	return (
@@ -19,13 +20,13 @@ function PerfilUsuario(props) {
 												alt="Maxwell Admin"
 											/>
 										</div>
-										<h5 className="user-name">Yuki Hayashi</h5>
-										<h6 className="user-email">yuki@Maxwell.com</h6>
+										<h5 className="user-name">Enzo Rios</h5>
+										<h6 className="user-email">enzo@gmsil.com</h6>
 									</div>
 									<div className="about">
 										<h5 className="mb-2 text-primary">About</h5>
 										<p>
-											Im Yuki. Full Stack Designer I enjoy creating user-centric, delightful and
+											Im Enzo. Full Stack Designer I enjoy creating user-centric, delightful and
 											human experiences.
 										</p>
 									</div>
@@ -42,45 +43,45 @@ function PerfilUsuario(props) {
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="fullName">Full Name</label>
+											<label htmlFor="fullName">Name</label>
 											<input
 												type="text"
 												className="form-control"
 												id="fullName"
-												placeholder="Enter full name"
+												placeholder="Enter name"
 											/>
 										</div>
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="eMail">Email</label>
+											<label htmlFor="eMail">Last name</label>
 											<input
 												type="email"
 												className="form-control"
 												id="eMail"
-												placeholder="Enter email ID"
+												placeholder="Enter Last name"
 											/>
 										</div>
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="phone">Phone</label>
+											<label htmlFor="phone">Email</label>
 											<input
 												type="text"
 												className="form-control"
 												id="phone"
-												placeholder="Enter phone number"
+												placeholder="Enter Email"
 											/>
 										</div>
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="website">Website URL</label>
+											<label htmlFor="website">Languages</label>
 											<input
 												type="url"
 												className="form-control"
 												id="website"
-												placeholder="Website url"
+												placeholder="Enter Languages"
 											/>
 										</div>
 									</div>
@@ -138,10 +139,10 @@ function PerfilUsuario(props) {
 									<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<div className="text-right">
 											<button type="button" className="btn btn-outline-primary m-1">
-												Primary
+												<Link to="/home">to update</Link>
 											</button>
 											<button type="button" className="btn btn-outline-primary m-1">
-												Primary
+												<Link to="/home">Home</Link>
 											</button>
 										</div>
 									</div>
@@ -150,6 +151,7 @@ function PerfilUsuario(props) {
 						</div>
 					</div>
 				</div>
+				<BotonFlotante />
 			</div>
 		</>
 	);

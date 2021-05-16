@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/Perfil2.scss";
 import { Navbar } from "../component/navbar";
+import { BotonFlotante } from "../component/BotonFlotante";
 
 function Perfil2() {
 	return (
@@ -234,6 +235,7 @@ function Perfil2() {
 															</tbody>
 														</table>
 													</div>
+
 													{/* end table */}
 												</div>
 												{/* end #profile-about tab */}
@@ -248,7 +250,6 @@ function Perfil2() {
 					</div>
 				</div>
 			</div>
-			;
 		</>
 	);
 }

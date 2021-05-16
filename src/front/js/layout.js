@@ -8,7 +8,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-
+import { BotonFlotante } from "./component/BotonFlotante";
 import Signup from "./views/signup";
 import Login from "./views/login";
 import { Academias } from "./views/academias";
@@ -79,6 +79,10 @@ const Layout = () => {
 
 						<Route exact path="/Preguntas2">
 							<Preguntas2 />
+						</Route>
+
+						<Route exact path="/BotonFlotante">
+							<BotonFlotante />
 						</Route>
 
 						<Route>

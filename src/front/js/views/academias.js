@@ -1,6 +1,7 @@
 import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
+import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Academias = () => {
 	const { store, actions } = useContext(Context);
