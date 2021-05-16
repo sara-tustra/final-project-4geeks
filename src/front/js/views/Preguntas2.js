@@ -36,7 +36,7 @@ export const Preguntas2 = () => (
 								role="tabpanel"
 								aria-labelledby="headingOne">
 								<div className="panel-body">
-									<p>
+									<p className="text-dark">
 										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem,
 										dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu
 										tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit
@@ -70,7 +70,7 @@ export const Preguntas2 = () => (
 								role="tabpanel"
 								aria-labelledby="headingTwo">
 								<div className="panel-body">
-									<p>
+									<p className="text-dark">
 										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem,
 										dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu
 										tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit
@@ -104,7 +104,7 @@ export const Preguntas2 = () => (
 								role="tabpanel"
 								aria-labelledby="headingThree">
 								<div className="panel-body">
-									<p>
+									<p className="text-dark">
 										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem,
 										dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu
 										tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit
@@ -138,7 +138,7 @@ export const Preguntas2 = () => (
 								role="tabpanel"
 								aria-labelledby="headingFour">
 								<div className="panel-body">
-									<p>
+									<p className="text-dark">
 										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem,
 										dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu
 										tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit
@@ -172,7 +172,7 @@ export const Preguntas2 = () => (
 								role="tabpanel"
 								aria-labelledby="headingFive">
 								<div className="panel-body">
-									<p>
+									<p className="text-dark">
 										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem,
 										dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu
 										tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit
