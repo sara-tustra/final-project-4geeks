@@ -21,6 +21,9 @@ const injectContext = PassedComponent => {
 		useEffect(() => {
 			console.log("Cargando informacion...");
 			state.actions.getFetch("academias", "http://0.0.0.0:3001/api/academias");
+			state.actions.getFetch("areasProgramacion", "http://0.0.0.0:3001/api/areas_de_programacion");
+			state.actions.getFetch("lenguajes", "http://0.0.0.0:3001/api/lenguajes");
+			state.actions.getFetch("preguntasFrecuentes", "http://0.0.0.0:3001/api/preguntas_frecuentes");
 
 			console.log(state.store);
 

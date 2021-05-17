@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Context } from "../store/appContext";
 
 const Academia = props => {
-	const { actions, store } = useContext(Context);
-
 	return (
 		<>
 			<div className="col-md-6">

@@ -2,9 +2,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			academias: null,
-			//areasProgramacion = null
-			//lenguajes = null,
-			//preguntasFrecuentes = null
+			areasProgramacion: null,
+			lenguajes: null,
+			preguntasFrecuentes: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction

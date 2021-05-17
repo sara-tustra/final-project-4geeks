@@ -1,10 +1,26 @@
-import React from "react";
+import React, { Component, useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/lenguajes.scss";
+import Lenguaje from "../component/Lenguaje";
 
 export const Lenguajes = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="how-section1">
-			<div className="row align-items-center">
+			{!!store.lenguajes &&
+				store.lenguajes.results.map((elemento, index) => {
+					return (
+						<div className="row align-items-center" key={index}>
+							<Lenguaje
+								nombre={elemento.nombre}
+								descripcion={elemento.descripcion}
+								imagen={elemento.imagen}
+							/>
+						</div>
+					);
+				})}
+
+			{/* <div className="row align-items-center">
 				<div className="col-md-6 how-img">
 					<img src="https://oddbytes.net/wp-content/uploads/2018/01/Js-logo.png" className="img-fluid" alt />
 				</div>
@@ -87,7 +103,7 @@ export const Lenguajes = () => {
 						alt
 					/>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };

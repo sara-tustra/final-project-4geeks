@@ -1,10 +1,25 @@
-import React from "react";
+import React, { Component, useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/areasProgramacion.scss";
+import AreaProgramacion from "../component/AreaProgramacion";
 
 export const AreasProgramacion = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="how-section1">
-			<div className="row align-items-center">
+			{!!store.areasProgramacion &&
+				store.areasProgramacion.results.map((elemento, index) => {
+					return (
+						<div className="row align-items-center" key={index}>
+							<AreaProgramacion
+								nombre={elemento.nombre}
+								descripcion={elemento.descripcion}
+								imagen={elemento.imagen}
+							/>
+						</div>
+					);
+				})}
+			{/* <div className="row align-items-center">
 				<div className="col-md-6 how-img">
 					<img src="https://www.tecnologicahn.com/img/Desarrollodesoftware2.png" className="img-fluid" alt />
 				</div>
@@ -87,7 +102,7 @@ export const AreasProgramacion = () => {
 						alt
 					/>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };
