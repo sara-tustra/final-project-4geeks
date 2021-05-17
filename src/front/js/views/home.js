@@ -99,7 +99,7 @@ export const Home = () => {
 								alt="..."
 							/>
 							<div className="card-home">
-								<h4 className="card-title">Lenguajes de programacion</h4>
+								<h4 className="card-title">Lenguajes de programación</h4>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
 									necessitatibus neque sequi doloribus totam ut praesentium aut.
@@ -120,7 +120,7 @@ export const Home = () => {
 								alt="..."
 							/>
 							<div className="card-home">
-								<h4 className="card-title">Areas de la programacion</h4>
+								<h4 className="card-title">Areas de la programación</h4>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
 									necessitatibus neque.

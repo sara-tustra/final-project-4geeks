@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "../component/navbar";
 import { BotonFlotante } from "../component/BotonFlotante";
 
-function PerfilUsuario(props) {
+export const PerfilUsuario = props => {
 	return (
 		<>
 			<div className="container">
@@ -139,10 +139,10 @@ function PerfilUsuario(props) {
 									<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<div className="text-right">
 											<button type="button" className="btn btn-outline-primary m-1">
-												<Link to="/home">to update</Link>
+												<Link to="/">to update</Link>
 											</button>
 											<button type="button" className="btn btn-outline-primary m-1">
-												<Link to="/home">Home</Link>
+												<Link to="/">Home</Link>
 											</button>
 										</div>
 									</div>
@@ -155,6 +155,6 @@ function PerfilUsuario(props) {
 			</div>
 		</>
 	);
-}
+};
 
 export default PerfilUsuario;

@@ -17,7 +17,7 @@ import { VistaUsuario } from "./views/VistaUsuario";
 import { Lenguajes } from "./views/Lenguajes";
 import Carusel from "./component/Carusel";
 import { AreasProgramacion } from "./views/AreasProgramacion";
-import PerfilUsuario from "./views/PerfilUsuario";
+import { PerfilUsuario } from "./views/PerfilUsuario";
 import Perfil2 from "./views/Perfil2";
 import UseForm from "./component/useForm";
 import { Preguntas2 } from "./views/preguntas2";

@@ -5,10 +5,8 @@ import { Link } from "react-router-dom";
 export const BotonFlotante = () => {
 	return (
 		<>
-			<a href="#" className="float">
-				<Link to="/Preguntas2" />
+			<a href="/Preguntas2" className="float">
 				<i className="fa fa-envelope my-float" />
-				<Link />
 			</a>
 			<div className="label-container">
 				<div className="label-text">Preguntas frecuentes</div>
