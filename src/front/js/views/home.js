@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { BotonFlotante } from "../component/BotonFlotante";
 import { Navbar } from "../component/navbar";
-
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
@@ -27,6 +26,7 @@ export const Home = () => {
 					<div className="row h-100 align-items-center">
 						<div className="col-lg-12">
 							<h1 className="display-4 text-white mt-5 mb-2">Vivir en un mundo de codigos</h1>
+
 							<p className="lead mb-5 text-white-50">
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore
 								provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste
