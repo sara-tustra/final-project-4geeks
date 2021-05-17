@@ -21,7 +21,7 @@ export const AreasProgramacion = () => {
 					);
 				})}
 
-				{/* <div className="row align-items-center">
+			{/* <div className="row align-items-center">
 				<div className="col-md-6 how-img">
 					<img src="https://www.tecnologicahn.com/img/Desarrollodesoftware2.png" className="img-fluid" alt />
 				</div>
@@ -109,4 +109,3 @@ export const AreasProgramacion = () => {
 		</div>
 	);
 };
-
