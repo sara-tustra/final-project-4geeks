@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 
-export const Home = () => {
-  const { store, actions } = useContext(Context);
+export const Prueba = () => {
+	const { store, actions } = useContext(Context);
 
-  return (
-    <div className="text-center mt-5">
-      <p>
-        <h2>Que el unico limite de aprendizaje lo pongas tu!</h2>
-      </p>
-    </div>
-  );
+	return (
+		<div className="text-center mt-5">
+			<p>{!!store.academias ? <h2>{store.academias.results[0].nombre}</h2> : <h2>Cargando...</h2>}</p>
+		</div>
+	);
 };
+
+export default Prueba;

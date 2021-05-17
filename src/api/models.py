@@ -355,6 +355,7 @@ class Lenguaje(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     lenguaje_nombre = db.Column(db.String(500), nullable=False, unique=True)
     lenguaje_descripcion = db.Column(db.String(900), nullable=False)
+    imagen = db.Column(db.String(1000), nullable=False)
     perfiles_id = db.Column(db.Integer, db.ForeignKey('perfiles.id', ondelete='CASCADE'), nullable=True)
 
     def serialize(self):
@@ -362,6 +363,7 @@ class Lenguaje(db.Model):
             "id": self.id,
             "lenguaje_nombre": self.lenguaje_nombre,
             "lenguaje_descripcion": self.lenguaje_descripcion,
+            "imagen": self.imagen,
             "perfil_id": self.perfiles_id
         }
 
@@ -437,6 +439,7 @@ class Academia(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(100), nullable=False, unique=True)
     descripcion = db.Column(db.String(500), nullable=False)
+    imagen = db.Column (db.String(1000), nullable=False)
 
     def save(self):
         db.session.add(self)
@@ -453,7 +456,8 @@ class Academia(db.Model):
         return {
             "id": self.id,
             "nombre": self.nombre,
-            "descripcion": self.descripcion
+            "descripcion": self.descripcion,
+            "imagen": self.imagen
         }
     
 class Area_de_Programacion(db.Model):
@@ -461,6 +465,7 @@ class Area_de_Programacion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(100), nullable=False, unique=True)
     descripcion = db.Column(db.String(500), nullable=False)
+    imagen = db.Column(db.String(1000), nullable=False)
 
     def save(self):
         db.session.add(self)
@@ -477,5 +482,6 @@ class Area_de_Programacion(db.Model):
         return {
             "id": self.id,
             "nombre": self.nombre,
-            "descripcion": self.descripcion
+            "descripcion": self.descripcion,
+            "imagen": self.imagen
         }
