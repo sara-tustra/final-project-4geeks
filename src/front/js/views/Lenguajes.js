@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/lenguajes.scss";
+import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Lenguajes = () => {
 	return (
@@ -88,6 +89,7 @@ export const Lenguajes = () => {
 					/>
 				</div>
 			</div>
+			<BotonFlotante />
 		</div>
 	);
 };

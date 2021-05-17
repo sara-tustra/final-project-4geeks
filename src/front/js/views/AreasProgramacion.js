@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/areasProgramacion.scss";
+import { BotonFlotante } from "../component/BotonFlotante";
 
 export const AreasProgramacion = () => {
 	return (
@@ -88,6 +89,7 @@ export const AreasProgramacion = () => {
 					/>
 				</div>
 			</div>
+			<BotonFlotante />
 		</div>
 	);
 };

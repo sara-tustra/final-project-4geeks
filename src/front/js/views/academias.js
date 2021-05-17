@@ -90,6 +90,7 @@ export const Academias = () => {
 					/>
 				</div>
 			</div>
+			<BotonFlotante />
 		</div>
 	);
 };
