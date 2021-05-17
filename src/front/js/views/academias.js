@@ -2,32 +2,26 @@ import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { BotonFlotante } from "../component/BotonFlotante";
+import Academia from "../component/Academia";
 
 export const Academias = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="how-section1">
-			<div className="row align-items-center">
-				<div className="col-md-6 how-img">
-					<img
-						src="https://logodownload.org/wp-content/uploads/2019/07/udemy-logo.png"
-						className="img-fluid-1"
-						alt
-					/>
-				</div>
-				<div className="col-md-6">
-					<h4>Udemy</h4>
-					<h4 className="subheading">
-						With GetLance, you have the freedom and flexibility to control when, where, and how you work.
-						Each project includes an online workspace shared by you and your client, allowing you to:
-					</h4>
-					<p className="text-muted">
-						Los mejores instructores de todo el mundo enseñan a millones de estudiantes en Udemy.
-						Proporcionamos las herramientas y las habilidades para que enseñes lo que te apasiona.
-					</p>
-				</div>
-			</div>
+			{!!store.academias &&
+				store.academias.results.map((elemento, index) => {
+					return (
+						<div className="row align-items-center" key={index}>
+							<Academia
+								nombre={elemento.nombre}
+								descripcion={elemento.descripcion}
+								imagen={elemento.imagen}
+							/>
+						</div>
+					);
+				})}
+			{/* 
 			<div className="row align-items-center">
 				<div className="col-md-6">
 					<h4>4Geeks Academy</h4>
@@ -89,7 +83,7 @@ export const Academias = () => {
 						alt
 					/>
 				</div>
-			</div>
+			</div> */}
 			<BotonFlotante />
 		</div>
 	);

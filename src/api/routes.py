@@ -510,18 +510,20 @@ def lenguajes(lenguaje_id=None):
             }), 200
     
     if request.method =='POST':
-        current_user = get_jwt_identity()      
+        # current_user = get_jwt_identity()      
         lenguaje_nombre=request.json.get('lenguaje_nombre')
         lenguaje_descripcion = request.json.get('lenguaje_descripcion')
+        imagen = request.json.get('imagen')
         perfiles_id = request.json.get('perfiles_id', '')
 
-        user = User.query.filter_by(email=current_user).first()
-        if user.id != perfiles_id:
-            return jsonify({"fail": "usuario no autorizado"})
+        # user = User.query.filter_by(email=current_user).first()
+        # if user.id != perfiles_id:
+        #     return jsonify({"fail": "usuario no autorizado"})
 
         lenguaje = Lenguaje()
         lenguaje.lenguaje_descripcion = lenguaje_descripcion
         lenguaje.lenguaje_nombre = lenguaje_nombre
+        lenguaje.imagen = imagen
         lenguaje.perfiles_id = perfiles_id
         lenguaje.save()
         return jsonify({
@@ -643,10 +645,13 @@ def academias(id=None):
     if request.method =='POST':
         nombre=request.json.get('nombre')
         descripcion = request.json.get('descripcion')
+        imagen = request.json.get('imagen')
       
         academia = Academia()
         academia.nombre = nombre
         academia.descripcion = descripcion
+        academia.imagen = imagen
+        
         academia.save()
         return jsonify({
             "success": "Academia guardada",
@@ -685,10 +690,12 @@ def areas_de_programacion(id=None):
     if request.method =='POST':    
         nombre=request.json.get('nombre')
         descripcion = request.json.get('descripcion')
+        imagen = request.json.get('imagen')
       
         area_de_programacion = Area_de_Programacion()
         area_de_programacion.nombre = nombre
         area_de_programacion.descripcion = descripcion
+        area_de_programacion.imagen = imagen
         area_de_programacion.save()
         return jsonify({
             "success": "Area de Programacion guardada",

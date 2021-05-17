@@ -21,6 +21,7 @@ import { PerfilUsuario } from "./views/PerfilUsuario";
 import Perfil2 from "./views/Perfil2";
 import UseForm from "./component/useForm";
 import { Preguntas2 } from "./views/preguntas2";
+import Prueba from "./pages/home";
 
 //create your first component
 const Layout = () => {
@@ -36,6 +37,10 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+
+						<Route exact path="/rutadeprueba">
+							<Prueba />
 						</Route>
 
 						<Route exact path="/registro">

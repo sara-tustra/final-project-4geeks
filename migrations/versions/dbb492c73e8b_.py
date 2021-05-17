@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 710c30958729
+Revision ID: dbb492c73e8b
 Revises: 
-Create Date: 2021-05-13 15:49:44.804463
+Create Date: 2021-05-17 15:04:42.595962
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '710c30958729'
+revision = 'dbb492c73e8b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,6 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nombre', sa.String(length=100), nullable=False),
     sa.Column('descripcion', sa.String(length=500), nullable=False),
+    sa.Column('imagen', sa.String(length=1000), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('nombre')
     )
@@ -29,6 +30,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nombre', sa.String(length=100), nullable=False),
     sa.Column('descripcion', sa.String(length=500), nullable=False),
+    sa.Column('imagen', sa.String(length=1000), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('nombre')
     )
@@ -91,7 +93,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('lenguaje_nombre', sa.String(length=500), nullable=False),
     sa.Column('lenguaje_descripcion', sa.String(length=900), nullable=False),
-    sa.Column('perfiles_id', sa.Integer(), nullable=False),
+    sa.Column('imagen', sa.String(length=1000), nullable=False),
+    sa.Column('perfiles_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['perfiles_id'], ['perfiles.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('lenguaje_nombre')
