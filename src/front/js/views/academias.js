@@ -83,7 +83,12 @@ export const Academias = () => {
 						alt
 					/>
 				</div>
+<<<<<<< HEAD
 			</div> */}
+=======
+			</div>
+			<BotonFlotante />
+>>>>>>> 2306bda763ba5b7b332f3ea1be97ef64fbe29585
 		</div>
 	);
 };

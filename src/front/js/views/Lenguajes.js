@@ -1,7 +1,11 @@
 import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/lenguajes.scss";
+<<<<<<< HEAD
 import Lenguaje from "../component/Lenguaje";
+=======
+import { BotonFlotante } from "../component/BotonFlotante";
+>>>>>>> 2306bda763ba5b7b332f3ea1be97ef64fbe29585
 
 export const Lenguajes = () => {
 	const { store, actions } = useContext(Context);
@@ -103,7 +107,12 @@ export const Lenguajes = () => {
 						alt
 					/>
 				</div>
+<<<<<<< HEAD
 			</div> */}
+=======
+			</div>
+			<BotonFlotante />
+>>>>>>> 2306bda763ba5b7b332f3ea1be97ef64fbe29585
 		</div>
 	);
 };

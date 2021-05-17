@@ -2,6 +2,7 @@ import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/foros.scss";
 import Botonlike from "../component/botonlike";
+import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Foros = () => {
 	const { store, actions } = useContext(Context);
@@ -107,6 +108,7 @@ export const Foros = () => {
 					</div>
 				</div>
 			</div>
+			<BotonFlotante />
 		</div>
 	);
 };
