@@ -6,7 +6,7 @@ import WeatherForm from "../component/WeatherForm";
 import WeatherInfo from "../component/WeatherInfo";
 import App from "../App";
 import "../../styles/home.scss";
-
+import { BotonFlotante } from "../component/BotonFlotante";
 import { Navbar } from "../component/navbar";
 
 export const Home = () => {
@@ -31,6 +31,7 @@ export const Home = () => {
 					<div className="row h-100 align-items-center">
 						<div className="col-lg-12">
 							<h1 className="display-4 text-white mt-5 mb-2">Vivir en un mundo de codigos</h1>
+
 							<p className="lead mb-5 text-white-50">
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore
 								provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste
@@ -109,7 +110,7 @@ export const Home = () => {
 								alt="..."
 							/>
 							<div className="card-home">
-								<h4 className="card-title">Lenguajes de programacion</h4>
+								<h4 className="card-title">Lenguajes de programación</h4>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
 									necessitatibus neque sequi doloribus totam ut praesentium aut.
@@ -130,7 +131,7 @@ export const Home = () => {
 								alt="..."
 							/>
 							<div className="card-home">
-								<h4 className="card-title">Areas de la programacion</h4>
+								<h4 className="card-title">Areas de la programación</h4>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
 									necessitatibus neque.
@@ -141,6 +142,7 @@ export const Home = () => {
 									Find Out More!
 								</Link>
 							</div>
+							<BotonFlotante />
 						</div>
 					</div>
 				</div>

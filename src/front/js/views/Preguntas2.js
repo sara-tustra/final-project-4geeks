@@ -1,8 +1,11 @@
-import React from "react";
+import React, { Component, useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/preguntas2.scss";
+import Pregunta from "../component/Pregunta";
 
-export const Preguntas2 = () => (
-	<>
+export const Preguntas2 = () => {
+	const { store, actions } = useContext(Context);
+	return (
 		<div className="container">
 			<div className="row">
 				<div className="col-md-12">
@@ -16,7 +19,16 @@ export const Preguntas2 = () => (
 			<div className="row">
 				<div className="col-md-12">
 					<div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-						<div className="panel panel-default">
+						{!!store.preguntasFrecuentes &&
+							store.preguntasFrecuentes.results.map((elemento, index) => {
+								return (
+									<div className="panel panel-default" key={index}>
+										<Pregunta pregunta={elemento.pregunta} respuesta={elemento.respuesta} />
+									</div>
+								);
+							})}
+
+						{/* <div className="panel panel-default">
 							<div className="panel-heading" role="tab" id="headingOne">
 								<h4 className="panel-title">
 									<a
@@ -37,19 +49,18 @@ export const Preguntas2 = () => (
 								aria-labelledby="headingOne">
 								<div className="panel-body">
 									<p className="text-dark">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem,
-										dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu
-										tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit
-										posuere tortor aliquam vitae. Curabitur molestie eros.Lorem ipsum dolor sit
-										amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque
-										at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum
-										ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam
-										vitae. Curabitur molestie eros.{" "}
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum
+										id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt
+										ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor
+										aliquam vitae. Curabitur molestie eros.Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu.
+										Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum
+										laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.{" "}
 									</p>
 								</div>
 							</div>
-						</div>
-						<div className="panel panel-default">
+						</div> */}
+						{/* <div className="panel panel-default">
 							<div className="panel-heading" role="tab" id="headingTwo">
 								<h4 className="panel-title">
 									<a
@@ -184,12 +195,12 @@ export const Preguntas2 = () => (
 									</p>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				{/*- END COL */}
 			</div>
 			{/*- END ROW */}
 		</div>
-	</>
-);
+	);
+};

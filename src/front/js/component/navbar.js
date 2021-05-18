@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
+import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Navbar = () => {
 	return (

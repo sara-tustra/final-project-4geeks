@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/signup.scss";
 import { Navbar } from "../component/navbar";
+import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Signup = props => {
 	const { actions } = useContext(Context);
@@ -49,7 +50,7 @@ export const Signup = props => {
 			if (Object.keys(errores).length === 0 && inputTerminos === true) {
 				setIsSubmitting(true);
 				actions
-					.registro({
+					.signup({
 						name: inputName,
 						last_name: inputLastName,
 						email: inputEmail,
@@ -198,6 +199,7 @@ export const Signup = props => {
 						</div>
 					</form>
 				</div>
+				<BotonFlotante />
 			</div>
 		</>
 	);

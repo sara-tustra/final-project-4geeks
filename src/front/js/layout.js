@@ -8,7 +8,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-
+import { BotonFlotante } from "./component/BotonFlotante";
 import Signup from "./views/signup";
 import Login from "./views/login";
 import { Academias } from "./views/academias";
@@ -16,11 +16,14 @@ import { Foros } from "./views/foros";
 import { VistaUsuario } from "./views/VistaUsuario";
 import { Lenguajes } from "./views/Lenguajes";
 import Carusel from "./component/Carusel";
+import { Circle } from "./component/Circle";
 import { AreasProgramacion } from "./views/AreasProgramacion";
-import PerfilUsuario from "./views/PerfilUsuario";
+import { PerfilUsuario } from "./views/PerfilUsuario";
 import Perfil2 from "./views/Perfil2";
 import UseForm from "./component/useForm";
 import { Preguntas2 } from "./views/preguntas2";
+import Prueba from "./pages/home";
+import ApiNoticias from "./views/ApiNoticias";
 
 //create your first component
 const Layout = () => {
@@ -36,6 +39,10 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+
+						<Route exact path="/rutadeprueba">
+							<Prueba />
 						</Route>
 
 						<Route exact path="/registro">
@@ -79,6 +86,18 @@ const Layout = () => {
 
 						<Route exact path="/Preguntas2">
 							<Preguntas2 />
+						</Route>
+
+						<Route exact path="/BotonFlotante">
+							<BotonFlotante />
+						</Route>
+
+						<Route exact path="/ApiNoticias">
+							<ApiNoticias />
+						</Route>
+
+						<Route exact path="/Circle">
+							<Circle />
 						</Route>
 
 						<Route>

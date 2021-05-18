@@ -1,24 +1,28 @@
+import Signup from "../views/signup";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			academias: null,
+			areasProgramacion: null,
+			lenguajes: null,
+			preguntasFrecuentes: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+
+			getFetch: (field, url) => {
+				fetch(url, {
+					method: "GET",
+					headers: {
+						"Content-type": "application/json"
+					}
+				})
+					.then(resp => resp.json())
+					.then(data => setStore({ [field]: data }))
+					.catch(error => {
+						console.error(error.message);
+					});
 			},
 
 			getMessage: () => {
@@ -28,19 +32,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			/*SIGNUP*/
+			signup: values => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
 
-				//reset the global store
-				setStore({ demo: demo });
+				var raw = JSON.stringify(values);
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				return fetch("", requestOptions)
+					.then(response => response.json())
+					.catch(error => {
+						console.log("error", error);
+						throw error;
+					});
 			}
 		}
 	};
