@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
+import WeatherForm from "../component/WeatherForm";
+import WeatherInfo from "../component/WeatherInfo";
+import App from "../App";
 import "../../styles/home.scss";
 
 import { Navbar } from "../component/navbar";
@@ -57,7 +61,13 @@ export const Home = () => {
 						</a> */}
 					</div>
 					<div className="col-md-4 mb-5">
-						<h2>api clima</h2>
+						<div className="container p-4">
+							<div className="row">
+								<div className="col-md-6 mx-auto">
+									<App />
+								</div>
+							</div>
+						</div>
 						<hr />
 						<address>
 							<strong>Start Bootstrap</strong>
