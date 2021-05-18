@@ -584,7 +584,7 @@ def preguntas_frecuentes(pregunta_id=None):
 # RUTA PRIVADA
 @api.route('/roles', methods=['GET', 'POST', 'DELETE'])
 @api.route('/roles/<int:id>', methods=['GET', 'PUT', 'DELETE'])
-@jwt_required()
+# @jwt_required()
 def roles(id=None):
     if request.method =='GET':
         rol = Role.query.get(id)

@@ -35,7 +35,7 @@ export const Login = props => {
 			});
 
 			console.log("hola");
-			if (Object.keys(errores).length === 0 && inputTerminos === true) {
+			if (Object.keys(errores).length === 0) {
 				setIsSubmitting(true);
 				actions
 					.login({
