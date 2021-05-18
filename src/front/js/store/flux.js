@@ -53,6 +53,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("error", error);
 						throw error;
 					});
+			},
+
+			/* LOGIN */
+			login: values => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify(values);
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				return fetch("", requestOptions)
+					.then(response => response.json())
+					.catch(error => {
+						console.log("error", error);
+						throw error;
+					});
 			}
 		}
 	};
