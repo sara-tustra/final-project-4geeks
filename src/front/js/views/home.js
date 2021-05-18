@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { BotonFlotante } from "../component/BotonFlotante";
 import { Navbar } from "../component/navbar";
-import ApiNoticias from "../views/ApiNoticias";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -133,7 +132,6 @@ export const Home = () => {
 									Find Out More!
 								</Link>
 							</div>
-							{/* <ApiNoticias /> */}
 							<BotonFlotante />
 						</div>
 					</div>

@@ -38,7 +38,7 @@ export const Login = props => {
 			if (Object.keys(errores).length === 0 && inputTerminos === true) {
 				setIsSubmitting(true);
 				actions
-					.registro({
+					.login({
 						email: inputEmail,
 						password: inputPassword
 					})

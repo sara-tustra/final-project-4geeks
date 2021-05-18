@@ -16,6 +16,7 @@ import { Foros } from "./views/foros";
 import { VistaUsuario } from "./views/VistaUsuario";
 import { Lenguajes } from "./views/Lenguajes";
 import Carusel from "./component/Carusel";
+import { Circle } from "./component/Circle";
 import { AreasProgramacion } from "./views/AreasProgramacion";
 import { PerfilUsuario } from "./views/PerfilUsuario";
 import Perfil2 from "./views/Perfil2";
@@ -93,6 +94,10 @@ const Layout = () => {
 
 						<Route exact path="/ApiNoticias">
 							<ApiNoticias />
+						</Route>
+
+						<Route exact path="/Circle">
+							<Circle />
 						</Route>
 
 						<Route>
