@@ -28,11 +28,15 @@ const injectContext = PassedComponent => {
 			console.log(state.store);
 
 			state.actions.getMessage(); // <---- calling this function from the flux.js actions
+
+			state.actions.signup();
+			[state.actions];
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
 		// the context will now have a getStore, getActions and setStore functions available, because they were declared
 		// on the state of this component
+
 		return (
 			<Context.Provider value={state}>
 				<PassedComponent />

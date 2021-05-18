@@ -32,8 +32,7 @@ const ApiNoticias = () => {
 										<img className="card-img" src={noticia.urlToImage} alt="Card image" />
 										<div className="card-img-overlay">
 											<h5 className="card-title">{noticia.title}</h5>
-											<p className="card-text">{noticia.description}</p>
-											<p className="card-text">Last updated 3 mins ago</p>
+											<p className="card-text">{noticia.content}</p>
 											<a className="btn btn-primary" href={noticia.url}>
 												Ver Noticia
 											</a>

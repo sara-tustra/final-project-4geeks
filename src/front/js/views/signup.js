@@ -50,7 +50,7 @@ export const Signup = props => {
 			if (Object.keys(errores).length === 0 && inputTerminos === true) {
 				setIsSubmitting(true);
 				actions
-					.registro({
+					.signup({
 						name: inputName,
 						last_name: inputLastName,
 						email: inputEmail,
