@@ -84,7 +84,7 @@ export const PerfilUsuario = props => {
 				<div className="row gutters">
 					<div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
 						<div className="card h-100">
-							<div className="card-body">
+							<div className="card-body-1">
 								<div className="account-settings">
 									<div className="user-profile">
 										<div className="user-avatar">
@@ -109,7 +109,7 @@ export const PerfilUsuario = props => {
 					</div>
 					<div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
 						<div className="card-10 h-100">
-							<div className="card-body">
+							<div className="card-body-1">
 								<div className="row gutters">
 									<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<h6 className="mb-3 text-primary">Personal Details</h6>

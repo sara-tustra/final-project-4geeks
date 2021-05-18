@@ -63,7 +63,9 @@ export const Foros = () => {
 										</div>
 										<div className="publish-button">
 											<div className="align-items-center border-left p-2 px-5 btn publish">
-												<span className="ml-1">Publish</span>
+												<button type="button" className="btn btn-primary">
+													Publicar
+												</button>
 											</div>
 										</div>
 									</div>
