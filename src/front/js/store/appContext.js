@@ -34,6 +34,9 @@ const injectContext = PassedComponent => {
 
 			state.actions.login();
 			[state.actions];
+
+			state.actions.PerfilUsuario();
+			[state.actions];
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
