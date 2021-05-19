@@ -24,6 +24,7 @@ import UseForm from "./component/useForm";
 import { Preguntas2 } from "./views/preguntas2";
 import Prueba from "./pages/home";
 import ApiNoticias from "./views/ApiNoticias";
+import { Post } from "./views/post";
 
 //create your first component
 const Layout = () => {
@@ -98,6 +99,9 @@ const Layout = () => {
 
 						<Route exact path="/Circle">
 							<Circle />
+						</Route>
+						<Route exact path="/Post">
+							<Post />
 						</Route>
 
 						<Route>
