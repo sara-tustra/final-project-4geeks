@@ -23,10 +23,17 @@ body {
   border-radius: 0.25rem;
 }
 
-.card-body {
+.card-body-1 {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1rem;
+}
+.card-body {
+  width: 200px;
+  color: #d7dff0;
+  background-color: rgb(37, 50, 75);
+  border: 0 solid rgba(230, 211, 211, 0.919);
+  border-radius: 0.25rem;
 }
 
 .gutters-sm {

@@ -69,15 +69,6 @@ export const Home = () => {
 								</div>
 							</div>
 						</div>
-						<hr />
-						<address>
-							<strong>Start Bootstrap</strong>
-							<br />
-							3481 Melrose Place
-							<br />
-							Beverly Hills, CA 90210
-							<br />
-						</address>
 					</div>
 				</div>
 				<div className="row">
