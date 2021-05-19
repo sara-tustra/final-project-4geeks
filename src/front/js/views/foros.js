@@ -1,7 +1,6 @@
 import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/foros.scss";
-import Botonlike from "../component/botonlike";
 import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Foros = () => {
@@ -9,11 +8,7 @@ export const Foros = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<div className="h12">
-				<h1 contentEditable spellCheck="false">
-					Foro
-				</h1>
-			</div>
+			<div className="h12" />
 			<div className="container mt-5 mb-5">
 				<div className="row d-flex align-items-center justify-content-center">
 					<div className="col-md-10">
@@ -38,10 +33,6 @@ export const Foros = () => {
 										</div>
 									</div>
 								</div>
-								<div className="d-flex flex-row mt-1 ellipsis">
-									{" "}
-									<small className="mr-2">20 mins</small> <i className="fa fa-ellipsis-h" />{" "}
-								</div>
 							</div>{" "}
 							<div className="p-2">
 								<div className="share border bg-white">
@@ -56,10 +47,7 @@ export const Foros = () => {
 										<div className="d-flex flex-row publish-options" />
 										<div className="d-flex flex-row icons d-flex align-items-center">
 											{" "}
-											<div className="d-flex flex-row align-items-center status">
-												{" "}
-												<Botonlike />
-											</div>{" "}
+											<div className="d-flex flex-row align-items-center status"> </div>{" "}
 										</div>
 										<div className="publish-button">
 											<div className="align-items-center border-left p-2 px-5 btn publish">
@@ -71,40 +59,6 @@ export const Foros = () => {
 									</div>
 								</div>
 								<hr />
-								<div className="d-flex justify-content-between align-items-center">
-									<div className="d-flex flex-row muted-color">
-										{" "}
-										<span>1 comments</span>{" "}
-									</div>
-								</div>
-								<hr />
-								<div className="comments">
-									<div className="d-flex flex-row mb-2">
-										{" "}
-										<img
-											src="https://i.imgur.com/9AZ2QX1.jpg"
-											width={40}
-											className="rounded-image"
-										/>
-										<div className="d-flex flex-column ml-2">
-											{" "}
-											<span className="name">Daniel Perez</span>{" "}
-											<small className="comment-text">I like this alot! thanks alot</small>
-										</div>
-									</div>
-									<div className="comment-input">
-										{" "}
-										<input
-											type="text"
-											className="form-control foro6 "
-											placeholder="Agrega un comentario"
-										/>
-										<div className="fonts">
-											{" "}
-											<i className="usuario fa fa-user" />{" "}
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>

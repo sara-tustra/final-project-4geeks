@@ -21,7 +21,7 @@ flask-jwt-extended = "*"
 flask-swagger-ui = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3"
 
 [scripts]
 start="flask run -p 3001 -h 0.0.0.0"
