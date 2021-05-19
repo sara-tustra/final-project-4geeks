@@ -7,7 +7,7 @@ import { Navbar } from "../component/navbar";
 import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Signup = props => {
-	const { actions } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	const [inputName, setInputName] = useState("");
 	const [inputLastName, setInputLastName] = useState("");
@@ -64,6 +64,8 @@ export const Signup = props => {
 
 			setErrors(errores);
 		}
+		actions.registroUsuario(inputName, inputLastName, inputEmail, inputPassword);
+		actions.postRegistro(store.perfilUsuario, " http://0.0.0.0:3001/api/register");
 	};
 
 	return (

@@ -7,7 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			areasProgramacion: null,
 			lenguajes: null,
 			preguntasFrecuentes: null,
-			usuarioActual: {}
+			usuarioActual: {},
+			perfilUsuario: {}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -56,6 +57,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				Object.keys(oldUsuario).length === 0
 					? setStore({ usuarioActual: usuario })
 					: console.log("usuario ya está loggeado");
+			},
+
+			registroUsuario: (nombre, apellido, correo, contraseña) => {
+				const perfil = {
+					nombre: nombre,
+					apellido: apellido,
+					email: correo,
+					password: contraseña
+				};
+				const oldPerfil = getStore().perfilUsuario;
+				Object.keys(oldPerfil).length === 0
+					? setStore({ perfilUsuario: perfil })
+					: console.log("Hubo un error guardando perfil");
+			},
+
+			postRegistro: (dataDeUsuario, url) => {
+				fetch(url, {
+					method: "POST",
+					body: JSON.stringify(dataDeUsuario),
+					headers: {
+						"Content-type": "application/json"
+					}
+				})
+					.then(resp => resp.json())
+					.then(data => console.log(data))
+					.catch(error => console.error("Error", error));
 			},
 
 			checkCredentials: (url, userToken) => {
