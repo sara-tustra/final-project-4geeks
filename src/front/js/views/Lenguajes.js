@@ -13,8 +13,8 @@ export const Lenguajes = () => {
 					return (
 						<div className="row align-items-center" key={index}>
 							<Lenguaje
-								nombre={elemento.nombre}
-								descripcion={elemento.descripcion}
+								nombre={elemento.lenguaje_nombre}
+								descripcion={elemento.lenguaje_descripcion}
 								imagen={elemento.imagen}
 							/>
 						</div>
