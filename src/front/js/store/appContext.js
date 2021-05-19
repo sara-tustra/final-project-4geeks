@@ -27,7 +27,7 @@ const injectContext = PassedComponent => {
 
 			console.log(state.store);
 
-			state.actions.getMessage(); // <---- calling this function from the flux.js actions
+			// state.actions.getMessage(); // <---- calling this function from the flux.js actions
 
 			state.actions.signup();
 			[state.actions];

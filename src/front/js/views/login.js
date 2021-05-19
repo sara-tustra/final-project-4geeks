@@ -8,7 +8,7 @@ import { Navbar } from "../component/navbar";
 import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Login = props => {
-	const { actions } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	const [inputPassword, setInputPassword] = useState("");
 	const [errors, setErrors] = useState({});
@@ -16,7 +16,7 @@ export const Login = props => {
 	const [inputEmail, setInputEmail] = useState("");
 
 	const handleChange = e => {
-		const { name, value, checked } = e.target;
+		const { name, value } = e.target;
 		console.log(name, value);
 		if (name === "email") {
 			setInputEmail(value);
@@ -38,7 +38,7 @@ export const Login = props => {
 			if (Object.keys(errores).length === 0) {
 				setIsSubmitting(true);
 				actions
-					.login({
+					.signup({
 						email: inputEmail,
 						password: inputPassword
 					})
@@ -48,6 +48,10 @@ export const Login = props => {
 			}
 			setErrors(errores);
 		}
+		actions.agregarLogin(inputEmail, inputPassword);
+		actions.postFetch(store.usuarioActual, "http://0.0.0.0:3001/api/login");
+		// let userToken = localStorage.getItem("token");
+		// actions.checkCredentials("http://0.0.0.0:3001/api/profile", userToken);
 	};
 
 	return (

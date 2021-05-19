@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			academias: null,
 			areasProgramacion: null,
 			lenguajes: null,
-			preguntasFrecuentes: null
+			preguntasFrecuentes: null,
+			usuarioActual: {}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -25,12 +26,52 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
+			// getMessage: () => {
+			// 	// fetching data from the backend
+			// 	fetch(process.env.BACKEND_URL + "/api/hello")
+			// 		.then(resp => resp.json())
+			// 		.then(data => setStore({ message: data.message }))
+			// 		.catch(error => console.log("Error loading message from backend", error));
+			// },
+
+			postFetch: (data, url) => {
+				fetch(url, {
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-type": "application/json"
+					}
+				})
 					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
+					.then(data => localStorage.setItem("token", JSON.stringify(data["token"])))
+					.catch(error => console.error("Error", error));
+			},
+
+			agregarLogin: (usuarioemail, usuariopassword) => {
+				const usuario = {
+					email: usuarioemail,
+					password: usuariopassword
+				};
+				const oldUsuario = getStore().usuarioActual;
+				Object.keys(oldUsuario).length === 0
+					? setStore({ usuarioActual: usuario })
+					: console.log("usuario ya está loggeado");
+			},
+
+			checkCredentials: (url, userToken) => {
+				// var myHeaders = new Headers();
+				// myHeaders.append("Content-Type", "application/json");
+				// myHeaders.append("Authorization", "Bearer " + userToken);
+				fetch(url, {
+					method: "GET",
+					headers: {
+						Authorization: "Bearer " + String(userToken),
+						"Content-Type": "application/json"
+					}
+				})
+					.then(resp => resp.json())
+					.then(data => console.log(data))
+					.catch(error => console.error("Error", error));
 			},
 
 			/*SIGNUP*/
