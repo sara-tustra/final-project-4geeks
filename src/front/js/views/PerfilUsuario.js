@@ -246,11 +246,16 @@ export const PerfilUsuario = props => {
 								<div className="row gutters">
 									<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<div className="text-right">
-											<button type="button" className="btn btn-outline-primary m-1">
-												<Link to="/">Update</Link>
+											<button
+												type="button"
+												className="btn btn-outline-primary m-1"
+												data-bs-toggle="modal"
+												data-bs-target="#exampleModal">
+												<Link to="/foros">Actualizar</Link>
 											</button>
+
 											<button type="button" className="btn btn-outline-primary m-1">
-												<Link to="/">Home</Link>
+												<Link to="/">Volver al principio</Link>
 											</button>
 										</div>
 									</div>
@@ -258,6 +263,20 @@ export const PerfilUsuario = props => {
 							</div>
 						</div>
 					</div>
+					{/* <div className="row justify-content-center m-auto p-auto">
+						<div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
+							<div className="card-10 h-100">
+								<div className="card-body-1">
+									<div className="row gutters justify-content-center">
+										<div className="col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
+											<h2>BIEN HECHO!!</h2>
+											<h3>Tus datos han sido actualizados</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> */}
 				</div>
 				<BotonFlotante />
 			</div>
