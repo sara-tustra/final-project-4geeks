@@ -23,7 +23,11 @@ export const Preguntas2 = () => {
 							store.preguntasFrecuentes.results.map((elemento, index) => {
 								return (
 									<div className="panel panel-default" key={index}>
-										<Pregunta pregunta={elemento.pregunta} respuesta={elemento.respuesta} />
+										<Pregunta
+											pregunta={elemento.pregunta}
+											respuesta={elemento.respuesta}
+											id={elemento.id}
+										/>
 									</div>
 								);
 							})}

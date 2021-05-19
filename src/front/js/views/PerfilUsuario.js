@@ -7,7 +7,7 @@ import { Navbar } from "../component/navbar";
 import { BotonFlotante } from "../component/BotonFlotante";
 
 export const PerfilUsuario = props => {
-	const { actions } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	const [inputName, setInputName] = useState("");
 	const [inputLastName, setInputLastName] = useState("");
@@ -93,15 +93,13 @@ export const PerfilUsuario = props => {
 												alt="Maxwell Admin"
 											/>
 										</div>
-										<h5 className="user-name">Enzo Rios</h5>
-										<h6 className="user-email">enzo@gmsil.com</h6>
+										<h5 className="user-name">Sarai Santiago</h5>
+										<h6 className="user-email" />
+										saraisantiagom@gmail.com
 									</div>
 									<div className="about">
-										<h5 className="mb-2 text-primary">About</h5>
-										<p>
-											Im Enzo. Full Stack Designer I enjoy creating user-centric, delightful and
-											human experiences.
-										</p>
+										<h5 className="mb-2 text-primary">Sobre mi</h5>
+										<p>Estoy iniciándome en el mundo de la programación!</p>
 									</div>
 								</div>
 							</div>
@@ -112,19 +110,19 @@ export const PerfilUsuario = props => {
 							<div className="card-body-1">
 								<div className="row gutters">
 									<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-										<h6 className="mb-3 text-primary">Personal Details</h6>
+										<h6 className="mb-3 text-primary">Detalles personales</h6>
 									</div>
 									{/* NOMBRE */}
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="fullName">Name</label>
+											<label htmlFor="fullName">Nombre</label>
 											<input
 												className="form-control"
 												type="text"
 												name="name"
-												placeholder="Enter name"
+												placeholder="Escribe tu nombre"
 												id="fullName"
-												value={inputName}
+												value={!!inputName ? "Sarai" : inputName}
 												onChange={handleChange}
 											/>
 										</div>
@@ -133,14 +131,14 @@ export const PerfilUsuario = props => {
 									{/* APELLIDO */}
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="eMail">Last name</label>
+											<label htmlFor="eMail">Apellido</label>
 											<input
 												className="form-control"
 												type="text"
 												name="last_name"
-												placeholder="Enter Last name"
+												placeholder="Escribe tu apellido"
 												id="eMail"
-												value={inputLastName}
+												value={!inputLastName ? "Santiago" : inputLastName}
 												onChange={handleChange}
 											/>
 										</div>
@@ -154,9 +152,9 @@ export const PerfilUsuario = props => {
 												className="form-control"
 												type="email"
 												name="email"
-												placeholder="Enter Email"
+												placeholder="Escribe tu email"
 												id="phone"
-												value={inputEmail}
+												value={!inputEmail ? "saraisantiagom@gmail.com" : inputEmail}
 												onChange={handleChange}
 											/>
 										</div>
@@ -165,14 +163,14 @@ export const PerfilUsuario = props => {
 									{/* IDIOMA */}
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="zIp">Idiom</label>
+											<label htmlFor="zIp">Idioma</label>
 											<input
 												className="form-control"
 												type="text"
 												name="idiom"
-												placeholder="Enter idiom"
+												placeholder="Escribe qué idioma prefieres"
 												id="sTate"
-												value={inputIdiom}
+												value=""
 												onChange={handleChange}
 											/>
 										</div>
@@ -180,18 +178,15 @@ export const PerfilUsuario = props => {
 									</div>
 								</div>
 								<div className="row gutters">
-									<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-										<h6 className="mb-3 text-primary">Address</h6>
-									</div>
 									{/* Contraseña */}
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="website">Password</label>
+											<label htmlFor="website">Contraseña</label>
 											<input
 												className="form-control"
 												type="password"
 												name="password"
-												placeholder="Enter password"
+												placeholder="Ingresa tu contraseña"
 												id="website"
 												value={inputPassword}
 												onChange={handleChange}
@@ -202,12 +197,12 @@ export const PerfilUsuario = props => {
 									{/* CONFIRMACIÓN CONTRASEÑA */}
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="Street">Confirm password</label>
+											<label htmlFor="Street">Confirma tu contraseña</label>
 											<input
 												className="form-control"
 												type="password"
 												name="confirm_password"
-												placeholder="confirm password"
+												placeholder="Confirma tu contraseña"
 												id="Street"
 												value={inputPassword2}
 												onChange={handleChange}
@@ -218,12 +213,12 @@ export const PerfilUsuario = props => {
 									{/* COUNTRY */}
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="sTate">Country</label>
+											<label htmlFor="sTate">País</label>
 											<input
 												className="form-control"
 												type="text"
 												name="country"
-												placeholder="Enter country"
+												placeholder="Escribe tu país"
 												id="sTate"
 												value={inputCountry}
 												onChange={handleChange}
@@ -234,12 +229,12 @@ export const PerfilUsuario = props => {
 									{/* CITY */}
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label htmlFor="zIp">City</label>
+											<label htmlFor="zIp">Ciudad</label>
 											<input
 												className="form-control"
 												type="text"
 												name="city"
-												placeholder="Enter city"
+												placeholder="Escribe tu país"
 												id="sTate"
 												value={inputCity}
 												onChange={handleChange}
@@ -252,7 +247,7 @@ export const PerfilUsuario = props => {
 									<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<div className="text-right">
 											<button type="button" className="btn btn-outline-primary m-1">
-												<Link to="/">to update</Link>
+												<Link to="/">Update</Link>
 											</button>
 											<button type="button" className="btn btn-outline-primary m-1">
 												<Link to="/">Home</Link>
