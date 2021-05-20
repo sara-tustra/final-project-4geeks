@@ -33,11 +33,11 @@ export const Navbar = () => {
 									<Link to="/Perfil2">Perfil 2</Link>
 								</a>
 							</li> */}
-							<li className="nav-item">
+							{/* <li className="nav-item">
 								<a className="nav-link " href="#!">
 									<Link to="/PerfilUsuario">Perfil de usuario</Link>
 								</a>
-							</li>
+							</li> */}
 							<li className="nav-item">
 								<a className="nav-link " href="#!">
 									<Link to="/home">Home</Link>
@@ -45,7 +45,7 @@ export const Navbar = () => {
 							</li>
 							<li className="nav-item">
 								<a className="nav-link" href="#!">
-									<Link to="/registro">Registrarse</Link>
+									<Link to="/registro">Signup</Link>
 								</a>
 							</li>
 							<li className="nav-item">
