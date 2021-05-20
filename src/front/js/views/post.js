@@ -1,5 +1,6 @@
 import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
+import Botonlike from "../component/botonlike";
 import "../../styles/post.scss";
 
 export const Post = () => {
@@ -51,6 +52,10 @@ export const Post = () => {
 										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
 										euismod tincidunt.
 									</p>
+									<div className="d-flex flex-row align-items-center status">
+										{" "}
+										<Botonlike />
+									</div>{" "}
 								</div>
 							</div>
 

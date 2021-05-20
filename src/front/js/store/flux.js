@@ -47,6 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => localStorage.setItem("token", JSON.stringify(data["token"])))
 					.catch(error => console.error("Error", error));
 			},
+			// guardar en localStorage si check recuerdame esta True
 
 			agregarLogin: (usuarioemail, usuariopassword) => {
 				const usuario = {
@@ -58,6 +59,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					? setStore({ usuarioActual: usuario })
 					: console.log("usuario ya está loggeado");
 			},
+
+			//crear metodo que chequee usuario en sessionStorage
 
 			registroUsuario: (nombre, apellido, correo, contraseña) => {
 				const perfil = {
@@ -86,13 +89,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			checkCredentials: (url, userToken) => {
-				// var myHeaders = new Headers();
-				// myHeaders.append("Content-Type", "application/json");
-				// myHeaders.append("Authorization", "Bearer " + userToken);
 				fetch(url, {
 					method: "GET",
 					headers: {
-						Authorization: "Bearer " + String(userToken),
+						Authorization: "Bearer " + JSON.parse(userToken),
 						"Content-Type": "application/json"
 					}
 				})

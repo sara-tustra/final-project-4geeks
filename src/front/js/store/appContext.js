@@ -24,6 +24,7 @@ const injectContext = PassedComponent => {
 			state.actions.getFetch("areasProgramacion", "http://0.0.0.0:3001/api/areas_de_programacion");
 			state.actions.getFetch("lenguajes", "http://0.0.0.0:3001/api/lenguajes");
 			state.actions.getFetch("preguntasFrecuentes", "http://0.0.0.0:3001/api/preguntas_frecuentes");
+			state.actions.getFetch("perfilUsuario", "http://0.0.0.0:3001/api/users/2");
 
 			console.log(state.store);
 

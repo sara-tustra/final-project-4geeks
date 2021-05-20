@@ -27,7 +27,7 @@ export const Login = props => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-
+		console.log("probando login...");
 		if (isSubmitting === false) {
 			const errores = validateLogin({
 				email: inputEmail,
@@ -49,9 +49,10 @@ export const Login = props => {
 			setErrors(errores);
 		}
 		actions.agregarLogin(inputEmail, inputPassword);
-		actions.postFetch(store.usuarioActual, "http://0.0.0.0:3001/api/login");
-		// let userToken = localStorage.getItem("token");
-		// actions.checkCredentials("http://0.0.0.0:3001/api/profile", userToken);
+		actions.postFetch(store.usuarioActual, "http://0.0.0.0:3001/api/login"); // solicitando usuario a database
+		let userToken = localStorage.getItem("token"); //trayendo token de localstorage
+		actions.checkCredentials("http://0.0.0.0:3001/api/profile", userToken); // solicitando permiso a database
+		window.location.href = "http://localhost:3000/PerfilUsuario";
 	};
 
 	return (

@@ -11,14 +11,18 @@ const Pregunta = props => {
 						role="button"
 						data-toggle="collapse"
 						data-parent="#accordion"
-						href="#collapseFive"
+						href={"#collapseFive" + props.id}
 						aria-expanded="false"
-						aria-controls="collapseFive">
+						aria-controls={"collapseFive" + props.id}>
 						{props.pregunta}
 					</a>
 				</h4>
 			</div>
-			<div id="collapseFive" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+			<div
+				id={"collapseFive" + props.id}
+				className="panel-collapse collapse"
+				role="tabpanel"
+				aria-labelledby="headingFive">
 				<div className="panel-body">
 					<p className="text-dark">{props.respuesta} </p>
 				</div>
@@ -30,7 +34,8 @@ const Pregunta = props => {
 Pregunta.propTypes = {
 	nombre: PropTypes.string,
 	descripcion: PropTypes.string,
-	imagen: PropTypes.string
+	imagen: PropTypes.string,
+	id: PropTypes.number
 };
 
 export default Pregunta;

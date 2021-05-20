@@ -7,7 +7,7 @@ import { Navbar } from "../component/navbar";
 import { BotonFlotante } from "../component/BotonFlotante";
 
 export const PerfilUsuario = props => {
-	const { actions } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	const [inputName, setInputName] = useState("");
 	const [inputLastName, setInputLastName] = useState("");
@@ -93,15 +93,13 @@ export const PerfilUsuario = props => {
 												alt="Maxwell Admin"
 											/>
 										</div>
-										<h5 className="user-name">Enzo Rios</h5>
-										<h6 className="user-email">enzo@gmsil.com</h6>
+										<h5 className="user-name">Sarai Santiago</h5>
+										<h6 className="user-email" />
+										saraisantiagom@gmail.com
 									</div>
 									<div className="about">
-										<h5 className="mb-2 text-primary">About</h5>
-										<p>
-											Im Enzo. Full Stack Designer I enjoy creating user-centric, delightful and
-											human experiences.
-										</p>
+										<h5 className="mb-2 text-primary">Sobre mi</h5>
+										<p>Estoy iniciándome en el mundo de la programación!</p>
 									</div>
 								</div>
 							</div>
@@ -265,6 +263,20 @@ export const PerfilUsuario = props => {
 							</div>
 						</div>
 					</div>
+					{/* <div className="row justify-content-center m-auto p-auto">
+						<div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
+							<div className="card-10 h-100">
+								<div className="card-body-1">
+									<div className="row gutters justify-content-center">
+										<div className="col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
+											<h2>BIEN HECHO!!</h2>
+											<h3>Tus datos han sido actualizados</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> */}
 				</div>
 				<BotonFlotante />
 			</div>

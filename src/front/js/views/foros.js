@@ -1,7 +1,6 @@
 import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/foros.scss";
-import Botonlike from "../component/botonlike";
 import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Foros = () => {
@@ -9,11 +8,7 @@ export const Foros = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<div className="h12">
-				<h1 contentEditable spellCheck="false">
-					Foro
-				</h1>
-			</div>
+			<div className="h12" />
 			<div className="container mt-5 mb-5">
 				<div className="row d-flex align-items-center justify-content-center">
 					<div className="col-md-10">
@@ -52,10 +47,7 @@ export const Foros = () => {
 										<div className="d-flex flex-row publish-options" />
 										<div className="d-flex flex-row icons d-flex align-items-center">
 											{" "}
-											<div className="d-flex flex-row align-items-center status">
-												{" "}
-												<Botonlike />
-											</div>{" "}
+											<div className="d-flex flex-row align-items-center status"> </div>{" "}
 										</div>
 										<div className="publish-button">
 											<div className="align-items-center border-left p-2 px-5 btn publish">
