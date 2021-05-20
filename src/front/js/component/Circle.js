@@ -5,17 +5,9 @@ import { Link } from "react-router-dom";
 export const Circle = () => {
 	return (
 		<>
-			<div className="row">
-				<div className="col-md-4 mb-5">
-					<div id="circle">
-						<div className="loader">
-							<div className="loader">
-								<div className="loader">
-									<div className="loader" />
-								</div>
-							</div>
-						</div>
-					</div>
+			<div className="sonar-wrapper">
+				<div className="sonar-emitter">
+					<div className="sonar-wave" />
 				</div>
 			</div>
 		</>

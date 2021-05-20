@@ -146,12 +146,6 @@ function Perfil2() {
 
 								{/* ojo */}
 							</article>
-							<div className="text-center">
-								<a href="#" className="btn btn-default btn-icon icon-left">
-									<i className="entypo-hourglass" />
-									Load More …
-								</a>
-							</div>
 						</div>
 					</section>
 				</div>

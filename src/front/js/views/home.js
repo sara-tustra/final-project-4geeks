@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import PropTypes from "prop-types";
-import WeatherForm from "../component/WeatherForm";
 import WeatherInfo from "../component/WeatherInfo";
-import App from "../App";
-import "../../styles/home.scss";
 import { BotonFlotante } from "../component/BotonFlotante";
-import { Navbar } from "../component/navbar";
+import { Circle } from "../component/Circle";
+
+import "../../styles/home.scss";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -62,13 +60,8 @@ export const Home = () => {
 						</a> */}
 					</div>
 					<div className="col-md-4 mb-5">
-						<div className="container p-4">
-							<div className="row">
-								<div className="col-md-6 mx-auto">
-									<App />
-								</div>
-							</div>
-						</div>
+						{/* <Circle /> */}
+						<WeatherInfo className="col-md-4 mb-5" />
 					</div>
 				</div>
 				<div className="row">
