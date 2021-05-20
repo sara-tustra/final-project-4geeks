@@ -1,33 +1,54 @@
+html {
+  /* background-color: #cef; */
+}
 html,
-body {
-  width: 100%;
+body,
+.sonar-wrapper {
   height: 100%;
 }
 
-/* body {
-  background: #0d161f;
-} */
-
-#circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
+/* Prevent scrollbars to appear when waves go out of bound */
+.sonar-wrapper {
+  position: relative;
+  z-index: 0;
 }
 
-.loader {
-  width: calc(100% - 0px);
-  height: calc(100% - 0px);
-  border: 8px solid #67788a;
-  border-top: 8px solid rgb(17, 156, 248);
-  border-radius: 50%;
-  animation: rotate 5s linear infinite;
+/* The circle */
+.sonar-emitter {
+  position: relative;
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 9999px;
+  background-color: HSL(45, 100%, 50%);
+  margin-bottom: 10px;
 }
 
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
+/* the 'wave', same shape and size as its parent */
+.sonar-wave {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background-color: HSL(45, 100%, 50%);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/*
+  Animate!
+  NOTE: add browser prefixes where needed.
+*/
+.sonar-wave {
+  animation: sonarWave 2s linear infinite;
+}
+
+@keyframes sonarWave {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
   }
 }
