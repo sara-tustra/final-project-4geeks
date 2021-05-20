@@ -23,7 +23,6 @@ function Perfil2() {
 		console.log("probando posting...");
 		actions.agregarPost(inputPost);
 		setIsSubmitting(true);
-		setInputPost("");
 	};
 	return (
 		<>
@@ -66,9 +65,6 @@ function Perfil2() {
 								<ul className="user-details" />
 								{/* tabs for the profile links */}
 								<ul className="nav nav-tabs">
-									<li className="active">
-										<a href="/foros">Ir a Foros</a>
-									</li>
 									<li>
 										<a href="/PerfilUsuario">Editar Perfil</a>
 									</li>

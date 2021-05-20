@@ -55,7 +55,7 @@ export const Login = props => {
 		actions.agregarLogin(inputEmail, inputPassword); // manda inputs al contexto
 		actions.postFetch(store.usuarioActual, "http://0.0.0.0:3001/api/login");
 		actions.actualizarUsuario();
-		history.push("/perfil2");
+		if (isSubmitting === true) history.push("/perfil2");
 	};
 
 	return (

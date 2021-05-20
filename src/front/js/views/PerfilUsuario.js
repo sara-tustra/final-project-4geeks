@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { validateInfo } from "../component/validateInfo";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
@@ -8,6 +9,7 @@ import { BotonFlotante } from "../component/BotonFlotante";
 
 export const PerfilUsuario = props => {
 	const { store, actions } = useContext(Context);
+	const history = useHistory();
 
 	const [inputName, setInputName] = useState("");
 	const [inputLastName, setInputLastName] = useState("");
@@ -59,23 +61,24 @@ export const PerfilUsuario = props => {
 
 			if (Object.keys(errores).length === 0 && inputCountry === true) {
 				setIsSubmitting(true);
-				actions
-					.perfilUsuario({
-						name: inputName,
-						last_name: inputLastName,
-						email: inputEmail,
-						password: inputPassword,
-						password2: inputPassword2,
-						country: inputCountry,
-						city: inputCity,
-						idiom: inputIdiom
-					})
-					.then(result => {
-						props.history.push("/home");
-					});
+				// actions
+				// 	.perfilUsuario({
+				// 		name: inputName,
+				// 		last_name: inputLastName,
+				// 		email: inputEmail,
+				// 		password: inputPassword,
+				// 		password2: inputPassword2,
+				// 		country: inputCountry,
+				// 		city: inputCity,
+				// 		idiom: inputIdiom
+				// 	})
+				// 	.then(result => {
+				// 		props.history.push("/home");
+				// 	});
 			}
 
 			setErrors(errores);
+			history.push("/perfil2");
 		}
 	};
 	return (
@@ -237,7 +240,7 @@ export const PerfilUsuario = props => {
 												<input
 													className="form-control"
 													type="password"
-													name="confirm_password"
+													name="password2"
 													placeholder="Confirma tu contraseña"
 													id="Street"
 													value={inputPassword2}
@@ -254,7 +257,7 @@ export const PerfilUsuario = props => {
 													Actualizar
 												</button>
 												<button type="button" className="btn btn-outline-primary m-1">
-													<Link to="/">Ir a Inicio</Link>
+													<Link to="/Perfil2">Ir a Inicio</Link>
 												</button>
 											</div>
 										</div>
