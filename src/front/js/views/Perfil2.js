@@ -22,7 +22,7 @@ function Perfil2() {
 								<li>
 									<div className="profile-name">
 										<strong>
-											<a href="#">Marting flowtlhrow</a>
+											<a href="#">Marco Reus</a>
 											<a
 												href="#"
 												className="user-status is-online tooltip-primary"
@@ -322,12 +322,6 @@ function Perfil2() {
 									<hr />
 								</div>
 							</article>
-							<div className="text-center">
-								<a href="#" className="btn btn-default btn-icon icon-left">
-									<i className="entypo-hourglass" />
-									Load More …
-								</a>
-							</div>
 						</div>
 					</section>
 				</div>
