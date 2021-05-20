@@ -111,17 +111,17 @@ export const PerfilUsuario = props => {
 								<form onSubmit={handleSubmit} className="form" noValidate>
 									<div className="row gutters">
 										<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-											<h6 className="mb-3 text-primary">Personal Details</h6>
+											<h6 className="mb-3 text-primary">Información Personal</h6>
 										</div>
 										{/* NOMBRE */}
 										<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 											<div className="form-group">
-												<label htmlFor="fullName">Name</label>
+												<label htmlFor="fullName">Nombre</label>
 												<input
 													className="form-control"
 													type="text"
 													name="name"
-													placeholder="Enter name"
+													placeholder="Escribe tu nombre"
 													id="fullName"
 													value={inputName}
 													onChange={handleChange}
@@ -132,12 +132,12 @@ export const PerfilUsuario = props => {
 										{/* APELLIDO */}
 										<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 											<div className="form-group">
-												<label htmlFor="eMail">Last name</label>
+												<label htmlFor="eMail">Apellido</label>
 												<input
 													className="form-control"
 													type="text"
 													name="last_name"
-													placeholder="Enter Last name"
+													placeholder="Escribe tu apellido"
 													id="eMail"
 													value={inputLastName}
 													onChange={handleChange}
@@ -153,7 +153,7 @@ export const PerfilUsuario = props => {
 													className="form-control"
 													type="email"
 													name="email"
-													placeholder="Enter Email"
+													placeholder="Escribe tu email"
 													id="phone"
 													value={inputEmail}
 													onChange={handleChange}
@@ -164,12 +164,12 @@ export const PerfilUsuario = props => {
 										{/* IDIOMA */}
 										<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 											<div className="form-group">
-												<label htmlFor="zIp">Idiom</label>
+												<label htmlFor="zIp">Idioma</label>
 												<input
 													className="form-control"
 													type="text"
 													name="idiom"
-													placeholder="Enter idiom"
+													placeholder="Escribe tu idioma"
 													id="sTate"
 													value={inputIdiom}
 													onChange={handleChange}
@@ -179,50 +179,18 @@ export const PerfilUsuario = props => {
 										</div>
 									</div>
 									<div className="row gutters">
-										<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-											<h6 className="mb-3 text-primary">Address</h6>
-										</div>
-										{/* Contraseña */}
-										<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-											<div className="form-group">
-												<label htmlFor="website">Password</label>
-												<input
-													className="form-control"
-													type="password"
-													name="password"
-													placeholder="Enter password"
-													id="website"
-													value={inputPassword}
-													onChange={handleChange}
-												/>
-											</div>
-											{errors.password && <p className="parrafo">{errors.password}</p>}
-										</div>
-										{/* CONFIRMACIÓN CONTRASEÑA */}
-										<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-											<div className="form-group">
-												<label htmlFor="Street">Confirm password</label>
-												<input
-													className="form-control"
-													type="password"
-													name="confirm_password"
-													placeholder="confirm password"
-													id="Street"
-													value={inputPassword2}
-													onChange={handleChange}
-												/>
-											</div>
-											{errors.password2 && <p className="parrafo">{errors.password2}</p>}
-										</div>
 										{/* COUNTRY */}
+										<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+											<h6 className="mb-3 text-primary">Dirección</h6>
+										</div>
 										<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 											<div className="form-group">
-												<label htmlFor="sTate">Country</label>
+												<label htmlFor="sTate">País</label>
 												<input
 													className="form-control"
 													type="text"
 													name="country"
-													placeholder="Enter country"
+													placeholder="Escribe el nombre de tu país"
 													id="sTate"
 													value={inputCountry}
 													onChange={handleChange}
@@ -233,12 +201,12 @@ export const PerfilUsuario = props => {
 										{/* CITY */}
 										<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 											<div className="form-group">
-												<label htmlFor="zIp">City</label>
+												<label htmlFor="zIp">Ciudad</label>
 												<input
 													className="form-control"
 													type="text"
 													name="city"
-													placeholder="Enter city"
+													placeholder="Escribe el nombre de tu ciudad"
 													id="sTate"
 													value={inputCity}
 													onChange={handleChange}
@@ -246,15 +214,47 @@ export const PerfilUsuario = props => {
 											</div>
 											{errors.city && <p className="parrafo">{errors.city}</p>}
 										</div>
+										{/* Contraseña */}
+										<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div className="form-group">
+												<label htmlFor="website">Contraseña</label>
+												<input
+													className="form-control"
+													type="password"
+													name="password"
+													placeholder="Ingresa tu contraseña"
+													id="website"
+													value={inputPassword}
+													onChange={handleChange}
+												/>
+											</div>
+											{errors.password && <p className="parrafo">{errors.password}</p>}
+										</div>
+										{/* CONFIRMACIÓN CONTRASEÑA */}
+										<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div className="form-group">
+												<label htmlFor="Street">Confirma tu contraseña</label>
+												<input
+													className="form-control"
+													type="password"
+													name="confirm_password"
+													placeholder="Confirma tu contraseña"
+													id="Street"
+													value={inputPassword2}
+													onChange={handleChange}
+												/>
+											</div>
+											{errors.password2 && <p className="parrafo">{errors.password2}</p>}
+										</div>
 									</div>
 									<div className="row gutters">
 										<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 											<div className="text-right">
 												<button type="submit" className="btn btn-outline-primary m-1">
-													to update
+													Actualizar
 												</button>
 												<button type="button" className="btn btn-outline-primary m-1">
-													<Link to="/">Home</Link>
+													<Link to="/">Ir a Inicio</Link>
 												</button>
 											</div>
 										</div>

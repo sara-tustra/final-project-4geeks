@@ -55,7 +55,10 @@ const Layout = () => {
 						<Route exact path="/academias">
 							<Academias />
 						</Route>
-						<Route exact path="/foros">
+						<Route exact path="/foros/">
+							<Foros />
+						</Route>
+						<Route exact path="/foros/:id">
 							<Foros />
 						</Route>
 						<Route exact path="/vista-de-usuario">

@@ -87,7 +87,10 @@ def login():
         return jsonify({"fail": "email o password incorrectos"}), 401
 
     access_token = create_access_token(identity=email)
-    return jsonify({"token": access_token}), 200
+    return jsonify({
+        "token": access_token,
+        "user": user.serialize_with_profile()
+    }), 200
 
 
 
@@ -104,7 +107,7 @@ def profile():
 # RUTA DE ADMINISTRADOR, PRIVADA le falta verificar rol de usuario
 @api.route('/users', methods=['GET'])
 @api.route('/users/<int:id>', methods=['GET', 'DELETE', 'PUT']) # OK
-# @jwt_required()
+@jwt_required()
 def users(id=None):
     if request.method == 'GET':
         if id is not None:
@@ -159,7 +162,7 @@ def users(id=None):
 # GET ES PUBLICA PERO POST Y DELETE ES PRIVADA
 @api.route('/posts', methods=['GET', 'POST']) 
 @api.route('/posts/<int:id>', methods=['GET', 'DELETE'])
-@jwt_required(optional=True) 
+# @jwt_required(optional=True) 
 def posts(id=None):
     if request.method == 'GET':
         if id is not None:
@@ -168,7 +171,7 @@ def posts(id=None):
                 return jsonify({"fail": "Post not found"}), 404
             return jsonify({
                 "success": "Post found",
-                "user": post.serialize()
+                "post": post.serialize()
             }), 200
         else:
             posts = Post.query.all()
@@ -179,15 +182,15 @@ def posts(id=None):
             }), 200
 
     if request.method =='POST':
-        current_user = get_jwt_identity()
+        # current_user = get_jwt_identity()
         date = datetime.now()
         post_contenido = request.json.get('post_contenido')
         post_fecha = str(date)
         perfiles_id = request.json.get('perfiles_id')
 
-        user = User.query.filter_by(email=current_user).first()
-        if user.id != perfiles_id:
-            return jsonify({"fail": "usuario no autorizado"})
+        # user = User.query.filter_by(email=current_user).first()
+        # if user.id != perfiles_id:
+        #     return jsonify({"fail": "usuario no autorizado"})
         post = Post()
         post.post_contenido = post_contenido
         post.post_fecha = post_fecha

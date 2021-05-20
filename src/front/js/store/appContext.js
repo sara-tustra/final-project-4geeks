@@ -24,19 +24,19 @@ const injectContext = PassedComponent => {
 			state.actions.getFetch("areasProgramacion", "http://0.0.0.0:3001/api/areas_de_programacion");
 			state.actions.getFetch("lenguajes", "http://0.0.0.0:3001/api/lenguajes");
 			state.actions.getFetch("preguntasFrecuentes", "http://0.0.0.0:3001/api/preguntas_frecuentes");
-			state.actions.getFetch("perfilUsuario", "http://0.0.0.0:3001/api/users/2");
+			state.actions.getFetch("posts", "http://0.0.0.0:3001/api/posts");
 
 			console.log(state.store);
 
 			// state.actions.getMessage(); // <---- calling this function from the flux.js actions
 
-			state.actions.signup();
-			[state.actions];
+			//state.actions.signup();
+			//[state.actions];
 
-			state.actions.login();
-			[state.actions];
+			//state.actions.login();
+			//[state.actions];
 
-			state.actions.PerfilUsuario();
+			//state.actions.PerfilUsuario();
 			[state.actions];
 		}, []);
 
