@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { validateLogin } from "../component/validateInfo";
 /* import UseForm from "./component/useForm"; */
+import { useHistory } from "react-router-dom";
 import "../../styles/signup.scss";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -9,6 +10,7 @@ import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Login = props => {
 	const { store, actions } = useContext(Context);
+	const history = useHistory();
 
 	const [inputPassword, setInputPassword] = useState("");
 	const [errors, setErrors] = useState({});
@@ -28,6 +30,7 @@ export const Login = props => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		console.log("probando login...");
+
 		if (isSubmitting === false) {
 			const errores = validateLogin({
 				email: inputEmail,
@@ -37,22 +40,22 @@ export const Login = props => {
 			console.log("hola");
 			if (Object.keys(errores).length === 0) {
 				setIsSubmitting(true);
-				actions
-					.signup({
-						email: inputEmail,
-						password: inputPassword
-					})
-					.then(result => {
-						props.history.push("/inicio-sesion");
-					});
+
+				// actions
+				// 	.signup({
+				// 		email: inputEmail,
+				// 		password: inputPassword
+				// 	})
+				// 	.then(result => {
+				// 		props.history.push("/inicio-sesion");
+				// 	});
 			}
 			setErrors(errores);
 		}
-		actions.agregarLogin(inputEmail, inputPassword);
-		actions.postFetch(store.usuarioActual, "http://0.0.0.0:3001/api/login"); // solicitando usuario a database
-		let userToken = localStorage.getItem("token"); //trayendo token de localstorage
-		actions.checkCredentials("http://0.0.0.0:3001/api/profile", userToken); // solicitando permiso a database
-		window.location.href = "http://localhost:3000/PerfilUsuario";
+		actions.agregarLogin(inputEmail, inputPassword); // manda inputs al contexto
+		actions.postFetch(store.usuarioActual, "http://0.0.0.0:3001/api/login");
+		actions.actualizarUsuario();
+		if (isSubmitting === true) history.push("/perfil2");
 	};
 
 	return (

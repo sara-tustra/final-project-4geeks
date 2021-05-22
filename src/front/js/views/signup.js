@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { validateInfo } from "../component/validateInfo";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
@@ -8,6 +9,8 @@ import { BotonFlotante } from "../component/BotonFlotante";
 
 export const Signup = props => {
 	const { store, actions } = useContext(Context);
+
+	const history = useHistory();
 
 	const [inputName, setInputName] = useState("");
 	const [inputLastName, setInputLastName] = useState("");
@@ -49,23 +52,24 @@ export const Signup = props => {
 
 			if (Object.keys(errores).length === 0 && inputTerminos === true) {
 				setIsSubmitting(true);
-				actions
-					.signup({
-						name: inputName,
-						last_name: inputLastName,
-						email: inputEmail,
-						password: inputPassword,
-						password2: inputPassword2
-					})
-					.then(result => {
-						props.history.push("/inicio-sesion");
-					});
+				// actions
+				// 	.signup({
+				// 		name: inputName,
+				// 		last_name: inputLastName,
+				// 		email: inputEmail,
+				// 		password: inputPassword,
+				// 		password2: inputPassword2
+				// 	})
+				// 	.then(result => {
+				// 		props.history.push("/inicio-sesion");
+				// 	});
 			}
 
 			setErrors(errores);
 		}
 		actions.registroUsuario(inputName, inputLastName, inputEmail, inputPassword);
 		actions.postRegistro(store.perfilUsuario, " http://0.0.0.0:3001/api/register");
+		if (isSubmitting === true) history.push("/perfilUsuario");
 	};
 
 	return (
