@@ -8,7 +8,7 @@ export const Navbar = () => {
 		<>
 			<nav className="navbar navbar-expand-lg ">
 				<div className="container-fluid navbar-dark bg-dark  mt-0">
-					<p className="nav-link" id="a-1" href="#!">
+					<p className="nav-link " id="a-1" href="#!">
 						<Link to="/home">CodeGram</Link>
 					</p>
 					<button
@@ -50,7 +50,7 @@ export const Navbar = () => {
 							</li>
 							<li className="nav-item">
 								<a className="nav-link" href="#!">
-									<Link to="/iniciar-sesion">Inisiar sesión</Link>
+									<Link to="/iniciar-sesion">Iniciar sesión</Link>
 								</a>
 							</li>
 							<li className="nav-item dropdown">
