@@ -15,7 +15,6 @@ import { Academias } from "./views/academias";
 import { Foros } from "./views/foros";
 import { VistaUsuario } from "./views/VistaUsuario";
 import { Lenguajes } from "./views/Lenguajes";
-import Carusel from "./component/Carusel";
 import { Circle } from "./component/Circle";
 import { AreasProgramacion } from "./views/AreasProgramacion";
 import { PerfilUsuario } from "./views/PerfilUsuario";
@@ -63,9 +62,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/vista-de-usuario">
 							<VistaUsuario />
-						</Route>
-						<Route exact path="/carusel">
-							<Carusel />
 						</Route>
 
 						<Route exact path="/home">

@@ -40,17 +40,17 @@ export const Navbar = () => {
 							</li> */}
 							<li className="nav-item">
 								<a className="nav-link " href="#!">
-									<Link to="/home">Home</Link>
+									<Link to="/home">Inicio</Link>
 								</a>
 							</li>
 							<li className="nav-item">
 								<a className="nav-link" href="#!">
-									<Link to="/registro">Signup</Link>
+									<Link to="/registro">Registrar</Link>
 								</a>
 							</li>
 							<li className="nav-item">
 								<a className="nav-link" href="#!">
-									<Link to="/iniciar-sesion">Login</Link>
+									<Link to="/iniciar-sesion">Inisiar sesión</Link>
 								</a>
 							</li>
 							<li className="nav-item dropdown">
@@ -62,7 +62,7 @@ export const Navbar = () => {
 									data-toggle="dropdown"
 									aria-haspopup="true"
 									aria-expanded="false">
-									More
+									Más
 								</a>
 								<div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 									<Link className="dropdown-item" to="/foros">
