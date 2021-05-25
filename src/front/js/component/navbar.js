@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
 import { BotonFlotante } from "../component/BotonFlotante";
-import logo_CGram from "../../img/logo_CGram.jpeg";
 
 export const Navbar = () => {
 	return (
