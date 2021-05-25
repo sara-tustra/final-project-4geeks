@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
 import { BotonFlotante } from "../component/BotonFlotante";
+import logo_CGram from "../../img/logo_CGram.jpeg";
 
 export const Navbar = () => {
 	return (
@@ -9,7 +10,15 @@ export const Navbar = () => {
 			<nav className="navbar navbar-expand-lg ">
 				<div className="container-fluid navbar-dark bg-dark  mt-0">
 					<p className="nav-link " id="a-1" href="#!">
-						<Link to="/home">CodeGram</Link>
+						<Link to="/home">
+							Code
+							<img
+								src="https://seeklogo.com/images/C/CG-logo-4EE5B6A65E-seeklogo.com.png"
+								className="img-fluid-7"
+								alt
+							/>
+							ram
+						</Link>
 					</p>
 					<button
 						className="navbar-toggler"

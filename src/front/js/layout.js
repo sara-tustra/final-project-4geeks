@@ -22,7 +22,7 @@ import Perfil2 from "./views/Perfil2";
 import UseForm from "./component/useForm";
 import { Preguntas2 } from "./views/preguntas2";
 import Prueba from "./pages/home";
-import ApiNoticias from "./views/ApiNoticias";
+
 import { Post } from "./views/post";
 
 //create your first component
@@ -90,10 +90,6 @@ const Layout = () => {
 
 						<Route exact path="/BotonFlotante">
 							<BotonFlotante />
-						</Route>
-
-						<Route exact path="/ApiNoticias">
-							<ApiNoticias />
 						</Route>
 
 						<Route exact path="/Circle">
