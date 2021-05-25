@@ -52,28 +52,28 @@ class WeatherInfo extends Component {
 				{this.state.temperature ? (
 					<div className="card-1 card-body mt-2 animated fadeInUp mx-auto">
 						<Circle />
-						<p>Temperature</p>
+						<p>Temperatura</p>
 						{this.state.city &&
 							this.state.country && (
 								<p>
-									<i className="fas fa-location-arrow" /> Location: {this.state.city},{" "}
+									<i className="fas fa-location-arrow" /> Localización: {this.state.city},{" "}
 									{this.state.country}
 								</p>
 							)}
 						{this.state.temperature && (
 							<p>
-								<i className="fas fa-temperature-low" /> Temperature: {this.state.temperature} ℃,{" "}
+								<i className="fas fa-temperature-low" /> Temperatura: {this.state.temperature} ℃,{" "}
 								{this.state.description}
 							</p>
 						)}
 						{this.state.humidity && (
 							<p>
-								<i className="fas fa-water" /> Humidity: {this.state.humidity}
+								<i className="fas fa-water" /> Humedad: {this.state.humidity}
 							</p>
 						)}
 						{this.state.wind_speed && (
 							<p>
-								<i className="fas fa-wind" /> Wind Speed: {this.state.wind_speed}
+								<i className="fas fa-wind" /> Velocidad del viento: {this.state.wind_speed}
 							</p>
 						)}
 					</div>

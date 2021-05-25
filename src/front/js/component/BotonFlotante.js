@@ -6,7 +6,7 @@ export const BotonFlotante = () => {
 	return (
 		<>
 			<a href="/Preguntas2" className="float">
-				<i className="fa fa-envelope my-float" />
+				<i className="fa fa-question my-float" />
 			</a>
 			<div className="label-container">
 				<div className="label-text">Preguntas frecuentes</div>

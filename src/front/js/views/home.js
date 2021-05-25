@@ -81,7 +81,7 @@ export const Home = () => {
 							</div>
 							<div className="card-footer">
 								<Link className="btn btn-outline-primary" to="/academias">
-									Find Out More!
+									Leer más!
 								</Link>
 							</div>
 						</div>
@@ -102,7 +102,7 @@ export const Home = () => {
 							</div>
 							<div className="card-footer">
 								<Link className="btn btn-outline-primary" to="/lenguajes">
-									Find Out More!
+									Leer más!
 								</Link>
 							</div>
 						</div>
@@ -123,7 +123,7 @@ export const Home = () => {
 							</div>
 							<div className="card-footer">
 								<Link className="btn btn-outline-primary" to="/AreasProgramacion">
-									Find Out More!
+									Leer más!
 								</Link>
 							</div>
 							<BotonFlotante />
