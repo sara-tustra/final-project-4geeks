@@ -109,11 +109,7 @@ export const Login = props => {
 								<input type="checkbox" required="required" /> Recordar usurario
 							</label>
 						</div>
-						<div className="text-center mb-2">
-							<Link className="text-center" to="">
-								¿Olvidaste tu contraseña?
-							</Link>
-						</div>
+
 						<div className="form-group d-flex justify-content-center">
 							<button type="submit" className="btn btn-primary btn-lg">
 								Ingresar
